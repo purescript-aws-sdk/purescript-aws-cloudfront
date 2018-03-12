@@ -20,142 +20,194 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "CloudFront" :: String
-
 
 -- | <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 createCloudFrontOriginAccessIdentity :: forall eff. CreateCloudFrontOriginAccessIdentityRequest -> Aff (exception :: EXCEPTION | eff) CreateCloudFrontOriginAccessIdentityResult
-createCloudFrontOriginAccessIdentity = Request.request serviceName "createCloudFrontOriginAccessIdentity" 
+createCloudFrontOriginAccessIdentity = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createCloudFrontOriginAccessIdentity"
 
 
 -- | <p>Creates a new web distribution. Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/distribution</code>/<code>distribution ID</code> resource.</p>
 createDistribution :: forall eff. CreateDistributionRequest -> Aff (exception :: EXCEPTION | eff) CreateDistributionResult
-createDistribution = Request.request serviceName "createDistribution" 
+createDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createDistribution"
 
 
 -- | <p>Create a new distribution with tags.</p>
 createDistributionWithTags :: forall eff. CreateDistributionWithTagsRequest -> Aff (exception :: EXCEPTION | eff) CreateDistributionWithTagsResult
-createDistributionWithTags = Request.request serviceName "createDistributionWithTags" 
+createDistributionWithTags = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createDistributionWithTags"
 
 
 -- | <p>Create a new invalidation. </p>
 createInvalidation :: forall eff. CreateInvalidationRequest -> Aff (exception :: EXCEPTION | eff) CreateInvalidationResult
-createInvalidation = Request.request serviceName "createInvalidation" 
+createInvalidation = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createInvalidation"
 
 
 -- | <p>Creates a new RMTP distribution. An RTMP distribution is similar to a web distribution, but an RTMP distribution streams media files using the Adobe Real-Time Messaging Protocol (RTMP) instead of serving files using HTTP. </p> <p>To create a new web distribution, submit a <code>POST</code> request to the <i>CloudFront API version</i>/distribution resource. The request body must include a document with a <i>StreamingDistributionConfig</i> element. The response echoes the <code>StreamingDistributionConfig</code> element and returns other information about the RTMP distribution.</p> <p>To get the status of your request, use the <i>GET StreamingDistribution</i> API action. When the value of <code>Enabled</code> is <code>true</code> and the value of <code>Status</code> is <code>Deployed</code>, your distribution is ready. A distribution usually deploys in less than 15 minutes.</p> <p>For more information about web distributions, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-rtmp.html">Working with RTMP Distributions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <important> <p>Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a web distribution or an RTMP distribution, and when you invalidate objects. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there's a mismatch between the number of values you say you're specifying in the <code>Quantity</code> element and the number of values specified.</p> </important>
 createStreamingDistribution :: forall eff. CreateStreamingDistributionRequest -> Aff (exception :: EXCEPTION | eff) CreateStreamingDistributionResult
-createStreamingDistribution = Request.request serviceName "createStreamingDistribution" 
+createStreamingDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createStreamingDistribution"
 
 
 -- | <p>Create a new streaming distribution with tags.</p>
 createStreamingDistributionWithTags :: forall eff. CreateStreamingDistributionWithTagsRequest -> Aff (exception :: EXCEPTION | eff) CreateStreamingDistributionWithTagsResult
-createStreamingDistributionWithTags = Request.request serviceName "createStreamingDistributionWithTags" 
+createStreamingDistributionWithTags = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "createStreamingDistributionWithTags"
 
 
 -- | <p>Delete an origin access identity. </p>
 deleteCloudFrontOriginAccessIdentity :: forall eff. DeleteCloudFrontOriginAccessIdentityRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteCloudFrontOriginAccessIdentity = Request.request serviceName "deleteCloudFrontOriginAccessIdentity" 
+deleteCloudFrontOriginAccessIdentity = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "deleteCloudFrontOriginAccessIdentity"
 
 
 -- | <p>Delete a distribution. </p>
 deleteDistribution :: forall eff. DeleteDistributionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteDistribution = Request.request serviceName "deleteDistribution" 
+deleteDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "deleteDistribution"
 
 
 -- | <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete an RTMP distribution using the CloudFront API</b>:</p> <ol> <li> <p>Disable the RTMP distribution.</p> </li> <li> <p>Submit a <code>GET Streaming Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution. </p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Streaming Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Streaming Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Then set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Streaming Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Streaming Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Streaming Distribution Config</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Streaming Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Streaming Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to your <code>DELETE Streaming Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 deleteStreamingDistribution :: forall eff. DeleteStreamingDistributionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteStreamingDistribution = Request.request serviceName "deleteStreamingDistribution" 
+deleteStreamingDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "deleteStreamingDistribution"
 
 
 -- | <p>Get the information about an origin access identity. </p>
 getCloudFrontOriginAccessIdentity :: forall eff. GetCloudFrontOriginAccessIdentityRequest -> Aff (exception :: EXCEPTION | eff) GetCloudFrontOriginAccessIdentityResult
-getCloudFrontOriginAccessIdentity = Request.request serviceName "getCloudFrontOriginAccessIdentity" 
+getCloudFrontOriginAccessIdentity = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getCloudFrontOriginAccessIdentity"
 
 
 -- | <p>Get the configuration information about an origin access identity. </p>
 getCloudFrontOriginAccessIdentityConfig :: forall eff. GetCloudFrontOriginAccessIdentityConfigRequest -> Aff (exception :: EXCEPTION | eff) GetCloudFrontOriginAccessIdentityConfigResult
-getCloudFrontOriginAccessIdentityConfig = Request.request serviceName "getCloudFrontOriginAccessIdentityConfig" 
+getCloudFrontOriginAccessIdentityConfig = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getCloudFrontOriginAccessIdentityConfig"
 
 
 -- | <p>Get the information about a distribution. </p>
 getDistribution :: forall eff. GetDistributionRequest -> Aff (exception :: EXCEPTION | eff) GetDistributionResult
-getDistribution = Request.request serviceName "getDistribution" 
+getDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getDistribution"
 
 
 -- | <p>Get the configuration information about a distribution. </p>
 getDistributionConfig :: forall eff. GetDistributionConfigRequest -> Aff (exception :: EXCEPTION | eff) GetDistributionConfigResult
-getDistributionConfig = Request.request serviceName "getDistributionConfig" 
+getDistributionConfig = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getDistributionConfig"
 
 
 -- | <p>Get the information about an invalidation. </p>
 getInvalidation :: forall eff. GetInvalidationRequest -> Aff (exception :: EXCEPTION | eff) GetInvalidationResult
-getInvalidation = Request.request serviceName "getInvalidation" 
+getInvalidation = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getInvalidation"
 
 
 -- | <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
 getStreamingDistribution :: forall eff. GetStreamingDistributionRequest -> Aff (exception :: EXCEPTION | eff) GetStreamingDistributionResult
-getStreamingDistribution = Request.request serviceName "getStreamingDistribution" 
+getStreamingDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getStreamingDistribution"
 
 
 -- | <p>Get the configuration information about a streaming distribution. </p>
 getStreamingDistributionConfig :: forall eff. GetStreamingDistributionConfigRequest -> Aff (exception :: EXCEPTION | eff) GetStreamingDistributionConfigResult
-getStreamingDistributionConfig = Request.request serviceName "getStreamingDistributionConfig" 
+getStreamingDistributionConfig = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "getStreamingDistributionConfig"
 
 
 -- | <p>Lists origin access identities.</p>
 listCloudFrontOriginAccessIdentities :: forall eff. ListCloudFrontOriginAccessIdentitiesRequest -> Aff (exception :: EXCEPTION | eff) ListCloudFrontOriginAccessIdentitiesResult
-listCloudFrontOriginAccessIdentities = Request.request serviceName "listCloudFrontOriginAccessIdentities" 
+listCloudFrontOriginAccessIdentities = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listCloudFrontOriginAccessIdentities"
 
 
 -- | <p>List distributions. </p>
 listDistributions :: forall eff. ListDistributionsRequest -> Aff (exception :: EXCEPTION | eff) ListDistributionsResult
-listDistributions = Request.request serviceName "listDistributions" 
+listDistributions = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listDistributions"
 
 
 -- | <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
 listDistributionsByWebACLId :: forall eff. ListDistributionsByWebACLIdRequest -> Aff (exception :: EXCEPTION | eff) ListDistributionsByWebACLIdResult
-listDistributionsByWebACLId = Request.request serviceName "listDistributionsByWebACLId" 
+listDistributionsByWebACLId = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listDistributionsByWebACLId"
 
 
 -- | <p>Lists invalidation batches. </p>
 listInvalidations :: forall eff. ListInvalidationsRequest -> Aff (exception :: EXCEPTION | eff) ListInvalidationsResult
-listInvalidations = Request.request serviceName "listInvalidations" 
+listInvalidations = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listInvalidations"
 
 
 -- | <p>List streaming distributions. </p>
 listStreamingDistributions :: forall eff. ListStreamingDistributionsRequest -> Aff (exception :: EXCEPTION | eff) ListStreamingDistributionsResult
-listStreamingDistributions = Request.request serviceName "listStreamingDistributions" 
+listStreamingDistributions = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listStreamingDistributions"
 
 
 -- | <p>List tags for a CloudFront resource.</p>
 listTagsForResource :: forall eff. ListTagsForResourceRequest -> Aff (exception :: EXCEPTION | eff) ListTagsForResourceResult
-listTagsForResource = Request.request serviceName "listTagsForResource" 
+listTagsForResource = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "listTagsForResource"
 
 
 -- | <p>Add tags to a CloudFront resource.</p>
 tagResource :: forall eff. TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-tagResource = Request.request serviceName "tagResource" 
+tagResource = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "tagResource"
 
 
 -- | <p>Remove tags from a CloudFront resource.</p>
 untagResource :: forall eff. UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-untagResource = Request.request serviceName "untagResource" 
+untagResource = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "untagResource"
 
 
 -- | <p>Update an origin access identity. </p>
 updateCloudFrontOriginAccessIdentity :: forall eff. UpdateCloudFrontOriginAccessIdentityRequest -> Aff (exception :: EXCEPTION | eff) UpdateCloudFrontOriginAccessIdentityResult
-updateCloudFrontOriginAccessIdentity = Request.request serviceName "updateCloudFrontOriginAccessIdentity" 
+updateCloudFrontOriginAccessIdentity = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "updateCloudFrontOriginAccessIdentity"
 
 
 -- | <p>Update a distribution. </p>
 updateDistribution :: forall eff. UpdateDistributionRequest -> Aff (exception :: EXCEPTION | eff) UpdateDistributionResult
-updateDistribution = Request.request serviceName "updateDistribution" 
+updateDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "updateDistribution"
 
 
 -- | <p>Update a streaming distribution. </p>
 updateStreamingDistribution :: forall eff. UpdateStreamingDistributionRequest -> Aff (exception :: EXCEPTION | eff) UpdateStreamingDistributionResult
-updateStreamingDistribution = Request.request serviceName "updateStreamingDistribution" 
+updateStreamingDistribution = Request.request service method  where
+    service = Request.ServiceName "CloudFront"
+    method = Request.MethodName "updateStreamingDistribution"
 
 
 -- | <p>Access denied.</p>
