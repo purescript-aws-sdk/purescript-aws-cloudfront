@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AccessDenied
-  = AccessDenied { "Message" :: NullOrUndefined (String) }
+  = AccessDenied { "Message" :: Maybe (String) }
 ```
 
 <p>Access denied.</p>
@@ -35,7 +35,7 @@ Constructs AccessDenied from required parameters
 #### `newAccessDenied'`
 
 ``` purescript
-newAccessDenied' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> AccessDenied
+newAccessDenied' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> AccessDenied
 ```
 
 Constructs AccessDenied's fields from required parameters
@@ -44,7 +44,7 @@ Constructs AccessDenied's fields from required parameters
 
 ``` purescript
 newtype ActiveTrustedSigners
-  = ActiveTrustedSigners { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (SignerList) }
+  = ActiveTrustedSigners { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (SignerList) }
 ```
 
 <p>A complex type that lists the AWS accounts, if any, that you included in the <code>TrustedSigners</code> complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.</p> <p>The <code>Signer</code> complex type lists the AWS account number of the trusted signer or <code>self</code> if the signer is the AWS account that created the distribution. The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no <code>KeyPairId</code> element appears for a <code>Signer</code>, that signer can't create signed URLs. </p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -69,7 +69,7 @@ Constructs ActiveTrustedSigners from required parameters
 #### `newActiveTrustedSigners'`
 
 ``` purescript
-newActiveTrustedSigners' :: Boolean -> Int -> ({ "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (SignerList) } -> { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (SignerList) }) -> ActiveTrustedSigners
+newActiveTrustedSigners' :: Boolean -> Int -> ({ "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (SignerList) } -> { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (SignerList) }) -> ActiveTrustedSigners
 ```
 
 Constructs ActiveTrustedSigners's fields from required parameters
@@ -94,7 +94,7 @@ Encode AliasList
 
 ``` purescript
 newtype Aliases
-  = Aliases { "Quantity" :: Int, "Items" :: NullOrUndefined (AliasList) }
+  = Aliases { "Quantity" :: Int, "Items" :: Maybe (AliasList) }
 ```
 
 <p>A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution. </p>
@@ -119,7 +119,7 @@ Constructs Aliases from required parameters
 #### `newAliases'`
 
 ``` purescript
-newAliases' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (AliasList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (AliasList) }) -> Aliases
+newAliases' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (AliasList) } -> { "Quantity" :: Int, "Items" :: Maybe (AliasList) }) -> Aliases
 ```
 
 Constructs Aliases's fields from required parameters
@@ -128,7 +128,7 @@ Constructs Aliases's fields from required parameters
 
 ``` purescript
 newtype AllowedMethods
-  = AllowedMethods { "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: NullOrUndefined (CachedMethods) }
+  = AllowedMethods { "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: Maybe (CachedMethods) }
 ```
 
 <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:</p> <ul> <li> <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p> </li> <li> <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code> requests.</p> </li> <li> <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and <code>DELETE</code> requests.</p> </li> </ul> <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.</p>
@@ -153,7 +153,7 @@ Constructs AllowedMethods from required parameters
 #### `newAllowedMethods'`
 
 ``` purescript
-newAllowedMethods' :: MethodsList -> Int -> ({ "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: NullOrUndefined (CachedMethods) } -> { "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: NullOrUndefined (CachedMethods) }) -> AllowedMethods
+newAllowedMethods' :: MethodsList -> Int -> ({ "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: Maybe (CachedMethods) } -> { "Quantity" :: Int, "Items" :: MethodsList, "CachedMethods" :: Maybe (CachedMethods) }) -> AllowedMethods
 ```
 
 Constructs AllowedMethods's fields from required parameters
@@ -178,7 +178,7 @@ Encode AwsAccountNumberList
 
 ``` purescript
 newtype BatchTooLarge
-  = BatchTooLarge { "Message" :: NullOrUndefined (String) }
+  = BatchTooLarge { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -201,7 +201,7 @@ Constructs BatchTooLarge from required parameters
 #### `newBatchTooLarge'`
 
 ``` purescript
-newBatchTooLarge' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> BatchTooLarge
+newBatchTooLarge' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> BatchTooLarge
 ```
 
 Constructs BatchTooLarge's fields from required parameters
@@ -210,7 +210,7 @@ Constructs BatchTooLarge's fields from required parameters
 
 ``` purescript
 newtype CNAMEAlreadyExists
-  = CNAMEAlreadyExists { "Message" :: NullOrUndefined (String) }
+  = CNAMEAlreadyExists { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -233,7 +233,7 @@ Constructs CNAMEAlreadyExists from required parameters
 #### `newCNAMEAlreadyExists'`
 
 ``` purescript
-newCNAMEAlreadyExists' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> CNAMEAlreadyExists
+newCNAMEAlreadyExists' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> CNAMEAlreadyExists
 ```
 
 Constructs CNAMEAlreadyExists's fields from required parameters
@@ -242,7 +242,7 @@ Constructs CNAMEAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype CacheBehavior
-  = CacheBehavior { "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) }
+  = CacheBehavior { "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) }
 ```
 
 <p>A complex type that describes how CloudFront processes requests.</p> <p>You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to distribute objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.</p> <p>For the current limit on the number of cache behaviors that you can add to a distribution, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront Limits</a> in the <i>AWS General Reference</i>.</p> <p>If you don't want to specify any cache behaviors, include only an empty <code>CacheBehaviors</code> element. Don't include an empty <code>CacheBehavior</code> element, or CloudFront returns a <code>MalformedXML</code> error.</p> <p>To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty <code>CacheBehaviors</code> element.</p> <p>To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.</p> <p>For more information about cache behaviors, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache Behaviors</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -267,7 +267,7 @@ Constructs CacheBehavior from required parameters
 #### `newCacheBehavior'`
 
 ``` purescript
-newCacheBehavior' :: ForwardedValues -> Number -> String -> String -> TrustedSigners -> ViewerProtocolPolicy -> ({ "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } -> { "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) }) -> CacheBehavior
+newCacheBehavior' :: ForwardedValues -> Number -> String -> String -> TrustedSigners -> ViewerProtocolPolicy -> ({ "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } -> { "PathPattern" :: String, "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) }) -> CacheBehavior
 ```
 
 Constructs CacheBehavior's fields from required parameters
@@ -292,7 +292,7 @@ Encode CacheBehaviorList
 
 ``` purescript
 newtype CacheBehaviors
-  = CacheBehaviors { "Quantity" :: Int, "Items" :: NullOrUndefined (CacheBehaviorList) }
+  = CacheBehaviors { "Quantity" :: Int, "Items" :: Maybe (CacheBehaviorList) }
 ```
 
 <p>A complex type that contains zero or more <code>CacheBehavior</code> elements. </p>
@@ -317,7 +317,7 @@ Constructs CacheBehaviors from required parameters
 #### `newCacheBehaviors'`
 
 ``` purescript
-newCacheBehaviors' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (CacheBehaviorList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (CacheBehaviorList) }) -> CacheBehaviors
+newCacheBehaviors' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (CacheBehaviorList) } -> { "Quantity" :: Int, "Items" :: Maybe (CacheBehaviorList) }) -> CacheBehaviors
 ```
 
 Constructs CacheBehaviors's fields from required parameters
@@ -376,7 +376,7 @@ Encode CertificateSource
 
 ``` purescript
 newtype CloudFrontOriginAccessIdentity
-  = CloudFrontOriginAccessIdentity { "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) }
+  = CloudFrontOriginAccessIdentity { "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) }
 ```
 
 <p>CloudFront origin access identity.</p>
@@ -401,7 +401,7 @@ Constructs CloudFrontOriginAccessIdentity from required parameters
 #### `newCloudFrontOriginAccessIdentity'`
 
 ``` purescript
-newCloudFrontOriginAccessIdentity' :: String -> String -> ({ "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) } -> { "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) }) -> CloudFrontOriginAccessIdentity
+newCloudFrontOriginAccessIdentity' :: String -> String -> ({ "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) } -> { "Id" :: String, "S3CanonicalUserId" :: String, "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) }) -> CloudFrontOriginAccessIdentity
 ```
 
 Constructs CloudFrontOriginAccessIdentity's fields from required parameters
@@ -410,7 +410,7 @@ Constructs CloudFrontOriginAccessIdentity's fields from required parameters
 
 ``` purescript
 newtype CloudFrontOriginAccessIdentityAlreadyExists
-  = CloudFrontOriginAccessIdentityAlreadyExists { "Message" :: NullOrUndefined (String) }
+  = CloudFrontOriginAccessIdentityAlreadyExists { "Message" :: Maybe (String) }
 ```
 
 <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
@@ -435,7 +435,7 @@ Constructs CloudFrontOriginAccessIdentityAlreadyExists from required parameters
 #### `newCloudFrontOriginAccessIdentityAlreadyExists'`
 
 ``` purescript
-newCloudFrontOriginAccessIdentityAlreadyExists' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> CloudFrontOriginAccessIdentityAlreadyExists
+newCloudFrontOriginAccessIdentityAlreadyExists' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> CloudFrontOriginAccessIdentityAlreadyExists
 ```
 
 Constructs CloudFrontOriginAccessIdentityAlreadyExists's fields from required parameters
@@ -478,7 +478,7 @@ Constructs CloudFrontOriginAccessIdentityConfig's fields from required parameter
 
 ``` purescript
 newtype CloudFrontOriginAccessIdentityInUse
-  = CloudFrontOriginAccessIdentityInUse { "Message" :: NullOrUndefined (String) }
+  = CloudFrontOriginAccessIdentityInUse { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -501,7 +501,7 @@ Constructs CloudFrontOriginAccessIdentityInUse from required parameters
 #### `newCloudFrontOriginAccessIdentityInUse'`
 
 ``` purescript
-newCloudFrontOriginAccessIdentityInUse' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> CloudFrontOriginAccessIdentityInUse
+newCloudFrontOriginAccessIdentityInUse' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> CloudFrontOriginAccessIdentityInUse
 ```
 
 Constructs CloudFrontOriginAccessIdentityInUse's fields from required parameters
@@ -510,7 +510,7 @@ Constructs CloudFrontOriginAccessIdentityInUse's fields from required parameters
 
 ``` purescript
 newtype CloudFrontOriginAccessIdentityList
-  = CloudFrontOriginAccessIdentityList { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList) }
+  = CloudFrontOriginAccessIdentityList { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList) }
 ```
 
 <p>Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/origin-access-identity/cloudfront</code> resource. The response includes a <code>CloudFrontOriginAccessIdentityList</code> element with zero or more <code>CloudFrontOriginAccessIdentitySummary</code> child elements. By default, your entire list of origin access identities is returned in one single page. If the list is long, you can paginate it using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
@@ -535,7 +535,7 @@ Constructs CloudFrontOriginAccessIdentityList from required parameters
 #### `newCloudFrontOriginAccessIdentityList'`
 
 ``` purescript
-newCloudFrontOriginAccessIdentityList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList) } -> { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList) }) -> CloudFrontOriginAccessIdentityList
+newCloudFrontOriginAccessIdentityList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList) } -> { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList) }) -> CloudFrontOriginAccessIdentityList
 ```
 
 Constructs CloudFrontOriginAccessIdentityList's fields from required parameters
@@ -610,7 +610,7 @@ Encode CookieNameList
 
 ``` purescript
 newtype CookieNames
-  = CookieNames { "Quantity" :: Int, "Items" :: NullOrUndefined (CookieNameList) }
+  = CookieNames { "Quantity" :: Int, "Items" :: Maybe (CookieNameList) }
 ```
 
 <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -635,7 +635,7 @@ Constructs CookieNames from required parameters
 #### `newCookieNames'`
 
 ``` purescript
-newCookieNames' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (CookieNameList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (CookieNameList) }) -> CookieNames
+newCookieNames' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (CookieNameList) } -> { "Quantity" :: Int, "Items" :: Maybe (CookieNameList) }) -> CookieNames
 ```
 
 Constructs CookieNames's fields from required parameters
@@ -644,7 +644,7 @@ Constructs CookieNames's fields from required parameters
 
 ``` purescript
 newtype CookiePreference
-  = CookiePreference { "Forward" :: ItemSelection, "WhitelistedNames" :: NullOrUndefined (CookieNames) }
+  = CookiePreference { "Forward" :: ItemSelection, "WhitelistedNames" :: Maybe (CookieNames) }
 ```
 
 <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -669,7 +669,7 @@ Constructs CookiePreference from required parameters
 #### `newCookiePreference'`
 
 ``` purescript
-newCookiePreference' :: ItemSelection -> ({ "Forward" :: ItemSelection, "WhitelistedNames" :: NullOrUndefined (CookieNames) } -> { "Forward" :: ItemSelection, "WhitelistedNames" :: NullOrUndefined (CookieNames) }) -> CookiePreference
+newCookiePreference' :: ItemSelection -> ({ "Forward" :: ItemSelection, "WhitelistedNames" :: Maybe (CookieNames) } -> { "Forward" :: ItemSelection, "WhitelistedNames" :: Maybe (CookieNames) }) -> CookiePreference
 ```
 
 Constructs CookiePreference's fields from required parameters
@@ -712,7 +712,7 @@ Constructs CreateCloudFrontOriginAccessIdentityRequest's fields from required pa
 
 ``` purescript
 newtype CreateCloudFrontOriginAccessIdentityResult
-  = CreateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }
+  = CreateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "Location" :: Maybe (String), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -737,7 +737,7 @@ Constructs CreateCloudFrontOriginAccessIdentityResult from required parameters
 #### `newCreateCloudFrontOriginAccessIdentityResult'`
 
 ``` purescript
-newCreateCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) } -> { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }) -> CreateCloudFrontOriginAccessIdentityResult
+newCreateCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "Location" :: Maybe (String), "ETag" :: Maybe (String) } -> { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "Location" :: Maybe (String), "ETag" :: Maybe (String) }) -> CreateCloudFrontOriginAccessIdentityResult
 ```
 
 Constructs CreateCloudFrontOriginAccessIdentityResult's fields from required parameters
@@ -780,7 +780,7 @@ Constructs CreateDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDistributionResult
-  = CreateDistributionResult { "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }
+  = CreateDistributionResult { "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -805,7 +805,7 @@ Constructs CreateDistributionResult from required parameters
 #### `newCreateDistributionResult'`
 
 ``` purescript
-newCreateDistributionResult' :: ({ "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) } -> { "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }) -> CreateDistributionResult
+newCreateDistributionResult' :: ({ "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) } -> { "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }) -> CreateDistributionResult
 ```
 
 Constructs CreateDistributionResult's fields from required parameters
@@ -848,7 +848,7 @@ Constructs CreateDistributionWithTagsRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDistributionWithTagsResult
-  = CreateDistributionWithTagsResult { "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }
+  = CreateDistributionWithTagsResult { "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -873,7 +873,7 @@ Constructs CreateDistributionWithTagsResult from required parameters
 #### `newCreateDistributionWithTagsResult'`
 
 ``` purescript
-newCreateDistributionWithTagsResult' :: ({ "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) } -> { "Distribution" :: NullOrUndefined (Distribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }) -> CreateDistributionWithTagsResult
+newCreateDistributionWithTagsResult' :: ({ "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) } -> { "Distribution" :: Maybe (Distribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }) -> CreateDistributionWithTagsResult
 ```
 
 Constructs CreateDistributionWithTagsResult's fields from required parameters
@@ -916,7 +916,7 @@ Constructs CreateInvalidationRequest's fields from required parameters
 
 ``` purescript
 newtype CreateInvalidationResult
-  = CreateInvalidationResult { "Location" :: NullOrUndefined (String), "Invalidation" :: NullOrUndefined (Invalidation) }
+  = CreateInvalidationResult { "Location" :: Maybe (String), "Invalidation" :: Maybe (Invalidation) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -941,7 +941,7 @@ Constructs CreateInvalidationResult from required parameters
 #### `newCreateInvalidationResult'`
 
 ``` purescript
-newCreateInvalidationResult' :: ({ "Location" :: NullOrUndefined (String), "Invalidation" :: NullOrUndefined (Invalidation) } -> { "Location" :: NullOrUndefined (String), "Invalidation" :: NullOrUndefined (Invalidation) }) -> CreateInvalidationResult
+newCreateInvalidationResult' :: ({ "Location" :: Maybe (String), "Invalidation" :: Maybe (Invalidation) } -> { "Location" :: Maybe (String), "Invalidation" :: Maybe (Invalidation) }) -> CreateInvalidationResult
 ```
 
 Constructs CreateInvalidationResult's fields from required parameters
@@ -984,7 +984,7 @@ Constructs CreateStreamingDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateStreamingDistributionResult
-  = CreateStreamingDistributionResult { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }
+  = CreateStreamingDistributionResult { "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -1009,7 +1009,7 @@ Constructs CreateStreamingDistributionResult from required parameters
 #### `newCreateStreamingDistributionResult'`
 
 ``` purescript
-newCreateStreamingDistributionResult' :: ({ "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) } -> { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }) -> CreateStreamingDistributionResult
+newCreateStreamingDistributionResult' :: ({ "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) } -> { "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }) -> CreateStreamingDistributionResult
 ```
 
 Constructs CreateStreamingDistributionResult's fields from required parameters
@@ -1052,7 +1052,7 @@ Constructs CreateStreamingDistributionWithTagsRequest's fields from required par
 
 ``` purescript
 newtype CreateStreamingDistributionWithTagsResult
-  = CreateStreamingDistributionWithTagsResult { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }
+  = CreateStreamingDistributionWithTagsResult { "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -1077,7 +1077,7 @@ Constructs CreateStreamingDistributionWithTagsResult from required parameters
 #### `newCreateStreamingDistributionWithTagsResult'`
 
 ``` purescript
-newCreateStreamingDistributionWithTagsResult' :: ({ "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) } -> { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "Location" :: NullOrUndefined (String), "ETag" :: NullOrUndefined (String) }) -> CreateStreamingDistributionWithTagsResult
+newCreateStreamingDistributionWithTagsResult' :: ({ "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) } -> { "StreamingDistribution" :: Maybe (StreamingDistribution), "Location" :: Maybe (String), "ETag" :: Maybe (String) }) -> CreateStreamingDistributionWithTagsResult
 ```
 
 Constructs CreateStreamingDistributionWithTagsResult's fields from required parameters
@@ -1086,7 +1086,7 @@ Constructs CreateStreamingDistributionWithTagsResult's fields from required para
 
 ``` purescript
 newtype CustomErrorResponse
-  = CustomErrorResponse { "ErrorCode" :: Int, "ResponsePagePath" :: NullOrUndefined (String), "ResponseCode" :: NullOrUndefined (String), "ErrorCachingMinTTL" :: NullOrUndefined (Number) }
+  = CustomErrorResponse { "ErrorCode" :: Int, "ResponsePagePath" :: Maybe (String), "ResponseCode" :: Maybe (String), "ErrorCachingMinTTL" :: Maybe (Number) }
 ```
 
 <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer. </p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1111,7 +1111,7 @@ Constructs CustomErrorResponse from required parameters
 #### `newCustomErrorResponse'`
 
 ``` purescript
-newCustomErrorResponse' :: Int -> ({ "ErrorCode" :: Int, "ResponsePagePath" :: NullOrUndefined (String), "ResponseCode" :: NullOrUndefined (String), "ErrorCachingMinTTL" :: NullOrUndefined (Number) } -> { "ErrorCode" :: Int, "ResponsePagePath" :: NullOrUndefined (String), "ResponseCode" :: NullOrUndefined (String), "ErrorCachingMinTTL" :: NullOrUndefined (Number) }) -> CustomErrorResponse
+newCustomErrorResponse' :: Int -> ({ "ErrorCode" :: Int, "ResponsePagePath" :: Maybe (String), "ResponseCode" :: Maybe (String), "ErrorCachingMinTTL" :: Maybe (Number) } -> { "ErrorCode" :: Int, "ResponsePagePath" :: Maybe (String), "ResponseCode" :: Maybe (String), "ErrorCachingMinTTL" :: Maybe (Number) }) -> CustomErrorResponse
 ```
 
 Constructs CustomErrorResponse's fields from required parameters
@@ -1136,7 +1136,7 @@ Encode CustomErrorResponseList
 
 ``` purescript
 newtype CustomErrorResponses
-  = CustomErrorResponses { "Quantity" :: Int, "Items" :: NullOrUndefined (CustomErrorResponseList) }
+  = CustomErrorResponses { "Quantity" :: Int, "Items" :: Maybe (CustomErrorResponseList) }
 ```
 
 <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.</p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1161,7 +1161,7 @@ Constructs CustomErrorResponses from required parameters
 #### `newCustomErrorResponses'`
 
 ``` purescript
-newCustomErrorResponses' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (CustomErrorResponseList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (CustomErrorResponseList) }) -> CustomErrorResponses
+newCustomErrorResponses' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (CustomErrorResponseList) } -> { "Quantity" :: Int, "Items" :: Maybe (CustomErrorResponseList) }) -> CustomErrorResponses
 ```
 
 Constructs CustomErrorResponses's fields from required parameters
@@ -1170,7 +1170,7 @@ Constructs CustomErrorResponses's fields from required parameters
 
 ``` purescript
 newtype CustomHeaders
-  = CustomHeaders { "Quantity" :: Int, "Items" :: NullOrUndefined (OriginCustomHeadersList) }
+  = CustomHeaders { "Quantity" :: Int, "Items" :: Maybe (OriginCustomHeadersList) }
 ```
 
 <p>A complex type that contains the list of Custom Headers for each origin. </p>
@@ -1195,7 +1195,7 @@ Constructs CustomHeaders from required parameters
 #### `newCustomHeaders'`
 
 ``` purescript
-newCustomHeaders' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (OriginCustomHeadersList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (OriginCustomHeadersList) }) -> CustomHeaders
+newCustomHeaders' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (OriginCustomHeadersList) } -> { "Quantity" :: Int, "Items" :: Maybe (OriginCustomHeadersList) }) -> CustomHeaders
 ```
 
 Constructs CustomHeaders's fields from required parameters
@@ -1204,7 +1204,7 @@ Constructs CustomHeaders's fields from required parameters
 
 ``` purescript
 newtype CustomOriginConfig
-  = CustomOriginConfig { "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols) }
+  = CustomOriginConfig { "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: Maybe (OriginSslProtocols) }
 ```
 
 <p>A customer origin.</p>
@@ -1229,7 +1229,7 @@ Constructs CustomOriginConfig from required parameters
 #### `newCustomOriginConfig'`
 
 ``` purescript
-newCustomOriginConfig' :: Int -> Int -> OriginProtocolPolicy -> ({ "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols) } -> { "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols) }) -> CustomOriginConfig
+newCustomOriginConfig' :: Int -> Int -> OriginProtocolPolicy -> ({ "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: Maybe (OriginSslProtocols) } -> { "HTTPPort" :: Int, "HTTPSPort" :: Int, "OriginProtocolPolicy" :: OriginProtocolPolicy, "OriginSslProtocols" :: Maybe (OriginSslProtocols) }) -> CustomOriginConfig
 ```
 
 Constructs CustomOriginConfig's fields from required parameters
@@ -1238,7 +1238,7 @@ Constructs CustomOriginConfig's fields from required parameters
 
 ``` purescript
 newtype DefaultCacheBehavior
-  = DefaultCacheBehavior { "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) }
+  = DefaultCacheBehavior { "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) }
 ```
 
 <p>A complex type that describes the default cache behavior if you do not specify a <code>CacheBehavior</code> element or if files don't match any of the values of <code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one default cache behavior.</p>
@@ -1263,7 +1263,7 @@ Constructs DefaultCacheBehavior from required parameters
 #### `newDefaultCacheBehavior'`
 
 ``` purescript
-newDefaultCacheBehavior' :: ForwardedValues -> Number -> String -> TrustedSigners -> ViewerProtocolPolicy -> ({ "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } -> { "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: NullOrUndefined (AllowedMethods), "SmoothStreaming" :: NullOrUndefined (Boolean), "DefaultTTL" :: NullOrUndefined (Number), "MaxTTL" :: NullOrUndefined (Number), "Compress" :: NullOrUndefined (Boolean), "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) }) -> DefaultCacheBehavior
+newDefaultCacheBehavior' :: ForwardedValues -> Number -> String -> TrustedSigners -> ViewerProtocolPolicy -> ({ "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } -> { "TargetOriginId" :: String, "ForwardedValues" :: ForwardedValues, "TrustedSigners" :: TrustedSigners, "ViewerProtocolPolicy" :: ViewerProtocolPolicy, "MinTTL" :: Number, "AllowedMethods" :: Maybe (AllowedMethods), "SmoothStreaming" :: Maybe (Boolean), "DefaultTTL" :: Maybe (Number), "MaxTTL" :: Maybe (Number), "Compress" :: Maybe (Boolean), "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) }) -> DefaultCacheBehavior
 ```
 
 Constructs DefaultCacheBehavior's fields from required parameters
@@ -1272,7 +1272,7 @@ Constructs DefaultCacheBehavior's fields from required parameters
 
 ``` purescript
 newtype DeleteCloudFrontOriginAccessIdentityRequest
-  = DeleteCloudFrontOriginAccessIdentityRequest { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = DeleteCloudFrontOriginAccessIdentityRequest { "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>Deletes a origin access identity.</p>
@@ -1297,7 +1297,7 @@ Constructs DeleteCloudFrontOriginAccessIdentityRequest from required parameters
 #### `newDeleteCloudFrontOriginAccessIdentityRequest'`
 
 ``` purescript
-newDeleteCloudFrontOriginAccessIdentityRequest' :: String -> ({ "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> DeleteCloudFrontOriginAccessIdentityRequest
+newDeleteCloudFrontOriginAccessIdentityRequest' :: String -> ({ "Id" :: String, "IfMatch" :: Maybe (String) } -> { "Id" :: String, "IfMatch" :: Maybe (String) }) -> DeleteCloudFrontOriginAccessIdentityRequest
 ```
 
 Constructs DeleteCloudFrontOriginAccessIdentityRequest's fields from required parameters
@@ -1306,7 +1306,7 @@ Constructs DeleteCloudFrontOriginAccessIdentityRequest's fields from required pa
 
 ``` purescript
 newtype DeleteDistributionRequest
-  = DeleteDistributionRequest { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = DeleteDistributionRequest { "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1331,7 +1331,7 @@ Constructs DeleteDistributionRequest from required parameters
 #### `newDeleteDistributionRequest'`
 
 ``` purescript
-newDeleteDistributionRequest' :: String -> ({ "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> DeleteDistributionRequest
+newDeleteDistributionRequest' :: String -> ({ "Id" :: String, "IfMatch" :: Maybe (String) } -> { "Id" :: String, "IfMatch" :: Maybe (String) }) -> DeleteDistributionRequest
 ```
 
 Constructs DeleteDistributionRequest's fields from required parameters
@@ -1340,7 +1340,7 @@ Constructs DeleteDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteStreamingDistributionRequest
-  = DeleteStreamingDistributionRequest { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = DeleteStreamingDistributionRequest { "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>The request to delete a streaming distribution.</p>
@@ -1365,7 +1365,7 @@ Constructs DeleteStreamingDistributionRequest from required parameters
 #### `newDeleteStreamingDistributionRequest'`
 
 ``` purescript
-newDeleteStreamingDistributionRequest' :: String -> ({ "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> DeleteStreamingDistributionRequest
+newDeleteStreamingDistributionRequest' :: String -> ({ "Id" :: String, "IfMatch" :: Maybe (String) } -> { "Id" :: String, "IfMatch" :: Maybe (String) }) -> DeleteStreamingDistributionRequest
 ```
 
 Constructs DeleteStreamingDistributionRequest's fields from required parameters
@@ -1408,7 +1408,7 @@ Constructs Distribution's fields from required parameters
 
 ``` purescript
 newtype DistributionAlreadyExists
-  = DistributionAlreadyExists { "Message" :: NullOrUndefined (String) }
+  = DistributionAlreadyExists { "Message" :: Maybe (String) }
 ```
 
 <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
@@ -1433,7 +1433,7 @@ Constructs DistributionAlreadyExists from required parameters
 #### `newDistributionAlreadyExists'`
 
 ``` purescript
-newDistributionAlreadyExists' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> DistributionAlreadyExists
+newDistributionAlreadyExists' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> DistributionAlreadyExists
 ```
 
 Constructs DistributionAlreadyExists's fields from required parameters
@@ -1442,7 +1442,7 @@ Constructs DistributionAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype DistributionConfig
-  = DistributionConfig { "CallerReference" :: String, "Aliases" :: NullOrUndefined (Aliases), "DefaultRootObject" :: NullOrUndefined (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: NullOrUndefined (CacheBehaviors), "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses), "Comment" :: String, "Logging" :: NullOrUndefined (LoggingConfig), "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: NullOrUndefined (ViewerCertificate), "Restrictions" :: NullOrUndefined (Restrictions), "WebACLId" :: NullOrUndefined (String), "HttpVersion" :: NullOrUndefined (HttpVersion), "IsIPV6Enabled" :: NullOrUndefined (Boolean) }
+  = DistributionConfig { "CallerReference" :: String, "Aliases" :: Maybe (Aliases), "DefaultRootObject" :: Maybe (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: Maybe (CacheBehaviors), "CustomErrorResponses" :: Maybe (CustomErrorResponses), "Comment" :: String, "Logging" :: Maybe (LoggingConfig), "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: Maybe (ViewerCertificate), "Restrictions" :: Maybe (Restrictions), "WebACLId" :: Maybe (String), "HttpVersion" :: Maybe (HttpVersion), "IsIPV6Enabled" :: Maybe (Boolean) }
 ```
 
 <p>A distribution configuration.</p>
@@ -1467,7 +1467,7 @@ Constructs DistributionConfig from required parameters
 #### `newDistributionConfig'`
 
 ``` purescript
-newDistributionConfig' :: String -> String -> DefaultCacheBehavior -> Boolean -> Origins -> ({ "CallerReference" :: String, "Aliases" :: NullOrUndefined (Aliases), "DefaultRootObject" :: NullOrUndefined (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: NullOrUndefined (CacheBehaviors), "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses), "Comment" :: String, "Logging" :: NullOrUndefined (LoggingConfig), "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: NullOrUndefined (ViewerCertificate), "Restrictions" :: NullOrUndefined (Restrictions), "WebACLId" :: NullOrUndefined (String), "HttpVersion" :: NullOrUndefined (HttpVersion), "IsIPV6Enabled" :: NullOrUndefined (Boolean) } -> { "CallerReference" :: String, "Aliases" :: NullOrUndefined (Aliases), "DefaultRootObject" :: NullOrUndefined (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: NullOrUndefined (CacheBehaviors), "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses), "Comment" :: String, "Logging" :: NullOrUndefined (LoggingConfig), "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: NullOrUndefined (ViewerCertificate), "Restrictions" :: NullOrUndefined (Restrictions), "WebACLId" :: NullOrUndefined (String), "HttpVersion" :: NullOrUndefined (HttpVersion), "IsIPV6Enabled" :: NullOrUndefined (Boolean) }) -> DistributionConfig
+newDistributionConfig' :: String -> String -> DefaultCacheBehavior -> Boolean -> Origins -> ({ "CallerReference" :: String, "Aliases" :: Maybe (Aliases), "DefaultRootObject" :: Maybe (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: Maybe (CacheBehaviors), "CustomErrorResponses" :: Maybe (CustomErrorResponses), "Comment" :: String, "Logging" :: Maybe (LoggingConfig), "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: Maybe (ViewerCertificate), "Restrictions" :: Maybe (Restrictions), "WebACLId" :: Maybe (String), "HttpVersion" :: Maybe (HttpVersion), "IsIPV6Enabled" :: Maybe (Boolean) } -> { "CallerReference" :: String, "Aliases" :: Maybe (Aliases), "DefaultRootObject" :: Maybe (String), "Origins" :: Origins, "DefaultCacheBehavior" :: DefaultCacheBehavior, "CacheBehaviors" :: Maybe (CacheBehaviors), "CustomErrorResponses" :: Maybe (CustomErrorResponses), "Comment" :: String, "Logging" :: Maybe (LoggingConfig), "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean, "ViewerCertificate" :: Maybe (ViewerCertificate), "Restrictions" :: Maybe (Restrictions), "WebACLId" :: Maybe (String), "HttpVersion" :: Maybe (HttpVersion), "IsIPV6Enabled" :: Maybe (Boolean) }) -> DistributionConfig
 ```
 
 Constructs DistributionConfig's fields from required parameters
@@ -1510,7 +1510,7 @@ Constructs DistributionConfigWithTags's fields from required parameters
 
 ``` purescript
 newtype DistributionList
-  = DistributionList { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (DistributionSummaryList) }
+  = DistributionList { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (DistributionSummaryList) }
 ```
 
 <p>A distribution list.</p>
@@ -1535,7 +1535,7 @@ Constructs DistributionList from required parameters
 #### `newDistributionList'`
 
 ``` purescript
-newDistributionList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (DistributionSummaryList) } -> { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (DistributionSummaryList) }) -> DistributionList
+newDistributionList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (DistributionSummaryList) } -> { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (DistributionSummaryList) }) -> DistributionList
 ```
 
 Constructs DistributionList's fields from required parameters
@@ -1544,7 +1544,7 @@ Constructs DistributionList's fields from required parameters
 
 ``` purescript
 newtype DistributionNotDisabled
-  = DistributionNotDisabled { "Message" :: NullOrUndefined (String) }
+  = DistributionNotDisabled { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1567,7 +1567,7 @@ Constructs DistributionNotDisabled from required parameters
 #### `newDistributionNotDisabled'`
 
 ``` purescript
-newDistributionNotDisabled' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> DistributionNotDisabled
+newDistributionNotDisabled' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> DistributionNotDisabled
 ```
 
 Constructs DistributionNotDisabled's fields from required parameters
@@ -1642,7 +1642,7 @@ Encode EventType
 
 ``` purescript
 newtype ForwardedValues
-  = ForwardedValues { "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: NullOrUndefined (Headers), "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys) }
+  = ForwardedValues { "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: Maybe (Headers), "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys) }
 ```
 
 <p>A complex type that specifies how CloudFront handles query strings and cookies.</p>
@@ -1667,7 +1667,7 @@ Constructs ForwardedValues from required parameters
 #### `newForwardedValues'`
 
 ``` purescript
-newForwardedValues' :: CookiePreference -> Boolean -> ({ "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: NullOrUndefined (Headers), "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys) } -> { "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: NullOrUndefined (Headers), "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys) }) -> ForwardedValues
+newForwardedValues' :: CookiePreference -> Boolean -> ({ "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: Maybe (Headers), "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys) } -> { "QueryString" :: Boolean, "Cookies" :: CookiePreference, "Headers" :: Maybe (Headers), "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys) }) -> ForwardedValues
 ```
 
 Constructs ForwardedValues's fields from required parameters
@@ -1676,7 +1676,7 @@ Constructs ForwardedValues's fields from required parameters
 
 ``` purescript
 newtype GeoRestriction
-  = GeoRestriction { "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: NullOrUndefined (LocationList) }
+  = GeoRestriction { "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: Maybe (LocationList) }
 ```
 
 <p>A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using <code>MaxMind</code> GeoIP databases. </p>
@@ -1701,7 +1701,7 @@ Constructs GeoRestriction from required parameters
 #### `newGeoRestriction'`
 
 ``` purescript
-newGeoRestriction' :: Int -> GeoRestrictionType -> ({ "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: NullOrUndefined (LocationList) } -> { "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: NullOrUndefined (LocationList) }) -> GeoRestriction
+newGeoRestriction' :: Int -> GeoRestrictionType -> ({ "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: Maybe (LocationList) } -> { "RestrictionType" :: GeoRestrictionType, "Quantity" :: Int, "Items" :: Maybe (LocationList) }) -> GeoRestriction
 ```
 
 Constructs GeoRestriction's fields from required parameters
@@ -1760,7 +1760,7 @@ Constructs GetCloudFrontOriginAccessIdentityConfigRequest's fields from required
 
 ``` purescript
 newtype GetCloudFrontOriginAccessIdentityConfigResult
-  = GetCloudFrontOriginAccessIdentityConfigResult { "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig), "ETag" :: NullOrUndefined (String) }
+  = GetCloudFrontOriginAccessIdentityConfigResult { "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -1785,7 +1785,7 @@ Constructs GetCloudFrontOriginAccessIdentityConfigResult from required parameter
 #### `newGetCloudFrontOriginAccessIdentityConfigResult'`
 
 ``` purescript
-newGetCloudFrontOriginAccessIdentityConfigResult' :: ({ "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig), "ETag" :: NullOrUndefined (String) } -> { "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig), "ETag" :: NullOrUndefined (String) }) -> GetCloudFrontOriginAccessIdentityConfigResult
+newGetCloudFrontOriginAccessIdentityConfigResult' :: ({ "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig), "ETag" :: Maybe (String) } -> { "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig), "ETag" :: Maybe (String) }) -> GetCloudFrontOriginAccessIdentityConfigResult
 ```
 
 Constructs GetCloudFrontOriginAccessIdentityConfigResult's fields from required parameters
@@ -1828,7 +1828,7 @@ Constructs GetCloudFrontOriginAccessIdentityRequest's fields from required param
 
 ``` purescript
 newtype GetCloudFrontOriginAccessIdentityResult
-  = GetCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) }
+  = GetCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -1853,7 +1853,7 @@ Constructs GetCloudFrontOriginAccessIdentityResult from required parameters
 #### `newGetCloudFrontOriginAccessIdentityResult'`
 
 ``` purescript
-newGetCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) } -> { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) }) -> GetCloudFrontOriginAccessIdentityResult
+newGetCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) } -> { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) }) -> GetCloudFrontOriginAccessIdentityResult
 ```
 
 Constructs GetCloudFrontOriginAccessIdentityResult's fields from required parameters
@@ -1896,7 +1896,7 @@ Constructs GetDistributionConfigRequest's fields from required parameters
 
 ``` purescript
 newtype GetDistributionConfigResult
-  = GetDistributionConfigResult { "DistributionConfig" :: NullOrUndefined (DistributionConfig), "ETag" :: NullOrUndefined (String) }
+  = GetDistributionConfigResult { "DistributionConfig" :: Maybe (DistributionConfig), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -1921,7 +1921,7 @@ Constructs GetDistributionConfigResult from required parameters
 #### `newGetDistributionConfigResult'`
 
 ``` purescript
-newGetDistributionConfigResult' :: ({ "DistributionConfig" :: NullOrUndefined (DistributionConfig), "ETag" :: NullOrUndefined (String) } -> { "DistributionConfig" :: NullOrUndefined (DistributionConfig), "ETag" :: NullOrUndefined (String) }) -> GetDistributionConfigResult
+newGetDistributionConfigResult' :: ({ "DistributionConfig" :: Maybe (DistributionConfig), "ETag" :: Maybe (String) } -> { "DistributionConfig" :: Maybe (DistributionConfig), "ETag" :: Maybe (String) }) -> GetDistributionConfigResult
 ```
 
 Constructs GetDistributionConfigResult's fields from required parameters
@@ -1964,7 +1964,7 @@ Constructs GetDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype GetDistributionResult
-  = GetDistributionResult { "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) }
+  = GetDistributionResult { "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -1989,7 +1989,7 @@ Constructs GetDistributionResult from required parameters
 #### `newGetDistributionResult'`
 
 ``` purescript
-newGetDistributionResult' :: ({ "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) } -> { "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) }) -> GetDistributionResult
+newGetDistributionResult' :: ({ "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) } -> { "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) }) -> GetDistributionResult
 ```
 
 Constructs GetDistributionResult's fields from required parameters
@@ -2032,7 +2032,7 @@ Constructs GetInvalidationRequest's fields from required parameters
 
 ``` purescript
 newtype GetInvalidationResult
-  = GetInvalidationResult { "Invalidation" :: NullOrUndefined (Invalidation) }
+  = GetInvalidationResult { "Invalidation" :: Maybe (Invalidation) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -2057,7 +2057,7 @@ Constructs GetInvalidationResult from required parameters
 #### `newGetInvalidationResult'`
 
 ``` purescript
-newGetInvalidationResult' :: ({ "Invalidation" :: NullOrUndefined (Invalidation) } -> { "Invalidation" :: NullOrUndefined (Invalidation) }) -> GetInvalidationResult
+newGetInvalidationResult' :: ({ "Invalidation" :: Maybe (Invalidation) } -> { "Invalidation" :: Maybe (Invalidation) }) -> GetInvalidationResult
 ```
 
 Constructs GetInvalidationResult's fields from required parameters
@@ -2100,7 +2100,7 @@ Constructs GetStreamingDistributionConfigRequest's fields from required paramete
 
 ``` purescript
 newtype GetStreamingDistributionConfigResult
-  = GetStreamingDistributionConfigResult { "StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig), "ETag" :: NullOrUndefined (String) }
+  = GetStreamingDistributionConfigResult { "StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -2125,7 +2125,7 @@ Constructs GetStreamingDistributionConfigResult from required parameters
 #### `newGetStreamingDistributionConfigResult'`
 
 ``` purescript
-newGetStreamingDistributionConfigResult' :: ({ "StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig), "ETag" :: NullOrUndefined (String) } -> { "StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig), "ETag" :: NullOrUndefined (String) }) -> GetStreamingDistributionConfigResult
+newGetStreamingDistributionConfigResult' :: ({ "StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig), "ETag" :: Maybe (String) } -> { "StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig), "ETag" :: Maybe (String) }) -> GetStreamingDistributionConfigResult
 ```
 
 Constructs GetStreamingDistributionConfigResult's fields from required parameters
@@ -2168,7 +2168,7 @@ Constructs GetStreamingDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype GetStreamingDistributionResult
-  = GetStreamingDistributionResult { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) }
+  = GetStreamingDistributionResult { "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -2193,7 +2193,7 @@ Constructs GetStreamingDistributionResult from required parameters
 #### `newGetStreamingDistributionResult'`
 
 ``` purescript
-newGetStreamingDistributionResult' :: ({ "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) } -> { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) }) -> GetStreamingDistributionResult
+newGetStreamingDistributionResult' :: ({ "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) } -> { "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) }) -> GetStreamingDistributionResult
 ```
 
 Constructs GetStreamingDistributionResult's fields from required parameters
@@ -2218,7 +2218,7 @@ Encode HeaderList
 
 ``` purescript
 newtype Headers
-  = Headers { "Quantity" :: Int, "Items" :: NullOrUndefined (HeaderList) }
+  = Headers { "Quantity" :: Int, "Items" :: Maybe (HeaderList) }
 ```
 
 <p>A complex type that specifies the headers that you want CloudFront to forward to the origin for this cache behavior.</p> <p>For the headers that you specify, CloudFront also caches separate versions of a specified object based on the header values in viewer requests. For example, suppose viewer requests for <code>logo.jpg</code> contain a custom <code>Product</code> header that has a value of either <code>Acme</code> or <code>Apex</code>, and you configure CloudFront to cache your content based on values in the <code>Product</code> header. CloudFront forwards the <code>Product</code> header to the origin and caches the response from the origin once for each header value. For more information about caching based on header values, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html">How CloudFront Forwards and Caches Headers</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2243,7 +2243,7 @@ Constructs Headers from required parameters
 #### `newHeaders'`
 
 ``` purescript
-newHeaders' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (HeaderList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (HeaderList) }) -> Headers
+newHeaders' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (HeaderList) } -> { "Quantity" :: Int, "Items" :: Maybe (HeaderList) }) -> Headers
 ```
 
 Constructs Headers's fields from required parameters
@@ -2268,7 +2268,7 @@ Encode HttpVersion
 
 ``` purescript
 newtype IllegalUpdate
-  = IllegalUpdate { "Message" :: NullOrUndefined (String) }
+  = IllegalUpdate { "Message" :: Maybe (String) }
 ```
 
 <p>Origin and <code>CallerReference</code> cannot be updated. </p>
@@ -2293,7 +2293,7 @@ Constructs IllegalUpdate from required parameters
 #### `newIllegalUpdate'`
 
 ``` purescript
-newIllegalUpdate' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> IllegalUpdate
+newIllegalUpdate' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> IllegalUpdate
 ```
 
 Constructs IllegalUpdate's fields from required parameters
@@ -2302,7 +2302,7 @@ Constructs IllegalUpdate's fields from required parameters
 
 ``` purescript
 newtype InconsistentQuantities
-  = InconsistentQuantities { "Message" :: NullOrUndefined (String) }
+  = InconsistentQuantities { "Message" :: Maybe (String) }
 ```
 
 <p>The value of <code>Quantity</code> and the size of <code>Items</code> do not match.</p>
@@ -2327,7 +2327,7 @@ Constructs InconsistentQuantities from required parameters
 #### `newInconsistentQuantities'`
 
 ``` purescript
-newInconsistentQuantities' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InconsistentQuantities
+newInconsistentQuantities' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InconsistentQuantities
 ```
 
 Constructs InconsistentQuantities's fields from required parameters
@@ -2336,7 +2336,7 @@ Constructs InconsistentQuantities's fields from required parameters
 
 ``` purescript
 newtype InvalidArgument
-  = InvalidArgument { "Message" :: NullOrUndefined (String) }
+  = InvalidArgument { "Message" :: Maybe (String) }
 ```
 
 <p>The argument is invalid.</p>
@@ -2361,7 +2361,7 @@ Constructs InvalidArgument from required parameters
 #### `newInvalidArgument'`
 
 ``` purescript
-newInvalidArgument' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidArgument
+newInvalidArgument' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidArgument
 ```
 
 Constructs InvalidArgument's fields from required parameters
@@ -2370,7 +2370,7 @@ Constructs InvalidArgument's fields from required parameters
 
 ``` purescript
 newtype InvalidDefaultRootObject
-  = InvalidDefaultRootObject { "Message" :: NullOrUndefined (String) }
+  = InvalidDefaultRootObject { "Message" :: Maybe (String) }
 ```
 
 <p>The default root object file name is too big or contains an invalid character.</p>
@@ -2395,7 +2395,7 @@ Constructs InvalidDefaultRootObject from required parameters
 #### `newInvalidDefaultRootObject'`
 
 ``` purescript
-newInvalidDefaultRootObject' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidDefaultRootObject
+newInvalidDefaultRootObject' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidDefaultRootObject
 ```
 
 Constructs InvalidDefaultRootObject's fields from required parameters
@@ -2404,7 +2404,7 @@ Constructs InvalidDefaultRootObject's fields from required parameters
 
 ``` purescript
 newtype InvalidErrorCode
-  = InvalidErrorCode { "Message" :: NullOrUndefined (String) }
+  = InvalidErrorCode { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2427,7 +2427,7 @@ Constructs InvalidErrorCode from required parameters
 #### `newInvalidErrorCode'`
 
 ``` purescript
-newInvalidErrorCode' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidErrorCode
+newInvalidErrorCode' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidErrorCode
 ```
 
 Constructs InvalidErrorCode's fields from required parameters
@@ -2436,7 +2436,7 @@ Constructs InvalidErrorCode's fields from required parameters
 
 ``` purescript
 newtype InvalidForwardCookies
-  = InvalidForwardCookies { "Message" :: NullOrUndefined (String) }
+  = InvalidForwardCookies { "Message" :: Maybe (String) }
 ```
 
 <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
@@ -2461,7 +2461,7 @@ Constructs InvalidForwardCookies from required parameters
 #### `newInvalidForwardCookies'`
 
 ``` purescript
-newInvalidForwardCookies' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidForwardCookies
+newInvalidForwardCookies' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidForwardCookies
 ```
 
 Constructs InvalidForwardCookies's fields from required parameters
@@ -2470,7 +2470,7 @@ Constructs InvalidForwardCookies's fields from required parameters
 
 ``` purescript
 newtype InvalidGeoRestrictionParameter
-  = InvalidGeoRestrictionParameter { "Message" :: NullOrUndefined (String) }
+  = InvalidGeoRestrictionParameter { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2493,7 +2493,7 @@ Constructs InvalidGeoRestrictionParameter from required parameters
 #### `newInvalidGeoRestrictionParameter'`
 
 ``` purescript
-newInvalidGeoRestrictionParameter' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidGeoRestrictionParameter
+newInvalidGeoRestrictionParameter' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidGeoRestrictionParameter
 ```
 
 Constructs InvalidGeoRestrictionParameter's fields from required parameters
@@ -2502,7 +2502,7 @@ Constructs InvalidGeoRestrictionParameter's fields from required parameters
 
 ``` purescript
 newtype InvalidHeadersForS3Origin
-  = InvalidHeadersForS3Origin { "Message" :: NullOrUndefined (String) }
+  = InvalidHeadersForS3Origin { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2525,7 +2525,7 @@ Constructs InvalidHeadersForS3Origin from required parameters
 #### `newInvalidHeadersForS3Origin'`
 
 ``` purescript
-newInvalidHeadersForS3Origin' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidHeadersForS3Origin
+newInvalidHeadersForS3Origin' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidHeadersForS3Origin
 ```
 
 Constructs InvalidHeadersForS3Origin's fields from required parameters
@@ -2534,7 +2534,7 @@ Constructs InvalidHeadersForS3Origin's fields from required parameters
 
 ``` purescript
 newtype InvalidIfMatchVersion
-  = InvalidIfMatchVersion { "Message" :: NullOrUndefined (String) }
+  = InvalidIfMatchVersion { "Message" :: Maybe (String) }
 ```
 
 <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
@@ -2559,7 +2559,7 @@ Constructs InvalidIfMatchVersion from required parameters
 #### `newInvalidIfMatchVersion'`
 
 ``` purescript
-newInvalidIfMatchVersion' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidIfMatchVersion
+newInvalidIfMatchVersion' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidIfMatchVersion
 ```
 
 Constructs InvalidIfMatchVersion's fields from required parameters
@@ -2568,7 +2568,7 @@ Constructs InvalidIfMatchVersion's fields from required parameters
 
 ``` purescript
 newtype InvalidLambdaFunctionAssociation
-  = InvalidLambdaFunctionAssociation { "Message" :: NullOrUndefined (String) }
+  = InvalidLambdaFunctionAssociation { "Message" :: Maybe (String) }
 ```
 
 <p>The specified Lambda function association is invalid.</p>
@@ -2593,7 +2593,7 @@ Constructs InvalidLambdaFunctionAssociation from required parameters
 #### `newInvalidLambdaFunctionAssociation'`
 
 ``` purescript
-newInvalidLambdaFunctionAssociation' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidLambdaFunctionAssociation
+newInvalidLambdaFunctionAssociation' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidLambdaFunctionAssociation
 ```
 
 Constructs InvalidLambdaFunctionAssociation's fields from required parameters
@@ -2602,7 +2602,7 @@ Constructs InvalidLambdaFunctionAssociation's fields from required parameters
 
 ``` purescript
 newtype InvalidLocationCode
-  = InvalidLocationCode { "Message" :: NullOrUndefined (String) }
+  = InvalidLocationCode { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2625,7 +2625,7 @@ Constructs InvalidLocationCode from required parameters
 #### `newInvalidLocationCode'`
 
 ``` purescript
-newInvalidLocationCode' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidLocationCode
+newInvalidLocationCode' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidLocationCode
 ```
 
 Constructs InvalidLocationCode's fields from required parameters
@@ -2634,7 +2634,7 @@ Constructs InvalidLocationCode's fields from required parameters
 
 ``` purescript
 newtype InvalidMinimumProtocolVersion
-  = InvalidMinimumProtocolVersion { "Message" :: NullOrUndefined (String) }
+  = InvalidMinimumProtocolVersion { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2657,7 +2657,7 @@ Constructs InvalidMinimumProtocolVersion from required parameters
 #### `newInvalidMinimumProtocolVersion'`
 
 ``` purescript
-newInvalidMinimumProtocolVersion' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidMinimumProtocolVersion
+newInvalidMinimumProtocolVersion' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidMinimumProtocolVersion
 ```
 
 Constructs InvalidMinimumProtocolVersion's fields from required parameters
@@ -2666,7 +2666,7 @@ Constructs InvalidMinimumProtocolVersion's fields from required parameters
 
 ``` purescript
 newtype InvalidOrigin
-  = InvalidOrigin { "Message" :: NullOrUndefined (String) }
+  = InvalidOrigin { "Message" :: Maybe (String) }
 ```
 
 <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
@@ -2691,7 +2691,7 @@ Constructs InvalidOrigin from required parameters
 #### `newInvalidOrigin'`
 
 ``` purescript
-newInvalidOrigin' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidOrigin
+newInvalidOrigin' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidOrigin
 ```
 
 Constructs InvalidOrigin's fields from required parameters
@@ -2700,7 +2700,7 @@ Constructs InvalidOrigin's fields from required parameters
 
 ``` purescript
 newtype InvalidOriginAccessIdentity
-  = InvalidOriginAccessIdentity { "Message" :: NullOrUndefined (String) }
+  = InvalidOriginAccessIdentity { "Message" :: Maybe (String) }
 ```
 
 <p>The origin access identity is not valid or doesn't exist.</p>
@@ -2725,7 +2725,7 @@ Constructs InvalidOriginAccessIdentity from required parameters
 #### `newInvalidOriginAccessIdentity'`
 
 ``` purescript
-newInvalidOriginAccessIdentity' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidOriginAccessIdentity
+newInvalidOriginAccessIdentity' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidOriginAccessIdentity
 ```
 
 Constructs InvalidOriginAccessIdentity's fields from required parameters
@@ -2734,7 +2734,7 @@ Constructs InvalidOriginAccessIdentity's fields from required parameters
 
 ``` purescript
 newtype InvalidProtocolSettings
-  = InvalidProtocolSettings { "Message" :: NullOrUndefined (String) }
+  = InvalidProtocolSettings { "Message" :: Maybe (String) }
 ```
 
 <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
@@ -2759,7 +2759,7 @@ Constructs InvalidProtocolSettings from required parameters
 #### `newInvalidProtocolSettings'`
 
 ``` purescript
-newInvalidProtocolSettings' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidProtocolSettings
+newInvalidProtocolSettings' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidProtocolSettings
 ```
 
 Constructs InvalidProtocolSettings's fields from required parameters
@@ -2768,7 +2768,7 @@ Constructs InvalidProtocolSettings's fields from required parameters
 
 ``` purescript
 newtype InvalidQueryStringParameters
-  = InvalidQueryStringParameters { "Message" :: NullOrUndefined (String) }
+  = InvalidQueryStringParameters { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2791,7 +2791,7 @@ Constructs InvalidQueryStringParameters from required parameters
 #### `newInvalidQueryStringParameters'`
 
 ``` purescript
-newInvalidQueryStringParameters' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidQueryStringParameters
+newInvalidQueryStringParameters' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidQueryStringParameters
 ```
 
 Constructs InvalidQueryStringParameters's fields from required parameters
@@ -2800,7 +2800,7 @@ Constructs InvalidQueryStringParameters's fields from required parameters
 
 ``` purescript
 newtype InvalidRelativePath
-  = InvalidRelativePath { "Message" :: NullOrUndefined (String) }
+  = InvalidRelativePath { "Message" :: Maybe (String) }
 ```
 
 <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
@@ -2825,7 +2825,7 @@ Constructs InvalidRelativePath from required parameters
 #### `newInvalidRelativePath'`
 
 ``` purescript
-newInvalidRelativePath' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidRelativePath
+newInvalidRelativePath' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidRelativePath
 ```
 
 Constructs InvalidRelativePath's fields from required parameters
@@ -2834,7 +2834,7 @@ Constructs InvalidRelativePath's fields from required parameters
 
 ``` purescript
 newtype InvalidRequiredProtocol
-  = InvalidRequiredProtocol { "Message" :: NullOrUndefined (String) }
+  = InvalidRequiredProtocol { "Message" :: Maybe (String) }
 ```
 
 <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
@@ -2859,7 +2859,7 @@ Constructs InvalidRequiredProtocol from required parameters
 #### `newInvalidRequiredProtocol'`
 
 ``` purescript
-newInvalidRequiredProtocol' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidRequiredProtocol
+newInvalidRequiredProtocol' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidRequiredProtocol
 ```
 
 Constructs InvalidRequiredProtocol's fields from required parameters
@@ -2868,7 +2868,7 @@ Constructs InvalidRequiredProtocol's fields from required parameters
 
 ``` purescript
 newtype InvalidResponseCode
-  = InvalidResponseCode { "Message" :: NullOrUndefined (String) }
+  = InvalidResponseCode { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2891,7 +2891,7 @@ Constructs InvalidResponseCode from required parameters
 #### `newInvalidResponseCode'`
 
 ``` purescript
-newInvalidResponseCode' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidResponseCode
+newInvalidResponseCode' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidResponseCode
 ```
 
 Constructs InvalidResponseCode's fields from required parameters
@@ -2900,7 +2900,7 @@ Constructs InvalidResponseCode's fields from required parameters
 
 ``` purescript
 newtype InvalidTTLOrder
-  = InvalidTTLOrder { "Message" :: NullOrUndefined (String) }
+  = InvalidTTLOrder { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2923,7 +2923,7 @@ Constructs InvalidTTLOrder from required parameters
 #### `newInvalidTTLOrder'`
 
 ``` purescript
-newInvalidTTLOrder' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidTTLOrder
+newInvalidTTLOrder' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidTTLOrder
 ```
 
 Constructs InvalidTTLOrder's fields from required parameters
@@ -2932,7 +2932,7 @@ Constructs InvalidTTLOrder's fields from required parameters
 
 ``` purescript
 newtype InvalidTagging
-  = InvalidTagging { "Message" :: NullOrUndefined (String) }
+  = InvalidTagging { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2955,7 +2955,7 @@ Constructs InvalidTagging from required parameters
 #### `newInvalidTagging'`
 
 ``` purescript
-newInvalidTagging' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidTagging
+newInvalidTagging' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidTagging
 ```
 
 Constructs InvalidTagging's fields from required parameters
@@ -2964,7 +2964,7 @@ Constructs InvalidTagging's fields from required parameters
 
 ``` purescript
 newtype InvalidViewerCertificate
-  = InvalidViewerCertificate { "Message" :: NullOrUndefined (String) }
+  = InvalidViewerCertificate { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2987,7 +2987,7 @@ Constructs InvalidViewerCertificate from required parameters
 #### `newInvalidViewerCertificate'`
 
 ``` purescript
-newInvalidViewerCertificate' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidViewerCertificate
+newInvalidViewerCertificate' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidViewerCertificate
 ```
 
 Constructs InvalidViewerCertificate's fields from required parameters
@@ -2996,7 +2996,7 @@ Constructs InvalidViewerCertificate's fields from required parameters
 
 ``` purescript
 newtype InvalidWebACLId
-  = InvalidWebACLId { "Message" :: NullOrUndefined (String) }
+  = InvalidWebACLId { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3019,7 +3019,7 @@ Constructs InvalidWebACLId from required parameters
 #### `newInvalidWebACLId'`
 
 ``` purescript
-newInvalidWebACLId' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidWebACLId
+newInvalidWebACLId' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidWebACLId
 ```
 
 Constructs InvalidWebACLId's fields from required parameters
@@ -3096,7 +3096,7 @@ Constructs InvalidationBatch's fields from required parameters
 
 ``` purescript
 newtype InvalidationList
-  = InvalidationList { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (InvalidationSummaryList) }
+  = InvalidationList { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (InvalidationSummaryList) }
 ```
 
 <p>The <code>InvalidationList</code> complex type describes the list of invalidation objects. For more information about invalidation, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects (Web Distributions Only)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -3121,7 +3121,7 @@ Constructs InvalidationList from required parameters
 #### `newInvalidationList'`
 
 ``` purescript
-newInvalidationList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (InvalidationSummaryList) } -> { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (InvalidationSummaryList) }) -> InvalidationList
+newInvalidationList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (InvalidationSummaryList) } -> { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (InvalidationSummaryList) }) -> InvalidationList
 ```
 
 Constructs InvalidationList's fields from required parameters
@@ -3212,7 +3212,7 @@ Encode KeyPairIdList
 
 ``` purescript
 newtype KeyPairIds
-  = KeyPairIds { "Quantity" :: Int, "Items" :: NullOrUndefined (KeyPairIdList) }
+  = KeyPairIds { "Quantity" :: Int, "Items" :: Maybe (KeyPairIdList) }
 ```
 
 <p>A complex type that lists the active CloudFront key pairs, if any, that are associated with <code>AwsAccountNumber</code>. </p> <p>For more information, see <a>ActiveTrustedSigners</a>.</p>
@@ -3237,7 +3237,7 @@ Constructs KeyPairIds from required parameters
 #### `newKeyPairIds'`
 
 ``` purescript
-newKeyPairIds' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (KeyPairIdList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (KeyPairIdList) }) -> KeyPairIds
+newKeyPairIds' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (KeyPairIdList) } -> { "Quantity" :: Int, "Items" :: Maybe (KeyPairIdList) }) -> KeyPairIds
 ```
 
 Constructs KeyPairIds's fields from required parameters
@@ -3246,7 +3246,7 @@ Constructs KeyPairIds's fields from required parameters
 
 ``` purescript
 newtype LambdaFunctionAssociation
-  = LambdaFunctionAssociation { "LambdaFunctionARN" :: NullOrUndefined (String), "EventType" :: NullOrUndefined (EventType) }
+  = LambdaFunctionAssociation { "LambdaFunctionARN" :: Maybe (String), "EventType" :: Maybe (EventType) }
 ```
 
 <p>A complex type that contains a Lambda function association.</p>
@@ -3271,7 +3271,7 @@ Constructs LambdaFunctionAssociation from required parameters
 #### `newLambdaFunctionAssociation'`
 
 ``` purescript
-newLambdaFunctionAssociation' :: ({ "LambdaFunctionARN" :: NullOrUndefined (String), "EventType" :: NullOrUndefined (EventType) } -> { "LambdaFunctionARN" :: NullOrUndefined (String), "EventType" :: NullOrUndefined (EventType) }) -> LambdaFunctionAssociation
+newLambdaFunctionAssociation' :: ({ "LambdaFunctionARN" :: Maybe (String), "EventType" :: Maybe (EventType) } -> { "LambdaFunctionARN" :: Maybe (String), "EventType" :: Maybe (EventType) }) -> LambdaFunctionAssociation
 ```
 
 Constructs LambdaFunctionAssociation's fields from required parameters
@@ -3296,7 +3296,7 @@ Encode LambdaFunctionAssociationList
 
 ``` purescript
 newtype LambdaFunctionAssociations
-  = LambdaFunctionAssociations { "Quantity" :: Int, "Items" :: NullOrUndefined (LambdaFunctionAssociationList) }
+  = LambdaFunctionAssociations { "Quantity" :: Int, "Items" :: Maybe (LambdaFunctionAssociationList) }
 ```
 
 <p>A complex type that specifies a list of Lambda functions associations for a cache behavior.</p> <p>If you want to invoke one or more Lambda functions triggered by requests that match the <code>PathPattern</code> of the cache behavior, specify the applicable values for <code>Quantity</code> and <code>Items</code>. Note that there can be up to 4 <code>LambdaFunctionAssociation</code> items in this list (one for each possible value of <code>EventType</code>) and each <code>EventType</code> can be associated with the Lambda function only once.</p> <p>If you don't want to invoke any Lambda functions for the requests that match <code>PathPattern</code>, specify <code>0</code> for <code>Quantity</code> and omit <code>Items</code>. </p>
@@ -3321,7 +3321,7 @@ Constructs LambdaFunctionAssociations from required parameters
 #### `newLambdaFunctionAssociations'`
 
 ``` purescript
-newLambdaFunctionAssociations' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (LambdaFunctionAssociationList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (LambdaFunctionAssociationList) }) -> LambdaFunctionAssociations
+newLambdaFunctionAssociations' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (LambdaFunctionAssociationList) } -> { "Quantity" :: Int, "Items" :: Maybe (LambdaFunctionAssociationList) }) -> LambdaFunctionAssociations
 ```
 
 Constructs LambdaFunctionAssociations's fields from required parameters
@@ -3330,7 +3330,7 @@ Constructs LambdaFunctionAssociations's fields from required parameters
 
 ``` purescript
 newtype ListCloudFrontOriginAccessIdentitiesRequest
-  = ListCloudFrontOriginAccessIdentitiesRequest { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }
+  = ListCloudFrontOriginAccessIdentitiesRequest { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }
 ```
 
 <p>The request to list origin access identities. </p>
@@ -3355,7 +3355,7 @@ Constructs ListCloudFrontOriginAccessIdentitiesRequest from required parameters
 #### `newListCloudFrontOriginAccessIdentitiesRequest'`
 
 ``` purescript
-newListCloudFrontOriginAccessIdentitiesRequest' :: ({ "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) } -> { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }) -> ListCloudFrontOriginAccessIdentitiesRequest
+newListCloudFrontOriginAccessIdentitiesRequest' :: ({ "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) } -> { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }) -> ListCloudFrontOriginAccessIdentitiesRequest
 ```
 
 Constructs ListCloudFrontOriginAccessIdentitiesRequest's fields from required parameters
@@ -3364,7 +3364,7 @@ Constructs ListCloudFrontOriginAccessIdentitiesRequest's fields from required pa
 
 ``` purescript
 newtype ListCloudFrontOriginAccessIdentitiesResult
-  = ListCloudFrontOriginAccessIdentitiesResult { "CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList) }
+  = ListCloudFrontOriginAccessIdentitiesResult { "CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -3389,7 +3389,7 @@ Constructs ListCloudFrontOriginAccessIdentitiesResult from required parameters
 #### `newListCloudFrontOriginAccessIdentitiesResult'`
 
 ``` purescript
-newListCloudFrontOriginAccessIdentitiesResult' :: ({ "CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList) } -> { "CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList) }) -> ListCloudFrontOriginAccessIdentitiesResult
+newListCloudFrontOriginAccessIdentitiesResult' :: ({ "CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList) } -> { "CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList) }) -> ListCloudFrontOriginAccessIdentitiesResult
 ```
 
 Constructs ListCloudFrontOriginAccessIdentitiesResult's fields from required parameters
@@ -3398,7 +3398,7 @@ Constructs ListCloudFrontOriginAccessIdentitiesResult's fields from required par
 
 ``` purescript
 newtype ListDistributionsByWebACLIdRequest
-  = ListDistributionsByWebACLIdRequest { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String), "WebACLId" :: String }
+  = ListDistributionsByWebACLIdRequest { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String), "WebACLId" :: String }
 ```
 
 <p>The request to list distributions that are associated with a specified AWS WAF web ACL. </p>
@@ -3423,7 +3423,7 @@ Constructs ListDistributionsByWebACLIdRequest from required parameters
 #### `newListDistributionsByWebACLIdRequest'`
 
 ``` purescript
-newListDistributionsByWebACLIdRequest' :: String -> ({ "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String), "WebACLId" :: String } -> { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String), "WebACLId" :: String }) -> ListDistributionsByWebACLIdRequest
+newListDistributionsByWebACLIdRequest' :: String -> ({ "Marker" :: Maybe (String), "MaxItems" :: Maybe (String), "WebACLId" :: String } -> { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String), "WebACLId" :: String }) -> ListDistributionsByWebACLIdRequest
 ```
 
 Constructs ListDistributionsByWebACLIdRequest's fields from required parameters
@@ -3432,7 +3432,7 @@ Constructs ListDistributionsByWebACLIdRequest's fields from required parameters
 
 ``` purescript
 newtype ListDistributionsByWebACLIdResult
-  = ListDistributionsByWebACLIdResult { "DistributionList" :: NullOrUndefined (DistributionList) }
+  = ListDistributionsByWebACLIdResult { "DistributionList" :: Maybe (DistributionList) }
 ```
 
 <p>The response to a request to list the distributions that are associated with a specified AWS WAF web ACL. </p>
@@ -3457,7 +3457,7 @@ Constructs ListDistributionsByWebACLIdResult from required parameters
 #### `newListDistributionsByWebACLIdResult'`
 
 ``` purescript
-newListDistributionsByWebACLIdResult' :: ({ "DistributionList" :: NullOrUndefined (DistributionList) } -> { "DistributionList" :: NullOrUndefined (DistributionList) }) -> ListDistributionsByWebACLIdResult
+newListDistributionsByWebACLIdResult' :: ({ "DistributionList" :: Maybe (DistributionList) } -> { "DistributionList" :: Maybe (DistributionList) }) -> ListDistributionsByWebACLIdResult
 ```
 
 Constructs ListDistributionsByWebACLIdResult's fields from required parameters
@@ -3466,7 +3466,7 @@ Constructs ListDistributionsByWebACLIdResult's fields from required parameters
 
 ``` purescript
 newtype ListDistributionsRequest
-  = ListDistributionsRequest { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }
+  = ListDistributionsRequest { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }
 ```
 
 <p>The request to list your distributions. </p>
@@ -3491,7 +3491,7 @@ Constructs ListDistributionsRequest from required parameters
 #### `newListDistributionsRequest'`
 
 ``` purescript
-newListDistributionsRequest' :: ({ "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) } -> { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }) -> ListDistributionsRequest
+newListDistributionsRequest' :: ({ "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) } -> { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }) -> ListDistributionsRequest
 ```
 
 Constructs ListDistributionsRequest's fields from required parameters
@@ -3500,7 +3500,7 @@ Constructs ListDistributionsRequest's fields from required parameters
 
 ``` purescript
 newtype ListDistributionsResult
-  = ListDistributionsResult { "DistributionList" :: NullOrUndefined (DistributionList) }
+  = ListDistributionsResult { "DistributionList" :: Maybe (DistributionList) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -3525,7 +3525,7 @@ Constructs ListDistributionsResult from required parameters
 #### `newListDistributionsResult'`
 
 ``` purescript
-newListDistributionsResult' :: ({ "DistributionList" :: NullOrUndefined (DistributionList) } -> { "DistributionList" :: NullOrUndefined (DistributionList) }) -> ListDistributionsResult
+newListDistributionsResult' :: ({ "DistributionList" :: Maybe (DistributionList) } -> { "DistributionList" :: Maybe (DistributionList) }) -> ListDistributionsResult
 ```
 
 Constructs ListDistributionsResult's fields from required parameters
@@ -3534,7 +3534,7 @@ Constructs ListDistributionsResult's fields from required parameters
 
 ``` purescript
 newtype ListInvalidationsRequest
-  = ListInvalidationsRequest { "DistributionId" :: String, "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }
+  = ListInvalidationsRequest { "DistributionId" :: String, "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }
 ```
 
 <p>The request to list invalidations. </p>
@@ -3559,7 +3559,7 @@ Constructs ListInvalidationsRequest from required parameters
 #### `newListInvalidationsRequest'`
 
 ``` purescript
-newListInvalidationsRequest' :: String -> ({ "DistributionId" :: String, "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) } -> { "DistributionId" :: String, "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }) -> ListInvalidationsRequest
+newListInvalidationsRequest' :: String -> ({ "DistributionId" :: String, "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) } -> { "DistributionId" :: String, "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }) -> ListInvalidationsRequest
 ```
 
 Constructs ListInvalidationsRequest's fields from required parameters
@@ -3568,7 +3568,7 @@ Constructs ListInvalidationsRequest's fields from required parameters
 
 ``` purescript
 newtype ListInvalidationsResult
-  = ListInvalidationsResult { "InvalidationList" :: NullOrUndefined (InvalidationList) }
+  = ListInvalidationsResult { "InvalidationList" :: Maybe (InvalidationList) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -3593,7 +3593,7 @@ Constructs ListInvalidationsResult from required parameters
 #### `newListInvalidationsResult'`
 
 ``` purescript
-newListInvalidationsResult' :: ({ "InvalidationList" :: NullOrUndefined (InvalidationList) } -> { "InvalidationList" :: NullOrUndefined (InvalidationList) }) -> ListInvalidationsResult
+newListInvalidationsResult' :: ({ "InvalidationList" :: Maybe (InvalidationList) } -> { "InvalidationList" :: Maybe (InvalidationList) }) -> ListInvalidationsResult
 ```
 
 Constructs ListInvalidationsResult's fields from required parameters
@@ -3602,7 +3602,7 @@ Constructs ListInvalidationsResult's fields from required parameters
 
 ``` purescript
 newtype ListStreamingDistributionsRequest
-  = ListStreamingDistributionsRequest { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }
+  = ListStreamingDistributionsRequest { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }
 ```
 
 <p>The request to list your streaming distributions. </p>
@@ -3627,7 +3627,7 @@ Constructs ListStreamingDistributionsRequest from required parameters
 #### `newListStreamingDistributionsRequest'`
 
 ``` purescript
-newListStreamingDistributionsRequest' :: ({ "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) } -> { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (String) }) -> ListStreamingDistributionsRequest
+newListStreamingDistributionsRequest' :: ({ "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) } -> { "Marker" :: Maybe (String), "MaxItems" :: Maybe (String) }) -> ListStreamingDistributionsRequest
 ```
 
 Constructs ListStreamingDistributionsRequest's fields from required parameters
@@ -3636,7 +3636,7 @@ Constructs ListStreamingDistributionsRequest's fields from required parameters
 
 ``` purescript
 newtype ListStreamingDistributionsResult
-  = ListStreamingDistributionsResult { "StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList) }
+  = ListStreamingDistributionsResult { "StreamingDistributionList" :: Maybe (StreamingDistributionList) }
 ```
 
 <p>The returned result of the corresponding request. </p>
@@ -3661,7 +3661,7 @@ Constructs ListStreamingDistributionsResult from required parameters
 #### `newListStreamingDistributionsResult'`
 
 ``` purescript
-newListStreamingDistributionsResult' :: ({ "StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList) } -> { "StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList) }) -> ListStreamingDistributionsResult
+newListStreamingDistributionsResult' :: ({ "StreamingDistributionList" :: Maybe (StreamingDistributionList) } -> { "StreamingDistributionList" :: Maybe (StreamingDistributionList) }) -> ListStreamingDistributionsResult
 ```
 
 Constructs ListStreamingDistributionsResult's fields from required parameters
@@ -3836,7 +3836,7 @@ Encode MinimumProtocolVersion
 
 ``` purescript
 newtype MissingBody
-  = MissingBody { "Message" :: NullOrUndefined (String) }
+  = MissingBody { "Message" :: Maybe (String) }
 ```
 
 <p>This operation requires a body. Ensure that the body is present and the Content-Type header is set.</p>
@@ -3861,7 +3861,7 @@ Constructs MissingBody from required parameters
 #### `newMissingBody'`
 
 ``` purescript
-newMissingBody' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> MissingBody
+newMissingBody' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> MissingBody
 ```
 
 Constructs MissingBody's fields from required parameters
@@ -3870,7 +3870,7 @@ Constructs MissingBody's fields from required parameters
 
 ``` purescript
 newtype NoSuchCloudFrontOriginAccessIdentity
-  = NoSuchCloudFrontOriginAccessIdentity { "Message" :: NullOrUndefined (String) }
+  = NoSuchCloudFrontOriginAccessIdentity { "Message" :: Maybe (String) }
 ```
 
 <p>The specified origin access identity does not exist.</p>
@@ -3895,7 +3895,7 @@ Constructs NoSuchCloudFrontOriginAccessIdentity from required parameters
 #### `newNoSuchCloudFrontOriginAccessIdentity'`
 
 ``` purescript
-newNoSuchCloudFrontOriginAccessIdentity' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchCloudFrontOriginAccessIdentity
+newNoSuchCloudFrontOriginAccessIdentity' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchCloudFrontOriginAccessIdentity
 ```
 
 Constructs NoSuchCloudFrontOriginAccessIdentity's fields from required parameters
@@ -3904,7 +3904,7 @@ Constructs NoSuchCloudFrontOriginAccessIdentity's fields from required parameter
 
 ``` purescript
 newtype NoSuchDistribution
-  = NoSuchDistribution { "Message" :: NullOrUndefined (String) }
+  = NoSuchDistribution { "Message" :: Maybe (String) }
 ```
 
 <p>The specified distribution does not exist.</p>
@@ -3929,7 +3929,7 @@ Constructs NoSuchDistribution from required parameters
 #### `newNoSuchDistribution'`
 
 ``` purescript
-newNoSuchDistribution' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchDistribution
+newNoSuchDistribution' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchDistribution
 ```
 
 Constructs NoSuchDistribution's fields from required parameters
@@ -3938,7 +3938,7 @@ Constructs NoSuchDistribution's fields from required parameters
 
 ``` purescript
 newtype NoSuchInvalidation
-  = NoSuchInvalidation { "Message" :: NullOrUndefined (String) }
+  = NoSuchInvalidation { "Message" :: Maybe (String) }
 ```
 
 <p>The specified invalidation does not exist.</p>
@@ -3963,7 +3963,7 @@ Constructs NoSuchInvalidation from required parameters
 #### `newNoSuchInvalidation'`
 
 ``` purescript
-newNoSuchInvalidation' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchInvalidation
+newNoSuchInvalidation' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchInvalidation
 ```
 
 Constructs NoSuchInvalidation's fields from required parameters
@@ -3972,7 +3972,7 @@ Constructs NoSuchInvalidation's fields from required parameters
 
 ``` purescript
 newtype NoSuchOrigin
-  = NoSuchOrigin { "Message" :: NullOrUndefined (String) }
+  = NoSuchOrigin { "Message" :: Maybe (String) }
 ```
 
 <p>No origin exists with the specified <code>Origin Id</code>. </p>
@@ -3997,7 +3997,7 @@ Constructs NoSuchOrigin from required parameters
 #### `newNoSuchOrigin'`
 
 ``` purescript
-newNoSuchOrigin' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchOrigin
+newNoSuchOrigin' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchOrigin
 ```
 
 Constructs NoSuchOrigin's fields from required parameters
@@ -4006,7 +4006,7 @@ Constructs NoSuchOrigin's fields from required parameters
 
 ``` purescript
 newtype NoSuchResource
-  = NoSuchResource { "Message" :: NullOrUndefined (String) }
+  = NoSuchResource { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -4029,7 +4029,7 @@ Constructs NoSuchResource from required parameters
 #### `newNoSuchResource'`
 
 ``` purescript
-newNoSuchResource' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchResource
+newNoSuchResource' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchResource
 ```
 
 Constructs NoSuchResource's fields from required parameters
@@ -4038,7 +4038,7 @@ Constructs NoSuchResource's fields from required parameters
 
 ``` purescript
 newtype NoSuchStreamingDistribution
-  = NoSuchStreamingDistribution { "Message" :: NullOrUndefined (String) }
+  = NoSuchStreamingDistribution { "Message" :: Maybe (String) }
 ```
 
 <p>The specified streaming distribution does not exist.</p>
@@ -4063,7 +4063,7 @@ Constructs NoSuchStreamingDistribution from required parameters
 #### `newNoSuchStreamingDistribution'`
 
 ``` purescript
-newNoSuchStreamingDistribution' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> NoSuchStreamingDistribution
+newNoSuchStreamingDistribution' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> NoSuchStreamingDistribution
 ```
 
 Constructs NoSuchStreamingDistribution's fields from required parameters
@@ -4072,7 +4072,7 @@ Constructs NoSuchStreamingDistribution's fields from required parameters
 
 ``` purescript
 newtype Origin
-  = Origin { "Id" :: String, "DomainName" :: String, "OriginPath" :: NullOrUndefined (String), "CustomHeaders" :: NullOrUndefined (CustomHeaders), "S3OriginConfig" :: NullOrUndefined (S3OriginConfig), "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig) }
+  = Origin { "Id" :: String, "DomainName" :: String, "OriginPath" :: Maybe (String), "CustomHeaders" :: Maybe (CustomHeaders), "S3OriginConfig" :: Maybe (S3OriginConfig), "CustomOriginConfig" :: Maybe (CustomOriginConfig) }
 ```
 
 <p>A complex type that describes the Amazon S3 bucket or the HTTP server (for example, a web server) from which CloudFront gets your files. You must create at least one origin.</p> <p>For the current limit on the number of origins that you can create for a distribution, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront Limits</a> in the <i>AWS General Reference</i>.</p>
@@ -4097,7 +4097,7 @@ Constructs Origin from required parameters
 #### `newOrigin'`
 
 ``` purescript
-newOrigin' :: String -> String -> ({ "Id" :: String, "DomainName" :: String, "OriginPath" :: NullOrUndefined (String), "CustomHeaders" :: NullOrUndefined (CustomHeaders), "S3OriginConfig" :: NullOrUndefined (S3OriginConfig), "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig) } -> { "Id" :: String, "DomainName" :: String, "OriginPath" :: NullOrUndefined (String), "CustomHeaders" :: NullOrUndefined (CustomHeaders), "S3OriginConfig" :: NullOrUndefined (S3OriginConfig), "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig) }) -> Origin
+newOrigin' :: String -> String -> ({ "Id" :: String, "DomainName" :: String, "OriginPath" :: Maybe (String), "CustomHeaders" :: Maybe (CustomHeaders), "S3OriginConfig" :: Maybe (S3OriginConfig), "CustomOriginConfig" :: Maybe (CustomOriginConfig) } -> { "Id" :: String, "DomainName" :: String, "OriginPath" :: Maybe (String), "CustomHeaders" :: Maybe (CustomHeaders), "S3OriginConfig" :: Maybe (S3OriginConfig), "CustomOriginConfig" :: Maybe (CustomOriginConfig) }) -> Origin
 ```
 
 Constructs Origin's fields from required parameters
@@ -4222,7 +4222,7 @@ Constructs OriginSslProtocols's fields from required parameters
 
 ``` purescript
 newtype Origins
-  = Origins { "Quantity" :: Int, "Items" :: NullOrUndefined (OriginList) }
+  = Origins { "Quantity" :: Int, "Items" :: Maybe (OriginList) }
 ```
 
 <p>A complex type that contains information about origins for this distribution. </p>
@@ -4247,7 +4247,7 @@ Constructs Origins from required parameters
 #### `newOrigins'`
 
 ``` purescript
-newOrigins' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (OriginList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (OriginList) }) -> Origins
+newOrigins' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (OriginList) } -> { "Quantity" :: Int, "Items" :: Maybe (OriginList) }) -> Origins
 ```
 
 Constructs Origins's fields from required parameters
@@ -4272,7 +4272,7 @@ Encode PathList
 
 ``` purescript
 newtype Paths
-  = Paths { "Quantity" :: Int, "Items" :: NullOrUndefined (PathList) }
+  = Paths { "Quantity" :: Int, "Items" :: Maybe (PathList) }
 ```
 
 <p>A complex type that contains information about the objects that you want to invalidate. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
@@ -4297,7 +4297,7 @@ Constructs Paths from required parameters
 #### `newPaths'`
 
 ``` purescript
-newPaths' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (PathList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (PathList) }) -> Paths
+newPaths' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (PathList) } -> { "Quantity" :: Int, "Items" :: Maybe (PathList) }) -> Paths
 ```
 
 Constructs Paths's fields from required parameters
@@ -4306,7 +4306,7 @@ Constructs Paths's fields from required parameters
 
 ``` purescript
 newtype PreconditionFailed
-  = PreconditionFailed { "Message" :: NullOrUndefined (String) }
+  = PreconditionFailed { "Message" :: Maybe (String) }
 ```
 
 <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
@@ -4331,7 +4331,7 @@ Constructs PreconditionFailed from required parameters
 #### `newPreconditionFailed'`
 
 ``` purescript
-newPreconditionFailed' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> PreconditionFailed
+newPreconditionFailed' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> PreconditionFailed
 ```
 
 Constructs PreconditionFailed's fields from required parameters
@@ -4356,7 +4356,7 @@ Encode PriceClass
 
 ``` purescript
 newtype QueryStringCacheKeys
-  = QueryStringCacheKeys { "Quantity" :: Int, "Items" :: NullOrUndefined (QueryStringCacheKeysList) }
+  = QueryStringCacheKeys { "Quantity" :: Int, "Items" :: Maybe (QueryStringCacheKeysList) }
 ```
 
 ##### Instances
@@ -4379,7 +4379,7 @@ Constructs QueryStringCacheKeys from required parameters
 #### `newQueryStringCacheKeys'`
 
 ``` purescript
-newQueryStringCacheKeys' :: Int -> ({ "Quantity" :: Int, "Items" :: NullOrUndefined (QueryStringCacheKeysList) } -> { "Quantity" :: Int, "Items" :: NullOrUndefined (QueryStringCacheKeysList) }) -> QueryStringCacheKeys
+newQueryStringCacheKeys' :: Int -> ({ "Quantity" :: Int, "Items" :: Maybe (QueryStringCacheKeysList) } -> { "Quantity" :: Int, "Items" :: Maybe (QueryStringCacheKeysList) }) -> QueryStringCacheKeys
 ```
 
 Constructs QueryStringCacheKeys's fields from required parameters
@@ -4538,7 +4538,7 @@ Encode SSLSupportMethod
 
 ``` purescript
 newtype Signer
-  = Signer { "AwsAccountNumber" :: NullOrUndefined (String), "KeyPairIds" :: NullOrUndefined (KeyPairIds) }
+  = Signer { "AwsAccountNumber" :: Maybe (String), "KeyPairIds" :: Maybe (KeyPairIds) }
 ```
 
 <p>A complex type that lists the AWS accounts that were included in the <code>TrustedSigners</code> complex type, as well as their active CloudFront key pair IDs, if any. </p>
@@ -4563,7 +4563,7 @@ Constructs Signer from required parameters
 #### `newSigner'`
 
 ``` purescript
-newSigner' :: ({ "AwsAccountNumber" :: NullOrUndefined (String), "KeyPairIds" :: NullOrUndefined (KeyPairIds) } -> { "AwsAccountNumber" :: NullOrUndefined (String), "KeyPairIds" :: NullOrUndefined (KeyPairIds) }) -> Signer
+newSigner' :: ({ "AwsAccountNumber" :: Maybe (String), "KeyPairIds" :: Maybe (KeyPairIds) } -> { "AwsAccountNumber" :: Maybe (String), "KeyPairIds" :: Maybe (KeyPairIds) }) -> Signer
 ```
 
 Constructs Signer's fields from required parameters
@@ -4620,7 +4620,7 @@ Encode SslProtocolsList
 
 ``` purescript
 newtype StreamingDistribution
-  = StreamingDistribution { "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: NullOrUndefined (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig }
+  = StreamingDistribution { "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: Maybe (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig }
 ```
 
 <p>A streaming distribution. </p>
@@ -4645,7 +4645,7 @@ Constructs StreamingDistribution from required parameters
 #### `newStreamingDistribution'`
 
 ``` purescript
-newStreamingDistribution' :: String -> ActiveTrustedSigners -> String -> String -> String -> StreamingDistributionConfig -> ({ "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: NullOrUndefined (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig } -> { "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: NullOrUndefined (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig }) -> StreamingDistribution
+newStreamingDistribution' :: String -> ActiveTrustedSigners -> String -> String -> String -> StreamingDistributionConfig -> ({ "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: Maybe (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig } -> { "Id" :: String, "ARN" :: String, "Status" :: String, "LastModifiedTime" :: Maybe (Timestamp), "DomainName" :: String, "ActiveTrustedSigners" :: ActiveTrustedSigners, "StreamingDistributionConfig" :: StreamingDistributionConfig }) -> StreamingDistribution
 ```
 
 Constructs StreamingDistribution's fields from required parameters
@@ -4654,7 +4654,7 @@ Constructs StreamingDistribution's fields from required parameters
 
 ``` purescript
 newtype StreamingDistributionAlreadyExists
-  = StreamingDistributionAlreadyExists { "Message" :: NullOrUndefined (String) }
+  = StreamingDistributionAlreadyExists { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -4677,7 +4677,7 @@ Constructs StreamingDistributionAlreadyExists from required parameters
 #### `newStreamingDistributionAlreadyExists'`
 
 ``` purescript
-newStreamingDistributionAlreadyExists' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> StreamingDistributionAlreadyExists
+newStreamingDistributionAlreadyExists' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> StreamingDistributionAlreadyExists
 ```
 
 Constructs StreamingDistributionAlreadyExists's fields from required parameters
@@ -4686,7 +4686,7 @@ Constructs StreamingDistributionAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype StreamingDistributionConfig
-  = StreamingDistributionConfig { "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: NullOrUndefined (Aliases), "Comment" :: String, "Logging" :: NullOrUndefined (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean }
+  = StreamingDistributionConfig { "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: Maybe (Aliases), "Comment" :: String, "Logging" :: Maybe (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean }
 ```
 
 <p>The RTMP distribution's configuration information.</p>
@@ -4711,7 +4711,7 @@ Constructs StreamingDistributionConfig from required parameters
 #### `newStreamingDistributionConfig'`
 
 ``` purescript
-newStreamingDistributionConfig' :: String -> String -> Boolean -> S3Origin -> TrustedSigners -> ({ "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: NullOrUndefined (Aliases), "Comment" :: String, "Logging" :: NullOrUndefined (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean } -> { "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: NullOrUndefined (Aliases), "Comment" :: String, "Logging" :: NullOrUndefined (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: NullOrUndefined (PriceClass), "Enabled" :: Boolean }) -> StreamingDistributionConfig
+newStreamingDistributionConfig' :: String -> String -> Boolean -> S3Origin -> TrustedSigners -> ({ "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: Maybe (Aliases), "Comment" :: String, "Logging" :: Maybe (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean } -> { "CallerReference" :: String, "S3Origin" :: S3Origin, "Aliases" :: Maybe (Aliases), "Comment" :: String, "Logging" :: Maybe (StreamingLoggingConfig), "TrustedSigners" :: TrustedSigners, "PriceClass" :: Maybe (PriceClass), "Enabled" :: Boolean }) -> StreamingDistributionConfig
 ```
 
 Constructs StreamingDistributionConfig's fields from required parameters
@@ -4754,7 +4754,7 @@ Constructs StreamingDistributionConfigWithTags's fields from required parameters
 
 ``` purescript
 newtype StreamingDistributionList
-  = StreamingDistributionList { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (StreamingDistributionSummaryList) }
+  = StreamingDistributionList { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (StreamingDistributionSummaryList) }
 ```
 
 <p>A streaming distribution list. </p>
@@ -4779,7 +4779,7 @@ Constructs StreamingDistributionList from required parameters
 #### `newStreamingDistributionList'`
 
 ``` purescript
-newStreamingDistributionList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (StreamingDistributionSummaryList) } -> { "Marker" :: String, "NextMarker" :: NullOrUndefined (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (StreamingDistributionSummaryList) }) -> StreamingDistributionList
+newStreamingDistributionList' :: Boolean -> String -> Int -> Int -> ({ "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (StreamingDistributionSummaryList) } -> { "Marker" :: String, "NextMarker" :: Maybe (String), "MaxItems" :: Int, "IsTruncated" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (StreamingDistributionSummaryList) }) -> StreamingDistributionList
 ```
 
 Constructs StreamingDistributionList's fields from required parameters
@@ -4788,7 +4788,7 @@ Constructs StreamingDistributionList's fields from required parameters
 
 ``` purescript
 newtype StreamingDistributionNotDisabled
-  = StreamingDistributionNotDisabled { "Message" :: NullOrUndefined (String) }
+  = StreamingDistributionNotDisabled { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -4811,7 +4811,7 @@ Constructs StreamingDistributionNotDisabled from required parameters
 #### `newStreamingDistributionNotDisabled'`
 
 ``` purescript
-newStreamingDistributionNotDisabled' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> StreamingDistributionNotDisabled
+newStreamingDistributionNotDisabled' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> StreamingDistributionNotDisabled
 ```
 
 Constructs StreamingDistributionNotDisabled's fields from required parameters
@@ -4904,7 +4904,7 @@ Constructs StreamingLoggingConfig's fields from required parameters
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }
+  = Tag { "Key" :: TagKey, "Value" :: Maybe (TagValue) }
 ```
 
 <p> A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
@@ -4929,7 +4929,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) } -> { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: Maybe (TagValue) } -> { "Key" :: TagKey, "Value" :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -4972,7 +4972,7 @@ Encode TagKeyList
 
 ``` purescript
 newtype TagKeys
-  = TagKeys { "Items" :: NullOrUndefined (TagKeyList) }
+  = TagKeys { "Items" :: Maybe (TagKeyList) }
 ```
 
 <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
@@ -4997,7 +4997,7 @@ Constructs TagKeys from required parameters
 #### `newTagKeys'`
 
 ``` purescript
-newTagKeys' :: ({ "Items" :: NullOrUndefined (TagKeyList) } -> { "Items" :: NullOrUndefined (TagKeyList) }) -> TagKeys
+newTagKeys' :: ({ "Items" :: Maybe (TagKeyList) } -> { "Items" :: Maybe (TagKeyList) }) -> TagKeys
 ```
 
 Constructs TagKeys's fields from required parameters
@@ -5072,7 +5072,7 @@ Encode TagValue
 
 ``` purescript
 newtype Tags
-  = Tags { "Items" :: NullOrUndefined (TagList) }
+  = Tags { "Items" :: Maybe (TagList) }
 ```
 
 <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
@@ -5097,7 +5097,7 @@ Constructs Tags from required parameters
 #### `newTags'`
 
 ``` purescript
-newTags' :: ({ "Items" :: NullOrUndefined (TagList) } -> { "Items" :: NullOrUndefined (TagList) }) -> Tags
+newTags' :: ({ "Items" :: Maybe (TagList) } -> { "Items" :: Maybe (TagList) }) -> Tags
 ```
 
 Constructs Tags's fields from required parameters
@@ -5106,7 +5106,7 @@ Constructs Tags's fields from required parameters
 
 ``` purescript
 newtype TooManyCacheBehaviors
-  = TooManyCacheBehaviors { "Message" :: NullOrUndefined (String) }
+  = TooManyCacheBehaviors { "Message" :: Maybe (String) }
 ```
 
 <p>You cannot create more cache behaviors for the distribution.</p>
@@ -5131,7 +5131,7 @@ Constructs TooManyCacheBehaviors from required parameters
 #### `newTooManyCacheBehaviors'`
 
 ``` purescript
-newTooManyCacheBehaviors' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyCacheBehaviors
+newTooManyCacheBehaviors' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyCacheBehaviors
 ```
 
 Constructs TooManyCacheBehaviors's fields from required parameters
@@ -5140,7 +5140,7 @@ Constructs TooManyCacheBehaviors's fields from required parameters
 
 ``` purescript
 newtype TooManyCertificates
-  = TooManyCertificates { "Message" :: NullOrUndefined (String) }
+  = TooManyCertificates { "Message" :: Maybe (String) }
 ```
 
 <p>You cannot create anymore custom SSL/TLS certificates.</p>
@@ -5165,7 +5165,7 @@ Constructs TooManyCertificates from required parameters
 #### `newTooManyCertificates'`
 
 ``` purescript
-newTooManyCertificates' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyCertificates
+newTooManyCertificates' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyCertificates
 ```
 
 Constructs TooManyCertificates's fields from required parameters
@@ -5174,7 +5174,7 @@ Constructs TooManyCertificates's fields from required parameters
 
 ``` purescript
 newtype TooManyCloudFrontOriginAccessIdentities
-  = TooManyCloudFrontOriginAccessIdentities { "Message" :: NullOrUndefined (String) }
+  = TooManyCloudFrontOriginAccessIdentities { "Message" :: Maybe (String) }
 ```
 
 <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
@@ -5199,7 +5199,7 @@ Constructs TooManyCloudFrontOriginAccessIdentities from required parameters
 #### `newTooManyCloudFrontOriginAccessIdentities'`
 
 ``` purescript
-newTooManyCloudFrontOriginAccessIdentities' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyCloudFrontOriginAccessIdentities
+newTooManyCloudFrontOriginAccessIdentities' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyCloudFrontOriginAccessIdentities
 ```
 
 Constructs TooManyCloudFrontOriginAccessIdentities's fields from required parameters
@@ -5208,7 +5208,7 @@ Constructs TooManyCloudFrontOriginAccessIdentities's fields from required parame
 
 ``` purescript
 newtype TooManyCookieNamesInWhiteList
-  = TooManyCookieNamesInWhiteList { "Message" :: NullOrUndefined (String) }
+  = TooManyCookieNamesInWhiteList { "Message" :: Maybe (String) }
 ```
 
 <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
@@ -5233,7 +5233,7 @@ Constructs TooManyCookieNamesInWhiteList from required parameters
 #### `newTooManyCookieNamesInWhiteList'`
 
 ``` purescript
-newTooManyCookieNamesInWhiteList' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyCookieNamesInWhiteList
+newTooManyCookieNamesInWhiteList' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyCookieNamesInWhiteList
 ```
 
 Constructs TooManyCookieNamesInWhiteList's fields from required parameters
@@ -5242,7 +5242,7 @@ Constructs TooManyCookieNamesInWhiteList's fields from required parameters
 
 ``` purescript
 newtype TooManyDistributionCNAMEs
-  = TooManyDistributionCNAMEs { "Message" :: NullOrUndefined (String) }
+  = TooManyDistributionCNAMEs { "Message" :: Maybe (String) }
 ```
 
 <p>Your request contains more CNAMEs than are allowed per distribution.</p>
@@ -5267,7 +5267,7 @@ Constructs TooManyDistributionCNAMEs from required parameters
 #### `newTooManyDistributionCNAMEs'`
 
 ``` purescript
-newTooManyDistributionCNAMEs' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyDistributionCNAMEs
+newTooManyDistributionCNAMEs' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyDistributionCNAMEs
 ```
 
 Constructs TooManyDistributionCNAMEs's fields from required parameters
@@ -5276,7 +5276,7 @@ Constructs TooManyDistributionCNAMEs's fields from required parameters
 
 ``` purescript
 newtype TooManyDistributions
-  = TooManyDistributions { "Message" :: NullOrUndefined (String) }
+  = TooManyDistributions { "Message" :: Maybe (String) }
 ```
 
 <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
@@ -5301,7 +5301,7 @@ Constructs TooManyDistributions from required parameters
 #### `newTooManyDistributions'`
 
 ``` purescript
-newTooManyDistributions' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyDistributions
+newTooManyDistributions' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyDistributions
 ```
 
 Constructs TooManyDistributions's fields from required parameters
@@ -5310,7 +5310,7 @@ Constructs TooManyDistributions's fields from required parameters
 
 ``` purescript
 newtype TooManyDistributionsWithLambdaAssociations
-  = TooManyDistributionsWithLambdaAssociations { "Message" :: NullOrUndefined (String) }
+  = TooManyDistributionsWithLambdaAssociations { "Message" :: Maybe (String) }
 ```
 
 <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.</p>
@@ -5335,7 +5335,7 @@ Constructs TooManyDistributionsWithLambdaAssociations from required parameters
 #### `newTooManyDistributionsWithLambdaAssociations'`
 
 ``` purescript
-newTooManyDistributionsWithLambdaAssociations' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyDistributionsWithLambdaAssociations
+newTooManyDistributionsWithLambdaAssociations' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyDistributionsWithLambdaAssociations
 ```
 
 Constructs TooManyDistributionsWithLambdaAssociations's fields from required parameters
@@ -5344,7 +5344,7 @@ Constructs TooManyDistributionsWithLambdaAssociations's fields from required par
 
 ``` purescript
 newtype TooManyHeadersInForwardedValues
-  = TooManyHeadersInForwardedValues { "Message" :: NullOrUndefined (String) }
+  = TooManyHeadersInForwardedValues { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -5367,7 +5367,7 @@ Constructs TooManyHeadersInForwardedValues from required parameters
 #### `newTooManyHeadersInForwardedValues'`
 
 ``` purescript
-newTooManyHeadersInForwardedValues' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyHeadersInForwardedValues
+newTooManyHeadersInForwardedValues' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyHeadersInForwardedValues
 ```
 
 Constructs TooManyHeadersInForwardedValues's fields from required parameters
@@ -5376,7 +5376,7 @@ Constructs TooManyHeadersInForwardedValues's fields from required parameters
 
 ``` purescript
 newtype TooManyInvalidationsInProgress
-  = TooManyInvalidationsInProgress { "Message" :: NullOrUndefined (String) }
+  = TooManyInvalidationsInProgress { "Message" :: Maybe (String) }
 ```
 
 <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
@@ -5401,7 +5401,7 @@ Constructs TooManyInvalidationsInProgress from required parameters
 #### `newTooManyInvalidationsInProgress'`
 
 ``` purescript
-newTooManyInvalidationsInProgress' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyInvalidationsInProgress
+newTooManyInvalidationsInProgress' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyInvalidationsInProgress
 ```
 
 Constructs TooManyInvalidationsInProgress's fields from required parameters
@@ -5410,7 +5410,7 @@ Constructs TooManyInvalidationsInProgress's fields from required parameters
 
 ``` purescript
 newtype TooManyLambdaFunctionAssociations
-  = TooManyLambdaFunctionAssociations { "Message" :: NullOrUndefined (String) }
+  = TooManyLambdaFunctionAssociations { "Message" :: Maybe (String) }
 ```
 
 <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
@@ -5435,7 +5435,7 @@ Constructs TooManyLambdaFunctionAssociations from required parameters
 #### `newTooManyLambdaFunctionAssociations'`
 
 ``` purescript
-newTooManyLambdaFunctionAssociations' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyLambdaFunctionAssociations
+newTooManyLambdaFunctionAssociations' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyLambdaFunctionAssociations
 ```
 
 Constructs TooManyLambdaFunctionAssociations's fields from required parameters
@@ -5444,7 +5444,7 @@ Constructs TooManyLambdaFunctionAssociations's fields from required parameters
 
 ``` purescript
 newtype TooManyOriginCustomHeaders
-  = TooManyOriginCustomHeaders { "Message" :: NullOrUndefined (String) }
+  = TooManyOriginCustomHeaders { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -5467,7 +5467,7 @@ Constructs TooManyOriginCustomHeaders from required parameters
 #### `newTooManyOriginCustomHeaders'`
 
 ``` purescript
-newTooManyOriginCustomHeaders' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyOriginCustomHeaders
+newTooManyOriginCustomHeaders' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyOriginCustomHeaders
 ```
 
 Constructs TooManyOriginCustomHeaders's fields from required parameters
@@ -5476,7 +5476,7 @@ Constructs TooManyOriginCustomHeaders's fields from required parameters
 
 ``` purescript
 newtype TooManyOrigins
-  = TooManyOrigins { "Message" :: NullOrUndefined (String) }
+  = TooManyOrigins { "Message" :: Maybe (String) }
 ```
 
 <p>You cannot create more origins for the distribution.</p>
@@ -5501,7 +5501,7 @@ Constructs TooManyOrigins from required parameters
 #### `newTooManyOrigins'`
 
 ``` purescript
-newTooManyOrigins' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyOrigins
+newTooManyOrigins' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyOrigins
 ```
 
 Constructs TooManyOrigins's fields from required parameters
@@ -5510,7 +5510,7 @@ Constructs TooManyOrigins's fields from required parameters
 
 ``` purescript
 newtype TooManyQueryStringParameters
-  = TooManyQueryStringParameters { "Message" :: NullOrUndefined (String) }
+  = TooManyQueryStringParameters { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -5533,7 +5533,7 @@ Constructs TooManyQueryStringParameters from required parameters
 #### `newTooManyQueryStringParameters'`
 
 ``` purescript
-newTooManyQueryStringParameters' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyQueryStringParameters
+newTooManyQueryStringParameters' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyQueryStringParameters
 ```
 
 Constructs TooManyQueryStringParameters's fields from required parameters
@@ -5542,7 +5542,7 @@ Constructs TooManyQueryStringParameters's fields from required parameters
 
 ``` purescript
 newtype TooManyStreamingDistributionCNAMEs
-  = TooManyStreamingDistributionCNAMEs { "Message" :: NullOrUndefined (String) }
+  = TooManyStreamingDistributionCNAMEs { "Message" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -5565,7 +5565,7 @@ Constructs TooManyStreamingDistributionCNAMEs from required parameters
 #### `newTooManyStreamingDistributionCNAMEs'`
 
 ``` purescript
-newTooManyStreamingDistributionCNAMEs' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyStreamingDistributionCNAMEs
+newTooManyStreamingDistributionCNAMEs' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyStreamingDistributionCNAMEs
 ```
 
 Constructs TooManyStreamingDistributionCNAMEs's fields from required parameters
@@ -5574,7 +5574,7 @@ Constructs TooManyStreamingDistributionCNAMEs's fields from required parameters
 
 ``` purescript
 newtype TooManyStreamingDistributions
-  = TooManyStreamingDistributions { "Message" :: NullOrUndefined (String) }
+  = TooManyStreamingDistributions { "Message" :: Maybe (String) }
 ```
 
 <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
@@ -5599,7 +5599,7 @@ Constructs TooManyStreamingDistributions from required parameters
 #### `newTooManyStreamingDistributions'`
 
 ``` purescript
-newTooManyStreamingDistributions' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyStreamingDistributions
+newTooManyStreamingDistributions' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyStreamingDistributions
 ```
 
 Constructs TooManyStreamingDistributions's fields from required parameters
@@ -5608,7 +5608,7 @@ Constructs TooManyStreamingDistributions's fields from required parameters
 
 ``` purescript
 newtype TooManyTrustedSigners
-  = TooManyTrustedSigners { "Message" :: NullOrUndefined (String) }
+  = TooManyTrustedSigners { "Message" :: Maybe (String) }
 ```
 
 <p>Your request contains more trusted signers than are allowed per distribution.</p>
@@ -5633,7 +5633,7 @@ Constructs TooManyTrustedSigners from required parameters
 #### `newTooManyTrustedSigners'`
 
 ``` purescript
-newTooManyTrustedSigners' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TooManyTrustedSigners
+newTooManyTrustedSigners' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TooManyTrustedSigners
 ```
 
 Constructs TooManyTrustedSigners's fields from required parameters
@@ -5642,7 +5642,7 @@ Constructs TooManyTrustedSigners's fields from required parameters
 
 ``` purescript
 newtype TrustedSignerDoesNotExist
-  = TrustedSignerDoesNotExist { "Message" :: NullOrUndefined (String) }
+  = TrustedSignerDoesNotExist { "Message" :: Maybe (String) }
 ```
 
 <p>One or more of your trusted signers do not exist.</p>
@@ -5667,7 +5667,7 @@ Constructs TrustedSignerDoesNotExist from required parameters
 #### `newTrustedSignerDoesNotExist'`
 
 ``` purescript
-newTrustedSignerDoesNotExist' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> TrustedSignerDoesNotExist
+newTrustedSignerDoesNotExist' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> TrustedSignerDoesNotExist
 ```
 
 Constructs TrustedSignerDoesNotExist's fields from required parameters
@@ -5676,7 +5676,7 @@ Constructs TrustedSignerDoesNotExist's fields from required parameters
 
 ``` purescript
 newtype TrustedSigners
-  = TrustedSigners { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (AwsAccountNumberList) }
+  = TrustedSigners { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (AwsAccountNumberList) }
 ```
 
 <p>A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content.</p> <p>If you want to require signed URLs in requests for objects in the target origin that match the <code>PathPattern</code> for this cache behavior, specify <code>true</code> for <code>Enabled</code>, and specify the applicable values for <code>Quantity</code> and <code>Items</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon Amazon CloudFront Developer Guide</i>.</p> <p>If you don't want to require signed URLs in requests for objects that match <code>PathPattern</code>, specify <code>false</code> for <code>Enabled</code> and <code>0</code> for <code>Quantity</code>. Omit <code>Items</code>.</p> <p>To add, change, or remove one or more trusted signers, change <code>Enabled</code> to <code>true</code> (if it's currently <code>false</code>), change <code>Quantity</code> as applicable, and specify all of the trusted signers that you want to include in the updated distribution.</p> <p>For more information about updating the distribution configuration, see <a>DistributionConfig</a> .</p>
@@ -5701,7 +5701,7 @@ Constructs TrustedSigners from required parameters
 #### `newTrustedSigners'`
 
 ``` purescript
-newTrustedSigners' :: Boolean -> Int -> ({ "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (AwsAccountNumberList) } -> { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: NullOrUndefined (AwsAccountNumberList) }) -> TrustedSigners
+newTrustedSigners' :: Boolean -> Int -> ({ "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (AwsAccountNumberList) } -> { "Enabled" :: Boolean, "Quantity" :: Int, "Items" :: Maybe (AwsAccountNumberList) }) -> TrustedSigners
 ```
 
 Constructs TrustedSigners's fields from required parameters
@@ -5744,7 +5744,7 @@ Constructs UntagResourceRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateCloudFrontOriginAccessIdentityRequest
-  = UpdateCloudFrontOriginAccessIdentityRequest { "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = UpdateCloudFrontOriginAccessIdentityRequest { "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>The request to update an origin access identity.</p>
@@ -5769,7 +5769,7 @@ Constructs UpdateCloudFrontOriginAccessIdentityRequest from required parameters
 #### `newUpdateCloudFrontOriginAccessIdentityRequest'`
 
 ``` purescript
-newUpdateCloudFrontOriginAccessIdentityRequest' :: CloudFrontOriginAccessIdentityConfig -> String -> ({ "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> UpdateCloudFrontOriginAccessIdentityRequest
+newUpdateCloudFrontOriginAccessIdentityRequest' :: CloudFrontOriginAccessIdentityConfig -> String -> ({ "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: Maybe (String) } -> { "CloudFrontOriginAccessIdentityConfig" :: CloudFrontOriginAccessIdentityConfig, "Id" :: String, "IfMatch" :: Maybe (String) }) -> UpdateCloudFrontOriginAccessIdentityRequest
 ```
 
 Constructs UpdateCloudFrontOriginAccessIdentityRequest's fields from required parameters
@@ -5778,7 +5778,7 @@ Constructs UpdateCloudFrontOriginAccessIdentityRequest's fields from required pa
 
 ``` purescript
 newtype UpdateCloudFrontOriginAccessIdentityResult
-  = UpdateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) }
+  = UpdateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -5803,7 +5803,7 @@ Constructs UpdateCloudFrontOriginAccessIdentityResult from required parameters
 #### `newUpdateCloudFrontOriginAccessIdentityResult'`
 
 ``` purescript
-newUpdateCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) } -> { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity), "ETag" :: NullOrUndefined (String) }) -> UpdateCloudFrontOriginAccessIdentityResult
+newUpdateCloudFrontOriginAccessIdentityResult' :: ({ "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) } -> { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity), "ETag" :: Maybe (String) }) -> UpdateCloudFrontOriginAccessIdentityResult
 ```
 
 Constructs UpdateCloudFrontOriginAccessIdentityResult's fields from required parameters
@@ -5812,7 +5812,7 @@ Constructs UpdateCloudFrontOriginAccessIdentityResult's fields from required par
 
 ``` purescript
 newtype UpdateDistributionRequest
-  = UpdateDistributionRequest { "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = UpdateDistributionRequest { "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>The request to update a distribution.</p>
@@ -5837,7 +5837,7 @@ Constructs UpdateDistributionRequest from required parameters
 #### `newUpdateDistributionRequest'`
 
 ``` purescript
-newUpdateDistributionRequest' :: DistributionConfig -> String -> ({ "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> UpdateDistributionRequest
+newUpdateDistributionRequest' :: DistributionConfig -> String -> ({ "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) } -> { "DistributionConfig" :: DistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) }) -> UpdateDistributionRequest
 ```
 
 Constructs UpdateDistributionRequest's fields from required parameters
@@ -5846,7 +5846,7 @@ Constructs UpdateDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDistributionResult
-  = UpdateDistributionResult { "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) }
+  = UpdateDistributionResult { "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -5871,7 +5871,7 @@ Constructs UpdateDistributionResult from required parameters
 #### `newUpdateDistributionResult'`
 
 ``` purescript
-newUpdateDistributionResult' :: ({ "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) } -> { "Distribution" :: NullOrUndefined (Distribution), "ETag" :: NullOrUndefined (String) }) -> UpdateDistributionResult
+newUpdateDistributionResult' :: ({ "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) } -> { "Distribution" :: Maybe (Distribution), "ETag" :: Maybe (String) }) -> UpdateDistributionResult
 ```
 
 Constructs UpdateDistributionResult's fields from required parameters
@@ -5880,7 +5880,7 @@ Constructs UpdateDistributionResult's fields from required parameters
 
 ``` purescript
 newtype UpdateStreamingDistributionRequest
-  = UpdateStreamingDistributionRequest { "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }
+  = UpdateStreamingDistributionRequest { "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) }
 ```
 
 <p>The request to update a streaming distribution.</p>
@@ -5905,7 +5905,7 @@ Constructs UpdateStreamingDistributionRequest from required parameters
 #### `newUpdateStreamingDistributionRequest'`
 
 ``` purescript
-newUpdateStreamingDistributionRequest' :: String -> StreamingDistributionConfig -> ({ "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) } -> { "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: NullOrUndefined (String) }) -> UpdateStreamingDistributionRequest
+newUpdateStreamingDistributionRequest' :: String -> StreamingDistributionConfig -> ({ "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) } -> { "StreamingDistributionConfig" :: StreamingDistributionConfig, "Id" :: String, "IfMatch" :: Maybe (String) }) -> UpdateStreamingDistributionRequest
 ```
 
 Constructs UpdateStreamingDistributionRequest's fields from required parameters
@@ -5914,7 +5914,7 @@ Constructs UpdateStreamingDistributionRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateStreamingDistributionResult
-  = UpdateStreamingDistributionResult { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) }
+  = UpdateStreamingDistributionResult { "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) }
 ```
 
 <p>The returned result of the corresponding request.</p>
@@ -5939,7 +5939,7 @@ Constructs UpdateStreamingDistributionResult from required parameters
 #### `newUpdateStreamingDistributionResult'`
 
 ``` purescript
-newUpdateStreamingDistributionResult' :: ({ "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) } -> { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution), "ETag" :: NullOrUndefined (String) }) -> UpdateStreamingDistributionResult
+newUpdateStreamingDistributionResult' :: ({ "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) } -> { "StreamingDistribution" :: Maybe (StreamingDistribution), "ETag" :: Maybe (String) }) -> UpdateStreamingDistributionResult
 ```
 
 Constructs UpdateStreamingDistributionResult's fields from required parameters
@@ -5948,7 +5948,7 @@ Constructs UpdateStreamingDistributionResult's fields from required parameters
 
 ``` purescript
 newtype ViewerCertificate
-  = ViewerCertificate { "CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean), "IAMCertificateId" :: NullOrUndefined (String), "ACMCertificateArn" :: NullOrUndefined (String), "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod), "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion), "Certificate" :: NullOrUndefined (String), "CertificateSource" :: NullOrUndefined (CertificateSource) }
+  = ViewerCertificate { "CloudFrontDefaultCertificate" :: Maybe (Boolean), "IAMCertificateId" :: Maybe (String), "ACMCertificateArn" :: Maybe (String), "SSLSupportMethod" :: Maybe (SSLSupportMethod), "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion), "Certificate" :: Maybe (String), "CertificateSource" :: Maybe (CertificateSource) }
 ```
 
 <p>A complex type that specifies the following:</p> <ul> <li> <p>Which SSL/TLS certificate to use when viewers request objects using HTTPS</p> </li> <li> <p>Whether you want CloudFront to use dedicated IP addresses or SNI when you're using alternate domain names in your object names</p> </li> <li> <p>The minimum protocol version that you want CloudFront to use when communicating with viewers</p> </li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html">Using an HTTPS Connection to Access Your Objects</a> in the <i>Amazon Amazon CloudFront Developer Guide</i>.</p>
@@ -5973,7 +5973,7 @@ Constructs ViewerCertificate from required parameters
 #### `newViewerCertificate'`
 
 ``` purescript
-newViewerCertificate' :: ({ "CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean), "IAMCertificateId" :: NullOrUndefined (String), "ACMCertificateArn" :: NullOrUndefined (String), "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod), "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion), "Certificate" :: NullOrUndefined (String), "CertificateSource" :: NullOrUndefined (CertificateSource) } -> { "CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean), "IAMCertificateId" :: NullOrUndefined (String), "ACMCertificateArn" :: NullOrUndefined (String), "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod), "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion), "Certificate" :: NullOrUndefined (String), "CertificateSource" :: NullOrUndefined (CertificateSource) }) -> ViewerCertificate
+newViewerCertificate' :: ({ "CloudFrontDefaultCertificate" :: Maybe (Boolean), "IAMCertificateId" :: Maybe (String), "ACMCertificateArn" :: Maybe (String), "SSLSupportMethod" :: Maybe (SSLSupportMethod), "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion), "Certificate" :: Maybe (String), "CertificateSource" :: Maybe (CertificateSource) } -> { "CloudFrontDefaultCertificate" :: Maybe (Boolean), "IAMCertificateId" :: Maybe (String), "ACMCertificateArn" :: Maybe (String), "SSLSupportMethod" :: Maybe (SSLSupportMethod), "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion), "Certificate" :: Maybe (String), "CertificateSource" :: Maybe (CertificateSource) }) -> ViewerCertificate
 ```
 
 Constructs ViewerCertificate's fields from required parameters

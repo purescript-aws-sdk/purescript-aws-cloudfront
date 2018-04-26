@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Access denied.</p>
 newtype AccessDenied = AccessDenied 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeAccessDenied :: Newtype AccessDenied _
 derive instance repGenericAccessDenied :: Generic AccessDenied _
@@ -30,12 +29,12 @@ instance encodeAccessDenied :: Encode AccessDenied where encode = genericEncode 
 
 -- | Constructs AccessDenied from required parameters
 newAccessDenied :: AccessDenied
-newAccessDenied  = AccessDenied { "Message": (NullOrUndefined Nothing) }
+newAccessDenied  = AccessDenied { "Message": Nothing }
 
 -- | Constructs AccessDenied's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccessDenied' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> AccessDenied
-newAccessDenied'  customize = (AccessDenied <<< customize) { "Message": (NullOrUndefined Nothing) }
+newAccessDenied' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> AccessDenied
+newAccessDenied'  customize = (AccessDenied <<< customize) { "Message": Nothing }
 
 
 
@@ -43,7 +42,7 @@ newAccessDenied'  customize = (AccessDenied <<< customize) { "Message": (NullOrU
 newtype ActiveTrustedSigners = ActiveTrustedSigners 
   { "Enabled" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (SignerList)
+  , "Items" :: Maybe (SignerList)
   }
 derive instance newtypeActiveTrustedSigners :: Newtype ActiveTrustedSigners _
 derive instance repGenericActiveTrustedSigners :: Generic ActiveTrustedSigners _
@@ -53,12 +52,12 @@ instance encodeActiveTrustedSigners :: Encode ActiveTrustedSigners where encode 
 
 -- | Constructs ActiveTrustedSigners from required parameters
 newActiveTrustedSigners :: Boolean -> Int -> ActiveTrustedSigners
-newActiveTrustedSigners _Enabled _Quantity = ActiveTrustedSigners { "Enabled": _Enabled, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newActiveTrustedSigners _Enabled _Quantity = ActiveTrustedSigners { "Enabled": _Enabled, "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs ActiveTrustedSigners's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newActiveTrustedSigners' :: Boolean -> Int -> ( { "Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (SignerList) } -> {"Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (SignerList) } ) -> ActiveTrustedSigners
-newActiveTrustedSigners' _Enabled _Quantity customize = (ActiveTrustedSigners <<< customize) { "Enabled": _Enabled, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newActiveTrustedSigners' :: Boolean -> Int -> ( { "Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (SignerList) } -> {"Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (SignerList) } ) -> ActiveTrustedSigners
+newActiveTrustedSigners' _Enabled _Quantity customize = (ActiveTrustedSigners <<< customize) { "Enabled": _Enabled, "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -74,7 +73,7 @@ instance encodeAliasList :: Encode AliasList where encode = genericEncode option
 -- | <p>A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution. </p>
 newtype Aliases = Aliases 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (AliasList)
+  , "Items" :: Maybe (AliasList)
   }
 derive instance newtypeAliases :: Newtype Aliases _
 derive instance repGenericAliases :: Generic Aliases _
@@ -84,12 +83,12 @@ instance encodeAliases :: Encode Aliases where encode = genericEncode options
 
 -- | Constructs Aliases from required parameters
 newAliases :: Int -> Aliases
-newAliases _Quantity = Aliases { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newAliases _Quantity = Aliases { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs Aliases's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAliases' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (AliasList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (AliasList) } ) -> Aliases
-newAliases' _Quantity customize = (Aliases <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newAliases' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (AliasList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (AliasList) } ) -> Aliases
+newAliases' _Quantity customize = (Aliases <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -97,7 +96,7 @@ newAliases' _Quantity customize = (Aliases <<< customize) { "Quantity": _Quantit
 newtype AllowedMethods = AllowedMethods 
   { "Quantity" :: (Int)
   , "Items" :: (MethodsList)
-  , "CachedMethods" :: NullOrUndefined (CachedMethods)
+  , "CachedMethods" :: Maybe (CachedMethods)
   }
 derive instance newtypeAllowedMethods :: Newtype AllowedMethods _
 derive instance repGenericAllowedMethods :: Generic AllowedMethods _
@@ -107,12 +106,12 @@ instance encodeAllowedMethods :: Encode AllowedMethods where encode = genericEnc
 
 -- | Constructs AllowedMethods from required parameters
 newAllowedMethods :: MethodsList -> Int -> AllowedMethods
-newAllowedMethods _Items _Quantity = AllowedMethods { "Items": _Items, "Quantity": _Quantity, "CachedMethods": (NullOrUndefined Nothing) }
+newAllowedMethods _Items _Quantity = AllowedMethods { "Items": _Items, "Quantity": _Quantity, "CachedMethods": Nothing }
 
 -- | Constructs AllowedMethods's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAllowedMethods' :: MethodsList -> Int -> ( { "Quantity" :: (Int) , "Items" :: (MethodsList) , "CachedMethods" :: NullOrUndefined (CachedMethods) } -> {"Quantity" :: (Int) , "Items" :: (MethodsList) , "CachedMethods" :: NullOrUndefined (CachedMethods) } ) -> AllowedMethods
-newAllowedMethods' _Items _Quantity customize = (AllowedMethods <<< customize) { "Items": _Items, "Quantity": _Quantity, "CachedMethods": (NullOrUndefined Nothing) }
+newAllowedMethods' :: MethodsList -> Int -> ( { "Quantity" :: (Int) , "Items" :: (MethodsList) , "CachedMethods" :: Maybe (CachedMethods) } -> {"Quantity" :: (Int) , "Items" :: (MethodsList) , "CachedMethods" :: Maybe (CachedMethods) } ) -> AllowedMethods
+newAllowedMethods' _Items _Quantity customize = (AllowedMethods <<< customize) { "Items": _Items, "Quantity": _Quantity, "CachedMethods": Nothing }
 
 
 
@@ -126,7 +125,7 @@ instance encodeAwsAccountNumberList :: Encode AwsAccountNumberList where encode 
 
 
 newtype BatchTooLarge = BatchTooLarge 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeBatchTooLarge :: Newtype BatchTooLarge _
 derive instance repGenericBatchTooLarge :: Generic BatchTooLarge _
@@ -136,17 +135,17 @@ instance encodeBatchTooLarge :: Encode BatchTooLarge where encode = genericEncod
 
 -- | Constructs BatchTooLarge from required parameters
 newBatchTooLarge :: BatchTooLarge
-newBatchTooLarge  = BatchTooLarge { "Message": (NullOrUndefined Nothing) }
+newBatchTooLarge  = BatchTooLarge { "Message": Nothing }
 
 -- | Constructs BatchTooLarge's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchTooLarge' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> BatchTooLarge
-newBatchTooLarge'  customize = (BatchTooLarge <<< customize) { "Message": (NullOrUndefined Nothing) }
+newBatchTooLarge' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> BatchTooLarge
+newBatchTooLarge'  customize = (BatchTooLarge <<< customize) { "Message": Nothing }
 
 
 
 newtype CNAMEAlreadyExists = CNAMEAlreadyExists 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeCNAMEAlreadyExists :: Newtype CNAMEAlreadyExists _
 derive instance repGenericCNAMEAlreadyExists :: Generic CNAMEAlreadyExists _
@@ -156,12 +155,12 @@ instance encodeCNAMEAlreadyExists :: Encode CNAMEAlreadyExists where encode = ge
 
 -- | Constructs CNAMEAlreadyExists from required parameters
 newCNAMEAlreadyExists :: CNAMEAlreadyExists
-newCNAMEAlreadyExists  = CNAMEAlreadyExists { "Message": (NullOrUndefined Nothing) }
+newCNAMEAlreadyExists  = CNAMEAlreadyExists { "Message": Nothing }
 
 -- | Constructs CNAMEAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCNAMEAlreadyExists' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> CNAMEAlreadyExists
-newCNAMEAlreadyExists'  customize = (CNAMEAlreadyExists <<< customize) { "Message": (NullOrUndefined Nothing) }
+newCNAMEAlreadyExists' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> CNAMEAlreadyExists
+newCNAMEAlreadyExists'  customize = (CNAMEAlreadyExists <<< customize) { "Message": Nothing }
 
 
 
@@ -173,12 +172,12 @@ newtype CacheBehavior = CacheBehavior
   , "TrustedSigners" :: (TrustedSigners)
   , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy)
   , "MinTTL" :: (Number)
-  , "AllowedMethods" :: NullOrUndefined (AllowedMethods)
-  , "SmoothStreaming" :: NullOrUndefined (Boolean)
-  , "DefaultTTL" :: NullOrUndefined (Number)
-  , "MaxTTL" :: NullOrUndefined (Number)
-  , "Compress" :: NullOrUndefined (Boolean)
-  , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations)
+  , "AllowedMethods" :: Maybe (AllowedMethods)
+  , "SmoothStreaming" :: Maybe (Boolean)
+  , "DefaultTTL" :: Maybe (Number)
+  , "MaxTTL" :: Maybe (Number)
+  , "Compress" :: Maybe (Boolean)
+  , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations)
   }
 derive instance newtypeCacheBehavior :: Newtype CacheBehavior _
 derive instance repGenericCacheBehavior :: Generic CacheBehavior _
@@ -188,12 +187,12 @@ instance encodeCacheBehavior :: Encode CacheBehavior where encode = genericEncod
 
 -- | Constructs CacheBehavior from required parameters
 newCacheBehavior :: ForwardedValues -> Number -> String -> String -> TrustedSigners -> ViewerProtocolPolicy -> CacheBehavior
-newCacheBehavior _ForwardedValues _MinTTL _PathPattern _TargetOriginId _TrustedSigners _ViewerProtocolPolicy = CacheBehavior { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "PathPattern": _PathPattern, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": (NullOrUndefined Nothing), "Compress": (NullOrUndefined Nothing), "DefaultTTL": (NullOrUndefined Nothing), "LambdaFunctionAssociations": (NullOrUndefined Nothing), "MaxTTL": (NullOrUndefined Nothing), "SmoothStreaming": (NullOrUndefined Nothing) }
+newCacheBehavior _ForwardedValues _MinTTL _PathPattern _TargetOriginId _TrustedSigners _ViewerProtocolPolicy = CacheBehavior { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "PathPattern": _PathPattern, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": Nothing, "Compress": Nothing, "DefaultTTL": Nothing, "LambdaFunctionAssociations": Nothing, "MaxTTL": Nothing, "SmoothStreaming": Nothing }
 
 -- | Constructs CacheBehavior's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCacheBehavior' :: ForwardedValues -> Number -> String -> String -> TrustedSigners -> ViewerProtocolPolicy -> ( { "PathPattern" :: (String) , "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "SmoothStreaming" :: NullOrUndefined (Boolean) , "DefaultTTL" :: NullOrUndefined (Number) , "MaxTTL" :: NullOrUndefined (Number) , "Compress" :: NullOrUndefined (Boolean) , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } -> {"PathPattern" :: (String) , "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "SmoothStreaming" :: NullOrUndefined (Boolean) , "DefaultTTL" :: NullOrUndefined (Number) , "MaxTTL" :: NullOrUndefined (Number) , "Compress" :: NullOrUndefined (Boolean) , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } ) -> CacheBehavior
-newCacheBehavior' _ForwardedValues _MinTTL _PathPattern _TargetOriginId _TrustedSigners _ViewerProtocolPolicy customize = (CacheBehavior <<< customize) { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "PathPattern": _PathPattern, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": (NullOrUndefined Nothing), "Compress": (NullOrUndefined Nothing), "DefaultTTL": (NullOrUndefined Nothing), "LambdaFunctionAssociations": (NullOrUndefined Nothing), "MaxTTL": (NullOrUndefined Nothing), "SmoothStreaming": (NullOrUndefined Nothing) }
+newCacheBehavior' :: ForwardedValues -> Number -> String -> String -> TrustedSigners -> ViewerProtocolPolicy -> ( { "PathPattern" :: (String) , "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: Maybe (AllowedMethods) , "SmoothStreaming" :: Maybe (Boolean) , "DefaultTTL" :: Maybe (Number) , "MaxTTL" :: Maybe (Number) , "Compress" :: Maybe (Boolean) , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } -> {"PathPattern" :: (String) , "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: Maybe (AllowedMethods) , "SmoothStreaming" :: Maybe (Boolean) , "DefaultTTL" :: Maybe (Number) , "MaxTTL" :: Maybe (Number) , "Compress" :: Maybe (Boolean) , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } ) -> CacheBehavior
+newCacheBehavior' _ForwardedValues _MinTTL _PathPattern _TargetOriginId _TrustedSigners _ViewerProtocolPolicy customize = (CacheBehavior <<< customize) { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "PathPattern": _PathPattern, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": Nothing, "Compress": Nothing, "DefaultTTL": Nothing, "LambdaFunctionAssociations": Nothing, "MaxTTL": Nothing, "SmoothStreaming": Nothing }
 
 
 
@@ -209,7 +208,7 @@ instance encodeCacheBehaviorList :: Encode CacheBehaviorList where encode = gene
 -- | <p>A complex type that contains zero or more <code>CacheBehavior</code> elements. </p>
 newtype CacheBehaviors = CacheBehaviors 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (CacheBehaviorList)
+  , "Items" :: Maybe (CacheBehaviorList)
   }
 derive instance newtypeCacheBehaviors :: Newtype CacheBehaviors _
 derive instance repGenericCacheBehaviors :: Generic CacheBehaviors _
@@ -219,12 +218,12 @@ instance encodeCacheBehaviors :: Encode CacheBehaviors where encode = genericEnc
 
 -- | Constructs CacheBehaviors from required parameters
 newCacheBehaviors :: Int -> CacheBehaviors
-newCacheBehaviors _Quantity = CacheBehaviors { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCacheBehaviors _Quantity = CacheBehaviors { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs CacheBehaviors's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCacheBehaviors' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (CacheBehaviorList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (CacheBehaviorList) } ) -> CacheBehaviors
-newCacheBehaviors' _Quantity customize = (CacheBehaviors <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCacheBehaviors' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (CacheBehaviorList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (CacheBehaviorList) } ) -> CacheBehaviors
+newCacheBehaviors' _Quantity customize = (CacheBehaviors <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -263,7 +262,7 @@ instance encodeCertificateSource :: Encode CertificateSource where encode = gene
 newtype CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity 
   { "Id" :: (String)
   , "S3CanonicalUserId" :: (String)
-  , "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig)
+  , "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig)
   }
 derive instance newtypeCloudFrontOriginAccessIdentity :: Newtype CloudFrontOriginAccessIdentity _
 derive instance repGenericCloudFrontOriginAccessIdentity :: Generic CloudFrontOriginAccessIdentity _
@@ -273,18 +272,18 @@ instance encodeCloudFrontOriginAccessIdentity :: Encode CloudFrontOriginAccessId
 
 -- | Constructs CloudFrontOriginAccessIdentity from required parameters
 newCloudFrontOriginAccessIdentity :: String -> String -> CloudFrontOriginAccessIdentity
-newCloudFrontOriginAccessIdentity _Id _S3CanonicalUserId = CloudFrontOriginAccessIdentity { "Id": _Id, "S3CanonicalUserId": _S3CanonicalUserId, "CloudFrontOriginAccessIdentityConfig": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentity _Id _S3CanonicalUserId = CloudFrontOriginAccessIdentity { "Id": _Id, "S3CanonicalUserId": _S3CanonicalUserId, "CloudFrontOriginAccessIdentityConfig": Nothing }
 
 -- | Constructs CloudFrontOriginAccessIdentity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCloudFrontOriginAccessIdentity' :: String -> String -> ( { "Id" :: (String) , "S3CanonicalUserId" :: (String) , "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) } -> {"Id" :: (String) , "S3CanonicalUserId" :: (String) , "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) } ) -> CloudFrontOriginAccessIdentity
-newCloudFrontOriginAccessIdentity' _Id _S3CanonicalUserId customize = (CloudFrontOriginAccessIdentity <<< customize) { "Id": _Id, "S3CanonicalUserId": _S3CanonicalUserId, "CloudFrontOriginAccessIdentityConfig": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentity' :: String -> String -> ( { "Id" :: (String) , "S3CanonicalUserId" :: (String) , "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) } -> {"Id" :: (String) , "S3CanonicalUserId" :: (String) , "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) } ) -> CloudFrontOriginAccessIdentity
+newCloudFrontOriginAccessIdentity' _Id _S3CanonicalUserId customize = (CloudFrontOriginAccessIdentity <<< customize) { "Id": _Id, "S3CanonicalUserId": _S3CanonicalUserId, "CloudFrontOriginAccessIdentityConfig": Nothing }
 
 
 
 -- | <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
 newtype CloudFrontOriginAccessIdentityAlreadyExists = CloudFrontOriginAccessIdentityAlreadyExists 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeCloudFrontOriginAccessIdentityAlreadyExists :: Newtype CloudFrontOriginAccessIdentityAlreadyExists _
 derive instance repGenericCloudFrontOriginAccessIdentityAlreadyExists :: Generic CloudFrontOriginAccessIdentityAlreadyExists _
@@ -294,12 +293,12 @@ instance encodeCloudFrontOriginAccessIdentityAlreadyExists :: Encode CloudFrontO
 
 -- | Constructs CloudFrontOriginAccessIdentityAlreadyExists from required parameters
 newCloudFrontOriginAccessIdentityAlreadyExists :: CloudFrontOriginAccessIdentityAlreadyExists
-newCloudFrontOriginAccessIdentityAlreadyExists  = CloudFrontOriginAccessIdentityAlreadyExists { "Message": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityAlreadyExists  = CloudFrontOriginAccessIdentityAlreadyExists { "Message": Nothing }
 
 -- | Constructs CloudFrontOriginAccessIdentityAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCloudFrontOriginAccessIdentityAlreadyExists' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> CloudFrontOriginAccessIdentityAlreadyExists
-newCloudFrontOriginAccessIdentityAlreadyExists'  customize = (CloudFrontOriginAccessIdentityAlreadyExists <<< customize) { "Message": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityAlreadyExists' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> CloudFrontOriginAccessIdentityAlreadyExists
+newCloudFrontOriginAccessIdentityAlreadyExists'  customize = (CloudFrontOriginAccessIdentityAlreadyExists <<< customize) { "Message": Nothing }
 
 
 
@@ -326,7 +325,7 @@ newCloudFrontOriginAccessIdentityConfig' _CallerReference _Comment customize = (
 
 
 newtype CloudFrontOriginAccessIdentityInUse = CloudFrontOriginAccessIdentityInUse 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeCloudFrontOriginAccessIdentityInUse :: Newtype CloudFrontOriginAccessIdentityInUse _
 derive instance repGenericCloudFrontOriginAccessIdentityInUse :: Generic CloudFrontOriginAccessIdentityInUse _
@@ -336,23 +335,23 @@ instance encodeCloudFrontOriginAccessIdentityInUse :: Encode CloudFrontOriginAcc
 
 -- | Constructs CloudFrontOriginAccessIdentityInUse from required parameters
 newCloudFrontOriginAccessIdentityInUse :: CloudFrontOriginAccessIdentityInUse
-newCloudFrontOriginAccessIdentityInUse  = CloudFrontOriginAccessIdentityInUse { "Message": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityInUse  = CloudFrontOriginAccessIdentityInUse { "Message": Nothing }
 
 -- | Constructs CloudFrontOriginAccessIdentityInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCloudFrontOriginAccessIdentityInUse' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> CloudFrontOriginAccessIdentityInUse
-newCloudFrontOriginAccessIdentityInUse'  customize = (CloudFrontOriginAccessIdentityInUse <<< customize) { "Message": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityInUse' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> CloudFrontOriginAccessIdentityInUse
+newCloudFrontOriginAccessIdentityInUse'  customize = (CloudFrontOriginAccessIdentityInUse <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/origin-access-identity/cloudfront</code> resource. The response includes a <code>CloudFrontOriginAccessIdentityList</code> element with zero or more <code>CloudFrontOriginAccessIdentitySummary</code> child elements. By default, your entire list of origin access identities is returned in one single page. If the list is long, you can paginate it using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
 newtype CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList 
   { "Marker" :: (String)
-  , "NextMarker" :: NullOrUndefined (String)
+  , "NextMarker" :: Maybe (String)
   , "MaxItems" :: (Int)
   , "IsTruncated" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList)
+  , "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList)
   }
 derive instance newtypeCloudFrontOriginAccessIdentityList :: Newtype CloudFrontOriginAccessIdentityList _
 derive instance repGenericCloudFrontOriginAccessIdentityList :: Generic CloudFrontOriginAccessIdentityList _
@@ -362,12 +361,12 @@ instance encodeCloudFrontOriginAccessIdentityList :: Encode CloudFrontOriginAcce
 
 -- | Constructs CloudFrontOriginAccessIdentityList from required parameters
 newCloudFrontOriginAccessIdentityList :: Boolean -> String -> Int -> Int -> CloudFrontOriginAccessIdentityList
-newCloudFrontOriginAccessIdentityList _IsTruncated _Marker _MaxItems _Quantity = CloudFrontOriginAccessIdentityList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityList _IsTruncated _Marker _MaxItems _Quantity = CloudFrontOriginAccessIdentityList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 -- | Constructs CloudFrontOriginAccessIdentityList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCloudFrontOriginAccessIdentityList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList) } -> {"Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (CloudFrontOriginAccessIdentitySummaryList) } ) -> CloudFrontOriginAccessIdentityList
-newCloudFrontOriginAccessIdentityList' _IsTruncated _Marker _MaxItems _Quantity customize = (CloudFrontOriginAccessIdentityList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newCloudFrontOriginAccessIdentityList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList) } -> {"Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (CloudFrontOriginAccessIdentitySummaryList) } ) -> CloudFrontOriginAccessIdentityList
+newCloudFrontOriginAccessIdentityList' _IsTruncated _Marker _MaxItems _Quantity customize = (CloudFrontOriginAccessIdentityList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 
 
@@ -415,7 +414,7 @@ instance encodeCookieNameList :: Encode CookieNameList where encode = genericEnc
 -- | <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype CookieNames = CookieNames 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (CookieNameList)
+  , "Items" :: Maybe (CookieNameList)
   }
 derive instance newtypeCookieNames :: Newtype CookieNames _
 derive instance repGenericCookieNames :: Generic CookieNames _
@@ -425,19 +424,19 @@ instance encodeCookieNames :: Encode CookieNames where encode = genericEncode op
 
 -- | Constructs CookieNames from required parameters
 newCookieNames :: Int -> CookieNames
-newCookieNames _Quantity = CookieNames { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCookieNames _Quantity = CookieNames { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs CookieNames's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCookieNames' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (CookieNameList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (CookieNameList) } ) -> CookieNames
-newCookieNames' _Quantity customize = (CookieNames <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCookieNames' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (CookieNameList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (CookieNameList) } ) -> CookieNames
+newCookieNames' _Quantity customize = (CookieNames <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
 -- | <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype CookiePreference = CookiePreference 
   { "Forward" :: (ItemSelection)
-  , "WhitelistedNames" :: NullOrUndefined (CookieNames)
+  , "WhitelistedNames" :: Maybe (CookieNames)
   }
 derive instance newtypeCookiePreference :: Newtype CookiePreference _
 derive instance repGenericCookiePreference :: Generic CookiePreference _
@@ -447,12 +446,12 @@ instance encodeCookiePreference :: Encode CookiePreference where encode = generi
 
 -- | Constructs CookiePreference from required parameters
 newCookiePreference :: ItemSelection -> CookiePreference
-newCookiePreference _Forward = CookiePreference { "Forward": _Forward, "WhitelistedNames": (NullOrUndefined Nothing) }
+newCookiePreference _Forward = CookiePreference { "Forward": _Forward, "WhitelistedNames": Nothing }
 
 -- | Constructs CookiePreference's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCookiePreference' :: ItemSelection -> ( { "Forward" :: (ItemSelection) , "WhitelistedNames" :: NullOrUndefined (CookieNames) } -> {"Forward" :: (ItemSelection) , "WhitelistedNames" :: NullOrUndefined (CookieNames) } ) -> CookiePreference
-newCookiePreference' _Forward customize = (CookiePreference <<< customize) { "Forward": _Forward, "WhitelistedNames": (NullOrUndefined Nothing) }
+newCookiePreference' :: ItemSelection -> ( { "Forward" :: (ItemSelection) , "WhitelistedNames" :: Maybe (CookieNames) } -> {"Forward" :: (ItemSelection) , "WhitelistedNames" :: Maybe (CookieNames) } ) -> CookiePreference
+newCookiePreference' _Forward customize = (CookiePreference <<< customize) { "Forward": _Forward, "WhitelistedNames": Nothing }
 
 
 
@@ -479,9 +478,9 @@ newCreateCloudFrontOriginAccessIdentityRequest' _CloudFrontOriginAccessIdentityC
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype CreateCloudFrontOriginAccessIdentityResult = CreateCloudFrontOriginAccessIdentityResult 
-  { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity)
-  , "Location" :: NullOrUndefined (String)
-  , "ETag" :: NullOrUndefined (String)
+  { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity)
+  , "Location" :: Maybe (String)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeCreateCloudFrontOriginAccessIdentityResult :: Newtype CreateCloudFrontOriginAccessIdentityResult _
 derive instance repGenericCreateCloudFrontOriginAccessIdentityResult :: Generic CreateCloudFrontOriginAccessIdentityResult _
@@ -491,12 +490,12 @@ instance encodeCreateCloudFrontOriginAccessIdentityResult :: Encode CreateCloudF
 
 -- | Constructs CreateCloudFrontOriginAccessIdentityResult from required parameters
 newCreateCloudFrontOriginAccessIdentityResult :: CreateCloudFrontOriginAccessIdentityResult
-newCreateCloudFrontOriginAccessIdentityResult  = CreateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateCloudFrontOriginAccessIdentityResult  = CreateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing, "Location": Nothing }
 
 -- | Constructs CreateCloudFrontOriginAccessIdentityResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } -> {"CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } ) -> CreateCloudFrontOriginAccessIdentityResult
-newCreateCloudFrontOriginAccessIdentityResult'  customize = (CreateCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } -> {"CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } ) -> CreateCloudFrontOriginAccessIdentityResult
+newCreateCloudFrontOriginAccessIdentityResult'  customize = (CreateCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing, "Location": Nothing }
 
 
 
@@ -523,9 +522,9 @@ newCreateDistributionRequest' _DistributionConfig customize = (CreateDistributio
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype CreateDistributionResult = CreateDistributionResult 
-  { "Distribution" :: NullOrUndefined (Distribution)
-  , "Location" :: NullOrUndefined (String)
-  , "ETag" :: NullOrUndefined (String)
+  { "Distribution" :: Maybe (Distribution)
+  , "Location" :: Maybe (String)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeCreateDistributionResult :: Newtype CreateDistributionResult _
 derive instance repGenericCreateDistributionResult :: Generic CreateDistributionResult _
@@ -535,12 +534,12 @@ instance encodeCreateDistributionResult :: Encode CreateDistributionResult where
 
 -- | Constructs CreateDistributionResult from required parameters
 newCreateDistributionResult :: CreateDistributionResult
-newCreateDistributionResult  = CreateDistributionResult { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateDistributionResult  = CreateDistributionResult { "Distribution": Nothing, "ETag": Nothing, "Location": Nothing }
 
 -- | Constructs CreateDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDistributionResult' :: ( { "Distribution" :: NullOrUndefined (Distribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } -> {"Distribution" :: NullOrUndefined (Distribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } ) -> CreateDistributionResult
-newCreateDistributionResult'  customize = (CreateDistributionResult <<< customize) { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateDistributionResult' :: ( { "Distribution" :: Maybe (Distribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } -> {"Distribution" :: Maybe (Distribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } ) -> CreateDistributionResult
+newCreateDistributionResult'  customize = (CreateDistributionResult <<< customize) { "Distribution": Nothing, "ETag": Nothing, "Location": Nothing }
 
 
 
@@ -567,9 +566,9 @@ newCreateDistributionWithTagsRequest' _DistributionConfigWithTags customize = (C
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype CreateDistributionWithTagsResult = CreateDistributionWithTagsResult 
-  { "Distribution" :: NullOrUndefined (Distribution)
-  , "Location" :: NullOrUndefined (String)
-  , "ETag" :: NullOrUndefined (String)
+  { "Distribution" :: Maybe (Distribution)
+  , "Location" :: Maybe (String)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeCreateDistributionWithTagsResult :: Newtype CreateDistributionWithTagsResult _
 derive instance repGenericCreateDistributionWithTagsResult :: Generic CreateDistributionWithTagsResult _
@@ -579,12 +578,12 @@ instance encodeCreateDistributionWithTagsResult :: Encode CreateDistributionWith
 
 -- | Constructs CreateDistributionWithTagsResult from required parameters
 newCreateDistributionWithTagsResult :: CreateDistributionWithTagsResult
-newCreateDistributionWithTagsResult  = CreateDistributionWithTagsResult { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateDistributionWithTagsResult  = CreateDistributionWithTagsResult { "Distribution": Nothing, "ETag": Nothing, "Location": Nothing }
 
 -- | Constructs CreateDistributionWithTagsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDistributionWithTagsResult' :: ( { "Distribution" :: NullOrUndefined (Distribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } -> {"Distribution" :: NullOrUndefined (Distribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } ) -> CreateDistributionWithTagsResult
-newCreateDistributionWithTagsResult'  customize = (CreateDistributionWithTagsResult <<< customize) { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateDistributionWithTagsResult' :: ( { "Distribution" :: Maybe (Distribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } -> {"Distribution" :: Maybe (Distribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } ) -> CreateDistributionWithTagsResult
+newCreateDistributionWithTagsResult'  customize = (CreateDistributionWithTagsResult <<< customize) { "Distribution": Nothing, "ETag": Nothing, "Location": Nothing }
 
 
 
@@ -612,8 +611,8 @@ newCreateInvalidationRequest' _DistributionId _InvalidationBatch customize = (Cr
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype CreateInvalidationResult = CreateInvalidationResult 
-  { "Location" :: NullOrUndefined (String)
-  , "Invalidation" :: NullOrUndefined (Invalidation)
+  { "Location" :: Maybe (String)
+  , "Invalidation" :: Maybe (Invalidation)
   }
 derive instance newtypeCreateInvalidationResult :: Newtype CreateInvalidationResult _
 derive instance repGenericCreateInvalidationResult :: Generic CreateInvalidationResult _
@@ -623,12 +622,12 @@ instance encodeCreateInvalidationResult :: Encode CreateInvalidationResult where
 
 -- | Constructs CreateInvalidationResult from required parameters
 newCreateInvalidationResult :: CreateInvalidationResult
-newCreateInvalidationResult  = CreateInvalidationResult { "Invalidation": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateInvalidationResult  = CreateInvalidationResult { "Invalidation": Nothing, "Location": Nothing }
 
 -- | Constructs CreateInvalidationResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateInvalidationResult' :: ( { "Location" :: NullOrUndefined (String) , "Invalidation" :: NullOrUndefined (Invalidation) } -> {"Location" :: NullOrUndefined (String) , "Invalidation" :: NullOrUndefined (Invalidation) } ) -> CreateInvalidationResult
-newCreateInvalidationResult'  customize = (CreateInvalidationResult <<< customize) { "Invalidation": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing) }
+newCreateInvalidationResult' :: ( { "Location" :: Maybe (String) , "Invalidation" :: Maybe (Invalidation) } -> {"Location" :: Maybe (String) , "Invalidation" :: Maybe (Invalidation) } ) -> CreateInvalidationResult
+newCreateInvalidationResult'  customize = (CreateInvalidationResult <<< customize) { "Invalidation": Nothing, "Location": Nothing }
 
 
 
@@ -655,9 +654,9 @@ newCreateStreamingDistributionRequest' _StreamingDistributionConfig customize = 
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype CreateStreamingDistributionResult = CreateStreamingDistributionResult 
-  { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution)
-  , "Location" :: NullOrUndefined (String)
-  , "ETag" :: NullOrUndefined (String)
+  { "StreamingDistribution" :: Maybe (StreamingDistribution)
+  , "Location" :: Maybe (String)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeCreateStreamingDistributionResult :: Newtype CreateStreamingDistributionResult _
 derive instance repGenericCreateStreamingDistributionResult :: Generic CreateStreamingDistributionResult _
@@ -667,12 +666,12 @@ instance encodeCreateStreamingDistributionResult :: Encode CreateStreamingDistri
 
 -- | Constructs CreateStreamingDistributionResult from required parameters
 newCreateStreamingDistributionResult :: CreateStreamingDistributionResult
-newCreateStreamingDistributionResult  = CreateStreamingDistributionResult { "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newCreateStreamingDistributionResult  = CreateStreamingDistributionResult { "ETag": Nothing, "Location": Nothing, "StreamingDistribution": Nothing }
 
 -- | Constructs CreateStreamingDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStreamingDistributionResult' :: ( { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } -> {"StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } ) -> CreateStreamingDistributionResult
-newCreateStreamingDistributionResult'  customize = (CreateStreamingDistributionResult <<< customize) { "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newCreateStreamingDistributionResult' :: ( { "StreamingDistribution" :: Maybe (StreamingDistribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } -> {"StreamingDistribution" :: Maybe (StreamingDistribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } ) -> CreateStreamingDistributionResult
+newCreateStreamingDistributionResult'  customize = (CreateStreamingDistributionResult <<< customize) { "ETag": Nothing, "Location": Nothing, "StreamingDistribution": Nothing }
 
 
 
@@ -699,9 +698,9 @@ newCreateStreamingDistributionWithTagsRequest' _StreamingDistributionConfigWithT
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype CreateStreamingDistributionWithTagsResult = CreateStreamingDistributionWithTagsResult 
-  { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution)
-  , "Location" :: NullOrUndefined (String)
-  , "ETag" :: NullOrUndefined (String)
+  { "StreamingDistribution" :: Maybe (StreamingDistribution)
+  , "Location" :: Maybe (String)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeCreateStreamingDistributionWithTagsResult :: Newtype CreateStreamingDistributionWithTagsResult _
 derive instance repGenericCreateStreamingDistributionWithTagsResult :: Generic CreateStreamingDistributionWithTagsResult _
@@ -711,21 +710,21 @@ instance encodeCreateStreamingDistributionWithTagsResult :: Encode CreateStreami
 
 -- | Constructs CreateStreamingDistributionWithTagsResult from required parameters
 newCreateStreamingDistributionWithTagsResult :: CreateStreamingDistributionWithTagsResult
-newCreateStreamingDistributionWithTagsResult  = CreateStreamingDistributionWithTagsResult { "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newCreateStreamingDistributionWithTagsResult  = CreateStreamingDistributionWithTagsResult { "ETag": Nothing, "Location": Nothing, "StreamingDistribution": Nothing }
 
 -- | Constructs CreateStreamingDistributionWithTagsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStreamingDistributionWithTagsResult' :: ( { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } -> {"StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "Location" :: NullOrUndefined (String) , "ETag" :: NullOrUndefined (String) } ) -> CreateStreamingDistributionWithTagsResult
-newCreateStreamingDistributionWithTagsResult'  customize = (CreateStreamingDistributionWithTagsResult <<< customize) { "ETag": (NullOrUndefined Nothing), "Location": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newCreateStreamingDistributionWithTagsResult' :: ( { "StreamingDistribution" :: Maybe (StreamingDistribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } -> {"StreamingDistribution" :: Maybe (StreamingDistribution) , "Location" :: Maybe (String) , "ETag" :: Maybe (String) } ) -> CreateStreamingDistributionWithTagsResult
+newCreateStreamingDistributionWithTagsResult'  customize = (CreateStreamingDistributionWithTagsResult <<< customize) { "ETag": Nothing, "Location": Nothing, "StreamingDistribution": Nothing }
 
 
 
 -- | <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer. </p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype CustomErrorResponse = CustomErrorResponse 
   { "ErrorCode" :: (Int)
-  , "ResponsePagePath" :: NullOrUndefined (String)
-  , "ResponseCode" :: NullOrUndefined (String)
-  , "ErrorCachingMinTTL" :: NullOrUndefined (Number)
+  , "ResponsePagePath" :: Maybe (String)
+  , "ResponseCode" :: Maybe (String)
+  , "ErrorCachingMinTTL" :: Maybe (Number)
   }
 derive instance newtypeCustomErrorResponse :: Newtype CustomErrorResponse _
 derive instance repGenericCustomErrorResponse :: Generic CustomErrorResponse _
@@ -735,12 +734,12 @@ instance encodeCustomErrorResponse :: Encode CustomErrorResponse where encode = 
 
 -- | Constructs CustomErrorResponse from required parameters
 newCustomErrorResponse :: Int -> CustomErrorResponse
-newCustomErrorResponse _ErrorCode = CustomErrorResponse { "ErrorCode": _ErrorCode, "ErrorCachingMinTTL": (NullOrUndefined Nothing), "ResponseCode": (NullOrUndefined Nothing), "ResponsePagePath": (NullOrUndefined Nothing) }
+newCustomErrorResponse _ErrorCode = CustomErrorResponse { "ErrorCode": _ErrorCode, "ErrorCachingMinTTL": Nothing, "ResponseCode": Nothing, "ResponsePagePath": Nothing }
 
 -- | Constructs CustomErrorResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCustomErrorResponse' :: Int -> ( { "ErrorCode" :: (Int) , "ResponsePagePath" :: NullOrUndefined (String) , "ResponseCode" :: NullOrUndefined (String) , "ErrorCachingMinTTL" :: NullOrUndefined (Number) } -> {"ErrorCode" :: (Int) , "ResponsePagePath" :: NullOrUndefined (String) , "ResponseCode" :: NullOrUndefined (String) , "ErrorCachingMinTTL" :: NullOrUndefined (Number) } ) -> CustomErrorResponse
-newCustomErrorResponse' _ErrorCode customize = (CustomErrorResponse <<< customize) { "ErrorCode": _ErrorCode, "ErrorCachingMinTTL": (NullOrUndefined Nothing), "ResponseCode": (NullOrUndefined Nothing), "ResponsePagePath": (NullOrUndefined Nothing) }
+newCustomErrorResponse' :: Int -> ( { "ErrorCode" :: (Int) , "ResponsePagePath" :: Maybe (String) , "ResponseCode" :: Maybe (String) , "ErrorCachingMinTTL" :: Maybe (Number) } -> {"ErrorCode" :: (Int) , "ResponsePagePath" :: Maybe (String) , "ResponseCode" :: Maybe (String) , "ErrorCachingMinTTL" :: Maybe (Number) } ) -> CustomErrorResponse
+newCustomErrorResponse' _ErrorCode customize = (CustomErrorResponse <<< customize) { "ErrorCode": _ErrorCode, "ErrorCachingMinTTL": Nothing, "ResponseCode": Nothing, "ResponsePagePath": Nothing }
 
 
 
@@ -756,7 +755,7 @@ instance encodeCustomErrorResponseList :: Encode CustomErrorResponseList where e
 -- | <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.</p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype CustomErrorResponses = CustomErrorResponses 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (CustomErrorResponseList)
+  , "Items" :: Maybe (CustomErrorResponseList)
   }
 derive instance newtypeCustomErrorResponses :: Newtype CustomErrorResponses _
 derive instance repGenericCustomErrorResponses :: Generic CustomErrorResponses _
@@ -766,19 +765,19 @@ instance encodeCustomErrorResponses :: Encode CustomErrorResponses where encode 
 
 -- | Constructs CustomErrorResponses from required parameters
 newCustomErrorResponses :: Int -> CustomErrorResponses
-newCustomErrorResponses _Quantity = CustomErrorResponses { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCustomErrorResponses _Quantity = CustomErrorResponses { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs CustomErrorResponses's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCustomErrorResponses' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (CustomErrorResponseList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (CustomErrorResponseList) } ) -> CustomErrorResponses
-newCustomErrorResponses' _Quantity customize = (CustomErrorResponses <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCustomErrorResponses' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (CustomErrorResponseList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (CustomErrorResponseList) } ) -> CustomErrorResponses
+newCustomErrorResponses' _Quantity customize = (CustomErrorResponses <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
 -- | <p>A complex type that contains the list of Custom Headers for each origin. </p>
 newtype CustomHeaders = CustomHeaders 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (OriginCustomHeadersList)
+  , "Items" :: Maybe (OriginCustomHeadersList)
   }
 derive instance newtypeCustomHeaders :: Newtype CustomHeaders _
 derive instance repGenericCustomHeaders :: Generic CustomHeaders _
@@ -788,12 +787,12 @@ instance encodeCustomHeaders :: Encode CustomHeaders where encode = genericEncod
 
 -- | Constructs CustomHeaders from required parameters
 newCustomHeaders :: Int -> CustomHeaders
-newCustomHeaders _Quantity = CustomHeaders { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCustomHeaders _Quantity = CustomHeaders { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs CustomHeaders's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCustomHeaders' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (OriginCustomHeadersList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (OriginCustomHeadersList) } ) -> CustomHeaders
-newCustomHeaders' _Quantity customize = (CustomHeaders <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newCustomHeaders' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (OriginCustomHeadersList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (OriginCustomHeadersList) } ) -> CustomHeaders
+newCustomHeaders' _Quantity customize = (CustomHeaders <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -802,7 +801,7 @@ newtype CustomOriginConfig = CustomOriginConfig
   { "HTTPPort" :: (Int)
   , "HTTPSPort" :: (Int)
   , "OriginProtocolPolicy" :: (OriginProtocolPolicy)
-  , "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols)
+  , "OriginSslProtocols" :: Maybe (OriginSslProtocols)
   }
 derive instance newtypeCustomOriginConfig :: Newtype CustomOriginConfig _
 derive instance repGenericCustomOriginConfig :: Generic CustomOriginConfig _
@@ -812,12 +811,12 @@ instance encodeCustomOriginConfig :: Encode CustomOriginConfig where encode = ge
 
 -- | Constructs CustomOriginConfig from required parameters
 newCustomOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
-newCustomOriginConfig _HTTPPort _HTTPSPort _OriginProtocolPolicy = CustomOriginConfig { "HTTPPort": _HTTPPort, "HTTPSPort": _HTTPSPort, "OriginProtocolPolicy": _OriginProtocolPolicy, "OriginSslProtocols": (NullOrUndefined Nothing) }
+newCustomOriginConfig _HTTPPort _HTTPSPort _OriginProtocolPolicy = CustomOriginConfig { "HTTPPort": _HTTPPort, "HTTPSPort": _HTTPSPort, "OriginProtocolPolicy": _OriginProtocolPolicy, "OriginSslProtocols": Nothing }
 
 -- | Constructs CustomOriginConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCustomOriginConfig' :: Int -> Int -> OriginProtocolPolicy -> ( { "HTTPPort" :: (Int) , "HTTPSPort" :: (Int) , "OriginProtocolPolicy" :: (OriginProtocolPolicy) , "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols) } -> {"HTTPPort" :: (Int) , "HTTPSPort" :: (Int) , "OriginProtocolPolicy" :: (OriginProtocolPolicy) , "OriginSslProtocols" :: NullOrUndefined (OriginSslProtocols) } ) -> CustomOriginConfig
-newCustomOriginConfig' _HTTPPort _HTTPSPort _OriginProtocolPolicy customize = (CustomOriginConfig <<< customize) { "HTTPPort": _HTTPPort, "HTTPSPort": _HTTPSPort, "OriginProtocolPolicy": _OriginProtocolPolicy, "OriginSslProtocols": (NullOrUndefined Nothing) }
+newCustomOriginConfig' :: Int -> Int -> OriginProtocolPolicy -> ( { "HTTPPort" :: (Int) , "HTTPSPort" :: (Int) , "OriginProtocolPolicy" :: (OriginProtocolPolicy) , "OriginSslProtocols" :: Maybe (OriginSslProtocols) } -> {"HTTPPort" :: (Int) , "HTTPSPort" :: (Int) , "OriginProtocolPolicy" :: (OriginProtocolPolicy) , "OriginSslProtocols" :: Maybe (OriginSslProtocols) } ) -> CustomOriginConfig
+newCustomOriginConfig' _HTTPPort _HTTPSPort _OriginProtocolPolicy customize = (CustomOriginConfig <<< customize) { "HTTPPort": _HTTPPort, "HTTPSPort": _HTTPSPort, "OriginProtocolPolicy": _OriginProtocolPolicy, "OriginSslProtocols": Nothing }
 
 
 
@@ -828,12 +827,12 @@ newtype DefaultCacheBehavior = DefaultCacheBehavior
   , "TrustedSigners" :: (TrustedSigners)
   , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy)
   , "MinTTL" :: (Number)
-  , "AllowedMethods" :: NullOrUndefined (AllowedMethods)
-  , "SmoothStreaming" :: NullOrUndefined (Boolean)
-  , "DefaultTTL" :: NullOrUndefined (Number)
-  , "MaxTTL" :: NullOrUndefined (Number)
-  , "Compress" :: NullOrUndefined (Boolean)
-  , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations)
+  , "AllowedMethods" :: Maybe (AllowedMethods)
+  , "SmoothStreaming" :: Maybe (Boolean)
+  , "DefaultTTL" :: Maybe (Number)
+  , "MaxTTL" :: Maybe (Number)
+  , "Compress" :: Maybe (Boolean)
+  , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations)
   }
 derive instance newtypeDefaultCacheBehavior :: Newtype DefaultCacheBehavior _
 derive instance repGenericDefaultCacheBehavior :: Generic DefaultCacheBehavior _
@@ -843,19 +842,19 @@ instance encodeDefaultCacheBehavior :: Encode DefaultCacheBehavior where encode 
 
 -- | Constructs DefaultCacheBehavior from required parameters
 newDefaultCacheBehavior :: ForwardedValues -> Number -> String -> TrustedSigners -> ViewerProtocolPolicy -> DefaultCacheBehavior
-newDefaultCacheBehavior _ForwardedValues _MinTTL _TargetOriginId _TrustedSigners _ViewerProtocolPolicy = DefaultCacheBehavior { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": (NullOrUndefined Nothing), "Compress": (NullOrUndefined Nothing), "DefaultTTL": (NullOrUndefined Nothing), "LambdaFunctionAssociations": (NullOrUndefined Nothing), "MaxTTL": (NullOrUndefined Nothing), "SmoothStreaming": (NullOrUndefined Nothing) }
+newDefaultCacheBehavior _ForwardedValues _MinTTL _TargetOriginId _TrustedSigners _ViewerProtocolPolicy = DefaultCacheBehavior { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": Nothing, "Compress": Nothing, "DefaultTTL": Nothing, "LambdaFunctionAssociations": Nothing, "MaxTTL": Nothing, "SmoothStreaming": Nothing }
 
 -- | Constructs DefaultCacheBehavior's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDefaultCacheBehavior' :: ForwardedValues -> Number -> String -> TrustedSigners -> ViewerProtocolPolicy -> ( { "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "SmoothStreaming" :: NullOrUndefined (Boolean) , "DefaultTTL" :: NullOrUndefined (Number) , "MaxTTL" :: NullOrUndefined (Number) , "Compress" :: NullOrUndefined (Boolean) , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } -> {"TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "SmoothStreaming" :: NullOrUndefined (Boolean) , "DefaultTTL" :: NullOrUndefined (Number) , "MaxTTL" :: NullOrUndefined (Number) , "Compress" :: NullOrUndefined (Boolean) , "LambdaFunctionAssociations" :: NullOrUndefined (LambdaFunctionAssociations) } ) -> DefaultCacheBehavior
-newDefaultCacheBehavior' _ForwardedValues _MinTTL _TargetOriginId _TrustedSigners _ViewerProtocolPolicy customize = (DefaultCacheBehavior <<< customize) { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": (NullOrUndefined Nothing), "Compress": (NullOrUndefined Nothing), "DefaultTTL": (NullOrUndefined Nothing), "LambdaFunctionAssociations": (NullOrUndefined Nothing), "MaxTTL": (NullOrUndefined Nothing), "SmoothStreaming": (NullOrUndefined Nothing) }
+newDefaultCacheBehavior' :: ForwardedValues -> Number -> String -> TrustedSigners -> ViewerProtocolPolicy -> ( { "TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: Maybe (AllowedMethods) , "SmoothStreaming" :: Maybe (Boolean) , "DefaultTTL" :: Maybe (Number) , "MaxTTL" :: Maybe (Number) , "Compress" :: Maybe (Boolean) , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } -> {"TargetOriginId" :: (String) , "ForwardedValues" :: (ForwardedValues) , "TrustedSigners" :: (TrustedSigners) , "ViewerProtocolPolicy" :: (ViewerProtocolPolicy) , "MinTTL" :: (Number) , "AllowedMethods" :: Maybe (AllowedMethods) , "SmoothStreaming" :: Maybe (Boolean) , "DefaultTTL" :: Maybe (Number) , "MaxTTL" :: Maybe (Number) , "Compress" :: Maybe (Boolean) , "LambdaFunctionAssociations" :: Maybe (LambdaFunctionAssociations) } ) -> DefaultCacheBehavior
+newDefaultCacheBehavior' _ForwardedValues _MinTTL _TargetOriginId _TrustedSigners _ViewerProtocolPolicy customize = (DefaultCacheBehavior <<< customize) { "ForwardedValues": _ForwardedValues, "MinTTL": _MinTTL, "TargetOriginId": _TargetOriginId, "TrustedSigners": _TrustedSigners, "ViewerProtocolPolicy": _ViewerProtocolPolicy, "AllowedMethods": Nothing, "Compress": Nothing, "DefaultTTL": Nothing, "LambdaFunctionAssociations": Nothing, "MaxTTL": Nothing, "SmoothStreaming": Nothing }
 
 
 
 -- | <p>Deletes a origin access identity.</p>
 newtype DeleteCloudFrontOriginAccessIdentityRequest = DeleteCloudFrontOriginAccessIdentityRequest 
   { "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeDeleteCloudFrontOriginAccessIdentityRequest :: Newtype DeleteCloudFrontOriginAccessIdentityRequest _
 derive instance repGenericDeleteCloudFrontOriginAccessIdentityRequest :: Generic DeleteCloudFrontOriginAccessIdentityRequest _
@@ -865,19 +864,19 @@ instance encodeDeleteCloudFrontOriginAccessIdentityRequest :: Encode DeleteCloud
 
 -- | Constructs DeleteCloudFrontOriginAccessIdentityRequest from required parameters
 newDeleteCloudFrontOriginAccessIdentityRequest :: String -> DeleteCloudFrontOriginAccessIdentityRequest
-newDeleteCloudFrontOriginAccessIdentityRequest _Id = DeleteCloudFrontOriginAccessIdentityRequest { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteCloudFrontOriginAccessIdentityRequest _Id = DeleteCloudFrontOriginAccessIdentityRequest { "Id": _Id, "IfMatch": Nothing }
 
 -- | Constructs DeleteCloudFrontOriginAccessIdentityRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteCloudFrontOriginAccessIdentityRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> DeleteCloudFrontOriginAccessIdentityRequest
-newDeleteCloudFrontOriginAccessIdentityRequest' _Id customize = (DeleteCloudFrontOriginAccessIdentityRequest <<< customize) { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteCloudFrontOriginAccessIdentityRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> DeleteCloudFrontOriginAccessIdentityRequest
+newDeleteCloudFrontOriginAccessIdentityRequest' _Id customize = (DeleteCloudFrontOriginAccessIdentityRequest <<< customize) { "Id": _Id, "IfMatch": Nothing }
 
 
 
 -- | <p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype DeleteDistributionRequest = DeleteDistributionRequest 
   { "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeDeleteDistributionRequest :: Newtype DeleteDistributionRequest _
 derive instance repGenericDeleteDistributionRequest :: Generic DeleteDistributionRequest _
@@ -887,19 +886,19 @@ instance encodeDeleteDistributionRequest :: Encode DeleteDistributionRequest whe
 
 -- | Constructs DeleteDistributionRequest from required parameters
 newDeleteDistributionRequest :: String -> DeleteDistributionRequest
-newDeleteDistributionRequest _Id = DeleteDistributionRequest { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteDistributionRequest _Id = DeleteDistributionRequest { "Id": _Id, "IfMatch": Nothing }
 
 -- | Constructs DeleteDistributionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteDistributionRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> DeleteDistributionRequest
-newDeleteDistributionRequest' _Id customize = (DeleteDistributionRequest <<< customize) { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteDistributionRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> DeleteDistributionRequest
+newDeleteDistributionRequest' _Id customize = (DeleteDistributionRequest <<< customize) { "Id": _Id, "IfMatch": Nothing }
 
 
 
 -- | <p>The request to delete a streaming distribution.</p>
 newtype DeleteStreamingDistributionRequest = DeleteStreamingDistributionRequest 
   { "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeDeleteStreamingDistributionRequest :: Newtype DeleteStreamingDistributionRequest _
 derive instance repGenericDeleteStreamingDistributionRequest :: Generic DeleteStreamingDistributionRequest _
@@ -909,12 +908,12 @@ instance encodeDeleteStreamingDistributionRequest :: Encode DeleteStreamingDistr
 
 -- | Constructs DeleteStreamingDistributionRequest from required parameters
 newDeleteStreamingDistributionRequest :: String -> DeleteStreamingDistributionRequest
-newDeleteStreamingDistributionRequest _Id = DeleteStreamingDistributionRequest { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteStreamingDistributionRequest _Id = DeleteStreamingDistributionRequest { "Id": _Id, "IfMatch": Nothing }
 
 -- | Constructs DeleteStreamingDistributionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteStreamingDistributionRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> DeleteStreamingDistributionRequest
-newDeleteStreamingDistributionRequest' _Id customize = (DeleteStreamingDistributionRequest <<< customize) { "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newDeleteStreamingDistributionRequest' :: String -> ( { "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> DeleteStreamingDistributionRequest
+newDeleteStreamingDistributionRequest' _Id customize = (DeleteStreamingDistributionRequest <<< customize) { "Id": _Id, "IfMatch": Nothing }
 
 
 
@@ -948,7 +947,7 @@ newDistribution' _ARN _ActiveTrustedSigners _DistributionConfig _DomainName _Id 
 
 -- | <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
 newtype DistributionAlreadyExists = DistributionAlreadyExists 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeDistributionAlreadyExists :: Newtype DistributionAlreadyExists _
 derive instance repGenericDistributionAlreadyExists :: Generic DistributionAlreadyExists _
@@ -958,33 +957,33 @@ instance encodeDistributionAlreadyExists :: Encode DistributionAlreadyExists whe
 
 -- | Constructs DistributionAlreadyExists from required parameters
 newDistributionAlreadyExists :: DistributionAlreadyExists
-newDistributionAlreadyExists  = DistributionAlreadyExists { "Message": (NullOrUndefined Nothing) }
+newDistributionAlreadyExists  = DistributionAlreadyExists { "Message": Nothing }
 
 -- | Constructs DistributionAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDistributionAlreadyExists' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> DistributionAlreadyExists
-newDistributionAlreadyExists'  customize = (DistributionAlreadyExists <<< customize) { "Message": (NullOrUndefined Nothing) }
+newDistributionAlreadyExists' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> DistributionAlreadyExists
+newDistributionAlreadyExists'  customize = (DistributionAlreadyExists <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A distribution configuration.</p>
 newtype DistributionConfig = DistributionConfig 
   { "CallerReference" :: (String)
-  , "Aliases" :: NullOrUndefined (Aliases)
-  , "DefaultRootObject" :: NullOrUndefined (String)
+  , "Aliases" :: Maybe (Aliases)
+  , "DefaultRootObject" :: Maybe (String)
   , "Origins" :: (Origins)
   , "DefaultCacheBehavior" :: (DefaultCacheBehavior)
-  , "CacheBehaviors" :: NullOrUndefined (CacheBehaviors)
-  , "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses)
+  , "CacheBehaviors" :: Maybe (CacheBehaviors)
+  , "CustomErrorResponses" :: Maybe (CustomErrorResponses)
   , "Comment" :: (String)
-  , "Logging" :: NullOrUndefined (LoggingConfig)
-  , "PriceClass" :: NullOrUndefined (PriceClass)
+  , "Logging" :: Maybe (LoggingConfig)
+  , "PriceClass" :: Maybe (PriceClass)
   , "Enabled" :: (Boolean)
-  , "ViewerCertificate" :: NullOrUndefined (ViewerCertificate)
-  , "Restrictions" :: NullOrUndefined (Restrictions)
-  , "WebACLId" :: NullOrUndefined (String)
-  , "HttpVersion" :: NullOrUndefined (HttpVersion)
-  , "IsIPV6Enabled" :: NullOrUndefined (Boolean)
+  , "ViewerCertificate" :: Maybe (ViewerCertificate)
+  , "Restrictions" :: Maybe (Restrictions)
+  , "WebACLId" :: Maybe (String)
+  , "HttpVersion" :: Maybe (HttpVersion)
+  , "IsIPV6Enabled" :: Maybe (Boolean)
   }
 derive instance newtypeDistributionConfig :: Newtype DistributionConfig _
 derive instance repGenericDistributionConfig :: Generic DistributionConfig _
@@ -994,12 +993,12 @@ instance encodeDistributionConfig :: Encode DistributionConfig where encode = ge
 
 -- | Constructs DistributionConfig from required parameters
 newDistributionConfig :: String -> String -> DefaultCacheBehavior -> Boolean -> Origins -> DistributionConfig
-newDistributionConfig _CallerReference _Comment _DefaultCacheBehavior _Enabled _Origins = DistributionConfig { "CallerReference": _CallerReference, "Comment": _Comment, "DefaultCacheBehavior": _DefaultCacheBehavior, "Enabled": _Enabled, "Origins": _Origins, "Aliases": (NullOrUndefined Nothing), "CacheBehaviors": (NullOrUndefined Nothing), "CustomErrorResponses": (NullOrUndefined Nothing), "DefaultRootObject": (NullOrUndefined Nothing), "HttpVersion": (NullOrUndefined Nothing), "IsIPV6Enabled": (NullOrUndefined Nothing), "Logging": (NullOrUndefined Nothing), "PriceClass": (NullOrUndefined Nothing), "Restrictions": (NullOrUndefined Nothing), "ViewerCertificate": (NullOrUndefined Nothing), "WebACLId": (NullOrUndefined Nothing) }
+newDistributionConfig _CallerReference _Comment _DefaultCacheBehavior _Enabled _Origins = DistributionConfig { "CallerReference": _CallerReference, "Comment": _Comment, "DefaultCacheBehavior": _DefaultCacheBehavior, "Enabled": _Enabled, "Origins": _Origins, "Aliases": Nothing, "CacheBehaviors": Nothing, "CustomErrorResponses": Nothing, "DefaultRootObject": Nothing, "HttpVersion": Nothing, "IsIPV6Enabled": Nothing, "Logging": Nothing, "PriceClass": Nothing, "Restrictions": Nothing, "ViewerCertificate": Nothing, "WebACLId": Nothing }
 
 -- | Constructs DistributionConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDistributionConfig' :: String -> String -> DefaultCacheBehavior -> Boolean -> Origins -> ( { "CallerReference" :: (String) , "Aliases" :: NullOrUndefined (Aliases) , "DefaultRootObject" :: NullOrUndefined (String) , "Origins" :: (Origins) , "DefaultCacheBehavior" :: (DefaultCacheBehavior) , "CacheBehaviors" :: NullOrUndefined (CacheBehaviors) , "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses) , "Comment" :: (String) , "Logging" :: NullOrUndefined (LoggingConfig) , "PriceClass" :: NullOrUndefined (PriceClass) , "Enabled" :: (Boolean) , "ViewerCertificate" :: NullOrUndefined (ViewerCertificate) , "Restrictions" :: NullOrUndefined (Restrictions) , "WebACLId" :: NullOrUndefined (String) , "HttpVersion" :: NullOrUndefined (HttpVersion) , "IsIPV6Enabled" :: NullOrUndefined (Boolean) } -> {"CallerReference" :: (String) , "Aliases" :: NullOrUndefined (Aliases) , "DefaultRootObject" :: NullOrUndefined (String) , "Origins" :: (Origins) , "DefaultCacheBehavior" :: (DefaultCacheBehavior) , "CacheBehaviors" :: NullOrUndefined (CacheBehaviors) , "CustomErrorResponses" :: NullOrUndefined (CustomErrorResponses) , "Comment" :: (String) , "Logging" :: NullOrUndefined (LoggingConfig) , "PriceClass" :: NullOrUndefined (PriceClass) , "Enabled" :: (Boolean) , "ViewerCertificate" :: NullOrUndefined (ViewerCertificate) , "Restrictions" :: NullOrUndefined (Restrictions) , "WebACLId" :: NullOrUndefined (String) , "HttpVersion" :: NullOrUndefined (HttpVersion) , "IsIPV6Enabled" :: NullOrUndefined (Boolean) } ) -> DistributionConfig
-newDistributionConfig' _CallerReference _Comment _DefaultCacheBehavior _Enabled _Origins customize = (DistributionConfig <<< customize) { "CallerReference": _CallerReference, "Comment": _Comment, "DefaultCacheBehavior": _DefaultCacheBehavior, "Enabled": _Enabled, "Origins": _Origins, "Aliases": (NullOrUndefined Nothing), "CacheBehaviors": (NullOrUndefined Nothing), "CustomErrorResponses": (NullOrUndefined Nothing), "DefaultRootObject": (NullOrUndefined Nothing), "HttpVersion": (NullOrUndefined Nothing), "IsIPV6Enabled": (NullOrUndefined Nothing), "Logging": (NullOrUndefined Nothing), "PriceClass": (NullOrUndefined Nothing), "Restrictions": (NullOrUndefined Nothing), "ViewerCertificate": (NullOrUndefined Nothing), "WebACLId": (NullOrUndefined Nothing) }
+newDistributionConfig' :: String -> String -> DefaultCacheBehavior -> Boolean -> Origins -> ( { "CallerReference" :: (String) , "Aliases" :: Maybe (Aliases) , "DefaultRootObject" :: Maybe (String) , "Origins" :: (Origins) , "DefaultCacheBehavior" :: (DefaultCacheBehavior) , "CacheBehaviors" :: Maybe (CacheBehaviors) , "CustomErrorResponses" :: Maybe (CustomErrorResponses) , "Comment" :: (String) , "Logging" :: Maybe (LoggingConfig) , "PriceClass" :: Maybe (PriceClass) , "Enabled" :: (Boolean) , "ViewerCertificate" :: Maybe (ViewerCertificate) , "Restrictions" :: Maybe (Restrictions) , "WebACLId" :: Maybe (String) , "HttpVersion" :: Maybe (HttpVersion) , "IsIPV6Enabled" :: Maybe (Boolean) } -> {"CallerReference" :: (String) , "Aliases" :: Maybe (Aliases) , "DefaultRootObject" :: Maybe (String) , "Origins" :: (Origins) , "DefaultCacheBehavior" :: (DefaultCacheBehavior) , "CacheBehaviors" :: Maybe (CacheBehaviors) , "CustomErrorResponses" :: Maybe (CustomErrorResponses) , "Comment" :: (String) , "Logging" :: Maybe (LoggingConfig) , "PriceClass" :: Maybe (PriceClass) , "Enabled" :: (Boolean) , "ViewerCertificate" :: Maybe (ViewerCertificate) , "Restrictions" :: Maybe (Restrictions) , "WebACLId" :: Maybe (String) , "HttpVersion" :: Maybe (HttpVersion) , "IsIPV6Enabled" :: Maybe (Boolean) } ) -> DistributionConfig
+newDistributionConfig' _CallerReference _Comment _DefaultCacheBehavior _Enabled _Origins customize = (DistributionConfig <<< customize) { "CallerReference": _CallerReference, "Comment": _Comment, "DefaultCacheBehavior": _DefaultCacheBehavior, "Enabled": _Enabled, "Origins": _Origins, "Aliases": Nothing, "CacheBehaviors": Nothing, "CustomErrorResponses": Nothing, "DefaultRootObject": Nothing, "HttpVersion": Nothing, "IsIPV6Enabled": Nothing, "Logging": Nothing, "PriceClass": Nothing, "Restrictions": Nothing, "ViewerCertificate": Nothing, "WebACLId": Nothing }
 
 
 
@@ -1028,11 +1027,11 @@ newDistributionConfigWithTags' _DistributionConfig _Tags customize = (Distributi
 -- | <p>A distribution list.</p>
 newtype DistributionList = DistributionList 
   { "Marker" :: (String)
-  , "NextMarker" :: NullOrUndefined (String)
+  , "NextMarker" :: Maybe (String)
   , "MaxItems" :: (Int)
   , "IsTruncated" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (DistributionSummaryList)
+  , "Items" :: Maybe (DistributionSummaryList)
   }
 derive instance newtypeDistributionList :: Newtype DistributionList _
 derive instance repGenericDistributionList :: Generic DistributionList _
@@ -1042,17 +1041,17 @@ instance encodeDistributionList :: Encode DistributionList where encode = generi
 
 -- | Constructs DistributionList from required parameters
 newDistributionList :: Boolean -> String -> Int -> Int -> DistributionList
-newDistributionList _IsTruncated _Marker _MaxItems _Quantity = DistributionList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDistributionList _IsTruncated _Marker _MaxItems _Quantity = DistributionList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 -- | Constructs DistributionList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDistributionList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (DistributionSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (DistributionSummaryList) } ) -> DistributionList
-newDistributionList' _IsTruncated _Marker _MaxItems _Quantity customize = (DistributionList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDistributionList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (DistributionSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (DistributionSummaryList) } ) -> DistributionList
+newDistributionList' _IsTruncated _Marker _MaxItems _Quantity customize = (DistributionList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 
 
 newtype DistributionNotDisabled = DistributionNotDisabled 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeDistributionNotDisabled :: Newtype DistributionNotDisabled _
 derive instance repGenericDistributionNotDisabled :: Generic DistributionNotDisabled _
@@ -1062,12 +1061,12 @@ instance encodeDistributionNotDisabled :: Encode DistributionNotDisabled where e
 
 -- | Constructs DistributionNotDisabled from required parameters
 newDistributionNotDisabled :: DistributionNotDisabled
-newDistributionNotDisabled  = DistributionNotDisabled { "Message": (NullOrUndefined Nothing) }
+newDistributionNotDisabled  = DistributionNotDisabled { "Message": Nothing }
 
 -- | Constructs DistributionNotDisabled's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDistributionNotDisabled' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> DistributionNotDisabled
-newDistributionNotDisabled'  customize = (DistributionNotDisabled <<< customize) { "Message": (NullOrUndefined Nothing) }
+newDistributionNotDisabled' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> DistributionNotDisabled
+newDistributionNotDisabled'  customize = (DistributionNotDisabled <<< customize) { "Message": Nothing }
 
 
 
@@ -1131,8 +1130,8 @@ instance encodeEventType :: Encode EventType where encode = genericEncode option
 newtype ForwardedValues = ForwardedValues 
   { "QueryString" :: (Boolean)
   , "Cookies" :: (CookiePreference)
-  , "Headers" :: NullOrUndefined (Headers)
-  , "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys)
+  , "Headers" :: Maybe (Headers)
+  , "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys)
   }
 derive instance newtypeForwardedValues :: Newtype ForwardedValues _
 derive instance repGenericForwardedValues :: Generic ForwardedValues _
@@ -1142,12 +1141,12 @@ instance encodeForwardedValues :: Encode ForwardedValues where encode = genericE
 
 -- | Constructs ForwardedValues from required parameters
 newForwardedValues :: CookiePreference -> Boolean -> ForwardedValues
-newForwardedValues _Cookies _QueryString = ForwardedValues { "Cookies": _Cookies, "QueryString": _QueryString, "Headers": (NullOrUndefined Nothing), "QueryStringCacheKeys": (NullOrUndefined Nothing) }
+newForwardedValues _Cookies _QueryString = ForwardedValues { "Cookies": _Cookies, "QueryString": _QueryString, "Headers": Nothing, "QueryStringCacheKeys": Nothing }
 
 -- | Constructs ForwardedValues's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newForwardedValues' :: CookiePreference -> Boolean -> ( { "QueryString" :: (Boolean) , "Cookies" :: (CookiePreference) , "Headers" :: NullOrUndefined (Headers) , "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys) } -> {"QueryString" :: (Boolean) , "Cookies" :: (CookiePreference) , "Headers" :: NullOrUndefined (Headers) , "QueryStringCacheKeys" :: NullOrUndefined (QueryStringCacheKeys) } ) -> ForwardedValues
-newForwardedValues' _Cookies _QueryString customize = (ForwardedValues <<< customize) { "Cookies": _Cookies, "QueryString": _QueryString, "Headers": (NullOrUndefined Nothing), "QueryStringCacheKeys": (NullOrUndefined Nothing) }
+newForwardedValues' :: CookiePreference -> Boolean -> ( { "QueryString" :: (Boolean) , "Cookies" :: (CookiePreference) , "Headers" :: Maybe (Headers) , "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys) } -> {"QueryString" :: (Boolean) , "Cookies" :: (CookiePreference) , "Headers" :: Maybe (Headers) , "QueryStringCacheKeys" :: Maybe (QueryStringCacheKeys) } ) -> ForwardedValues
+newForwardedValues' _Cookies _QueryString customize = (ForwardedValues <<< customize) { "Cookies": _Cookies, "QueryString": _QueryString, "Headers": Nothing, "QueryStringCacheKeys": Nothing }
 
 
 
@@ -1155,7 +1154,7 @@ newForwardedValues' _Cookies _QueryString customize = (ForwardedValues <<< custo
 newtype GeoRestriction = GeoRestriction 
   { "RestrictionType" :: (GeoRestrictionType)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (LocationList)
+  , "Items" :: Maybe (LocationList)
   }
 derive instance newtypeGeoRestriction :: Newtype GeoRestriction _
 derive instance repGenericGeoRestriction :: Generic GeoRestriction _
@@ -1165,12 +1164,12 @@ instance encodeGeoRestriction :: Encode GeoRestriction where encode = genericEnc
 
 -- | Constructs GeoRestriction from required parameters
 newGeoRestriction :: Int -> GeoRestrictionType -> GeoRestriction
-newGeoRestriction _Quantity _RestrictionType = GeoRestriction { "Quantity": _Quantity, "RestrictionType": _RestrictionType, "Items": (NullOrUndefined Nothing) }
+newGeoRestriction _Quantity _RestrictionType = GeoRestriction { "Quantity": _Quantity, "RestrictionType": _RestrictionType, "Items": Nothing }
 
 -- | Constructs GeoRestriction's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGeoRestriction' :: Int -> GeoRestrictionType -> ( { "RestrictionType" :: (GeoRestrictionType) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (LocationList) } -> {"RestrictionType" :: (GeoRestrictionType) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (LocationList) } ) -> GeoRestriction
-newGeoRestriction' _Quantity _RestrictionType customize = (GeoRestriction <<< customize) { "Quantity": _Quantity, "RestrictionType": _RestrictionType, "Items": (NullOrUndefined Nothing) }
+newGeoRestriction' :: Int -> GeoRestrictionType -> ( { "RestrictionType" :: (GeoRestrictionType) , "Quantity" :: (Int) , "Items" :: Maybe (LocationList) } -> {"RestrictionType" :: (GeoRestrictionType) , "Quantity" :: (Int) , "Items" :: Maybe (LocationList) } ) -> GeoRestriction
+newGeoRestriction' _Quantity _RestrictionType customize = (GeoRestriction <<< customize) { "Quantity": _Quantity, "RestrictionType": _RestrictionType, "Items": Nothing }
 
 
 
@@ -1206,8 +1205,8 @@ newGetCloudFrontOriginAccessIdentityConfigRequest' _Id customize = (GetCloudFron
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetCloudFrontOriginAccessIdentityConfigResult = GetCloudFrontOriginAccessIdentityConfigResult 
-  { "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig)
-  , "ETag" :: NullOrUndefined (String)
+  { "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetCloudFrontOriginAccessIdentityConfigResult :: Newtype GetCloudFrontOriginAccessIdentityConfigResult _
 derive instance repGenericGetCloudFrontOriginAccessIdentityConfigResult :: Generic GetCloudFrontOriginAccessIdentityConfigResult _
@@ -1217,12 +1216,12 @@ instance encodeGetCloudFrontOriginAccessIdentityConfigResult :: Encode GetCloudF
 
 -- | Constructs GetCloudFrontOriginAccessIdentityConfigResult from required parameters
 newGetCloudFrontOriginAccessIdentityConfigResult :: GetCloudFrontOriginAccessIdentityConfigResult
-newGetCloudFrontOriginAccessIdentityConfigResult  = GetCloudFrontOriginAccessIdentityConfigResult { "CloudFrontOriginAccessIdentityConfig": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetCloudFrontOriginAccessIdentityConfigResult  = GetCloudFrontOriginAccessIdentityConfigResult { "CloudFrontOriginAccessIdentityConfig": Nothing, "ETag": Nothing }
 
 -- | Constructs GetCloudFrontOriginAccessIdentityConfigResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetCloudFrontOriginAccessIdentityConfigResult' :: ( { "CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) , "ETag" :: NullOrUndefined (String) } -> {"CloudFrontOriginAccessIdentityConfig" :: NullOrUndefined (CloudFrontOriginAccessIdentityConfig) , "ETag" :: NullOrUndefined (String) } ) -> GetCloudFrontOriginAccessIdentityConfigResult
-newGetCloudFrontOriginAccessIdentityConfigResult'  customize = (GetCloudFrontOriginAccessIdentityConfigResult <<< customize) { "CloudFrontOriginAccessIdentityConfig": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetCloudFrontOriginAccessIdentityConfigResult' :: ( { "CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) , "ETag" :: Maybe (String) } -> {"CloudFrontOriginAccessIdentityConfig" :: Maybe (CloudFrontOriginAccessIdentityConfig) , "ETag" :: Maybe (String) } ) -> GetCloudFrontOriginAccessIdentityConfigResult
+newGetCloudFrontOriginAccessIdentityConfigResult'  customize = (GetCloudFrontOriginAccessIdentityConfigResult <<< customize) { "CloudFrontOriginAccessIdentityConfig": Nothing, "ETag": Nothing }
 
 
 
@@ -1249,8 +1248,8 @@ newGetCloudFrontOriginAccessIdentityRequest' _Id customize = (GetCloudFrontOrigi
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetCloudFrontOriginAccessIdentityResult = GetCloudFrontOriginAccessIdentityResult 
-  { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity)
-  , "ETag" :: NullOrUndefined (String)
+  { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetCloudFrontOriginAccessIdentityResult :: Newtype GetCloudFrontOriginAccessIdentityResult _
 derive instance repGenericGetCloudFrontOriginAccessIdentityResult :: Generic GetCloudFrontOriginAccessIdentityResult _
@@ -1260,12 +1259,12 @@ instance encodeGetCloudFrontOriginAccessIdentityResult :: Encode GetCloudFrontOr
 
 -- | Constructs GetCloudFrontOriginAccessIdentityResult from required parameters
 newGetCloudFrontOriginAccessIdentityResult :: GetCloudFrontOriginAccessIdentityResult
-newGetCloudFrontOriginAccessIdentityResult  = GetCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetCloudFrontOriginAccessIdentityResult  = GetCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing }
 
 -- | Constructs GetCloudFrontOriginAccessIdentityResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "ETag" :: NullOrUndefined (String) } -> {"CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "ETag" :: NullOrUndefined (String) } ) -> GetCloudFrontOriginAccessIdentityResult
-newGetCloudFrontOriginAccessIdentityResult'  customize = (GetCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "ETag" :: Maybe (String) } -> {"CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "ETag" :: Maybe (String) } ) -> GetCloudFrontOriginAccessIdentityResult
+newGetCloudFrontOriginAccessIdentityResult'  customize = (GetCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing }
 
 
 
@@ -1292,8 +1291,8 @@ newGetDistributionConfigRequest' _Id customize = (GetDistributionConfigRequest <
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetDistributionConfigResult = GetDistributionConfigResult 
-  { "DistributionConfig" :: NullOrUndefined (DistributionConfig)
-  , "ETag" :: NullOrUndefined (String)
+  { "DistributionConfig" :: Maybe (DistributionConfig)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetDistributionConfigResult :: Newtype GetDistributionConfigResult _
 derive instance repGenericGetDistributionConfigResult :: Generic GetDistributionConfigResult _
@@ -1303,12 +1302,12 @@ instance encodeGetDistributionConfigResult :: Encode GetDistributionConfigResult
 
 -- | Constructs GetDistributionConfigResult from required parameters
 newGetDistributionConfigResult :: GetDistributionConfigResult
-newGetDistributionConfigResult  = GetDistributionConfigResult { "DistributionConfig": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetDistributionConfigResult  = GetDistributionConfigResult { "DistributionConfig": Nothing, "ETag": Nothing }
 
 -- | Constructs GetDistributionConfigResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDistributionConfigResult' :: ( { "DistributionConfig" :: NullOrUndefined (DistributionConfig) , "ETag" :: NullOrUndefined (String) } -> {"DistributionConfig" :: NullOrUndefined (DistributionConfig) , "ETag" :: NullOrUndefined (String) } ) -> GetDistributionConfigResult
-newGetDistributionConfigResult'  customize = (GetDistributionConfigResult <<< customize) { "DistributionConfig": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetDistributionConfigResult' :: ( { "DistributionConfig" :: Maybe (DistributionConfig) , "ETag" :: Maybe (String) } -> {"DistributionConfig" :: Maybe (DistributionConfig) , "ETag" :: Maybe (String) } ) -> GetDistributionConfigResult
+newGetDistributionConfigResult'  customize = (GetDistributionConfigResult <<< customize) { "DistributionConfig": Nothing, "ETag": Nothing }
 
 
 
@@ -1335,8 +1334,8 @@ newGetDistributionRequest' _Id customize = (GetDistributionRequest <<< customize
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetDistributionResult = GetDistributionResult 
-  { "Distribution" :: NullOrUndefined (Distribution)
-  , "ETag" :: NullOrUndefined (String)
+  { "Distribution" :: Maybe (Distribution)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetDistributionResult :: Newtype GetDistributionResult _
 derive instance repGenericGetDistributionResult :: Generic GetDistributionResult _
@@ -1346,12 +1345,12 @@ instance encodeGetDistributionResult :: Encode GetDistributionResult where encod
 
 -- | Constructs GetDistributionResult from required parameters
 newGetDistributionResult :: GetDistributionResult
-newGetDistributionResult  = GetDistributionResult { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetDistributionResult  = GetDistributionResult { "Distribution": Nothing, "ETag": Nothing }
 
 -- | Constructs GetDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDistributionResult' :: ( { "Distribution" :: NullOrUndefined (Distribution) , "ETag" :: NullOrUndefined (String) } -> {"Distribution" :: NullOrUndefined (Distribution) , "ETag" :: NullOrUndefined (String) } ) -> GetDistributionResult
-newGetDistributionResult'  customize = (GetDistributionResult <<< customize) { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newGetDistributionResult' :: ( { "Distribution" :: Maybe (Distribution) , "ETag" :: Maybe (String) } -> {"Distribution" :: Maybe (Distribution) , "ETag" :: Maybe (String) } ) -> GetDistributionResult
+newGetDistributionResult'  customize = (GetDistributionResult <<< customize) { "Distribution": Nothing, "ETag": Nothing }
 
 
 
@@ -1379,7 +1378,7 @@ newGetInvalidationRequest' _DistributionId _Id customize = (GetInvalidationReque
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetInvalidationResult = GetInvalidationResult 
-  { "Invalidation" :: NullOrUndefined (Invalidation)
+  { "Invalidation" :: Maybe (Invalidation)
   }
 derive instance newtypeGetInvalidationResult :: Newtype GetInvalidationResult _
 derive instance repGenericGetInvalidationResult :: Generic GetInvalidationResult _
@@ -1389,12 +1388,12 @@ instance encodeGetInvalidationResult :: Encode GetInvalidationResult where encod
 
 -- | Constructs GetInvalidationResult from required parameters
 newGetInvalidationResult :: GetInvalidationResult
-newGetInvalidationResult  = GetInvalidationResult { "Invalidation": (NullOrUndefined Nothing) }
+newGetInvalidationResult  = GetInvalidationResult { "Invalidation": Nothing }
 
 -- | Constructs GetInvalidationResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetInvalidationResult' :: ( { "Invalidation" :: NullOrUndefined (Invalidation) } -> {"Invalidation" :: NullOrUndefined (Invalidation) } ) -> GetInvalidationResult
-newGetInvalidationResult'  customize = (GetInvalidationResult <<< customize) { "Invalidation": (NullOrUndefined Nothing) }
+newGetInvalidationResult' :: ( { "Invalidation" :: Maybe (Invalidation) } -> {"Invalidation" :: Maybe (Invalidation) } ) -> GetInvalidationResult
+newGetInvalidationResult'  customize = (GetInvalidationResult <<< customize) { "Invalidation": Nothing }
 
 
 
@@ -1421,8 +1420,8 @@ newGetStreamingDistributionConfigRequest' _Id customize = (GetStreamingDistribut
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetStreamingDistributionConfigResult = GetStreamingDistributionConfigResult 
-  { "StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig)
-  , "ETag" :: NullOrUndefined (String)
+  { "StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetStreamingDistributionConfigResult :: Newtype GetStreamingDistributionConfigResult _
 derive instance repGenericGetStreamingDistributionConfigResult :: Generic GetStreamingDistributionConfigResult _
@@ -1432,12 +1431,12 @@ instance encodeGetStreamingDistributionConfigResult :: Encode GetStreamingDistri
 
 -- | Constructs GetStreamingDistributionConfigResult from required parameters
 newGetStreamingDistributionConfigResult :: GetStreamingDistributionConfigResult
-newGetStreamingDistributionConfigResult  = GetStreamingDistributionConfigResult { "ETag": (NullOrUndefined Nothing), "StreamingDistributionConfig": (NullOrUndefined Nothing) }
+newGetStreamingDistributionConfigResult  = GetStreamingDistributionConfigResult { "ETag": Nothing, "StreamingDistributionConfig": Nothing }
 
 -- | Constructs GetStreamingDistributionConfigResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetStreamingDistributionConfigResult' :: ( { "StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig) , "ETag" :: NullOrUndefined (String) } -> {"StreamingDistributionConfig" :: NullOrUndefined (StreamingDistributionConfig) , "ETag" :: NullOrUndefined (String) } ) -> GetStreamingDistributionConfigResult
-newGetStreamingDistributionConfigResult'  customize = (GetStreamingDistributionConfigResult <<< customize) { "ETag": (NullOrUndefined Nothing), "StreamingDistributionConfig": (NullOrUndefined Nothing) }
+newGetStreamingDistributionConfigResult' :: ( { "StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig) , "ETag" :: Maybe (String) } -> {"StreamingDistributionConfig" :: Maybe (StreamingDistributionConfig) , "ETag" :: Maybe (String) } ) -> GetStreamingDistributionConfigResult
+newGetStreamingDistributionConfigResult'  customize = (GetStreamingDistributionConfigResult <<< customize) { "ETag": Nothing, "StreamingDistributionConfig": Nothing }
 
 
 
@@ -1464,8 +1463,8 @@ newGetStreamingDistributionRequest' _Id customize = (GetStreamingDistributionReq
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype GetStreamingDistributionResult = GetStreamingDistributionResult 
-  { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution)
-  , "ETag" :: NullOrUndefined (String)
+  { "StreamingDistribution" :: Maybe (StreamingDistribution)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeGetStreamingDistributionResult :: Newtype GetStreamingDistributionResult _
 derive instance repGenericGetStreamingDistributionResult :: Generic GetStreamingDistributionResult _
@@ -1475,12 +1474,12 @@ instance encodeGetStreamingDistributionResult :: Encode GetStreamingDistribution
 
 -- | Constructs GetStreamingDistributionResult from required parameters
 newGetStreamingDistributionResult :: GetStreamingDistributionResult
-newGetStreamingDistributionResult  = GetStreamingDistributionResult { "ETag": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newGetStreamingDistributionResult  = GetStreamingDistributionResult { "ETag": Nothing, "StreamingDistribution": Nothing }
 
 -- | Constructs GetStreamingDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetStreamingDistributionResult' :: ( { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "ETag" :: NullOrUndefined (String) } -> {"StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "ETag" :: NullOrUndefined (String) } ) -> GetStreamingDistributionResult
-newGetStreamingDistributionResult'  customize = (GetStreamingDistributionResult <<< customize) { "ETag": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newGetStreamingDistributionResult' :: ( { "StreamingDistribution" :: Maybe (StreamingDistribution) , "ETag" :: Maybe (String) } -> {"StreamingDistribution" :: Maybe (StreamingDistribution) , "ETag" :: Maybe (String) } ) -> GetStreamingDistributionResult
+newGetStreamingDistributionResult'  customize = (GetStreamingDistributionResult <<< customize) { "ETag": Nothing, "StreamingDistribution": Nothing }
 
 
 
@@ -1496,7 +1495,7 @@ instance encodeHeaderList :: Encode HeaderList where encode = genericEncode opti
 -- | <p>A complex type that specifies the headers that you want CloudFront to forward to the origin for this cache behavior.</p> <p>For the headers that you specify, CloudFront also caches separate versions of a specified object based on the header values in viewer requests. For example, suppose viewer requests for <code>logo.jpg</code> contain a custom <code>Product</code> header that has a value of either <code>Acme</code> or <code>Apex</code>, and you configure CloudFront to cache your content based on values in the <code>Product</code> header. CloudFront forwards the <code>Product</code> header to the origin and caches the response from the origin once for each header value. For more information about caching based on header values, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html">How CloudFront Forwards and Caches Headers</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype Headers = Headers 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (HeaderList)
+  , "Items" :: Maybe (HeaderList)
   }
 derive instance newtypeHeaders :: Newtype Headers _
 derive instance repGenericHeaders :: Generic Headers _
@@ -1506,12 +1505,12 @@ instance encodeHeaders :: Encode Headers where encode = genericEncode options
 
 -- | Constructs Headers from required parameters
 newHeaders :: Int -> Headers
-newHeaders _Quantity = Headers { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newHeaders _Quantity = Headers { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs Headers's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHeaders' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (HeaderList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (HeaderList) } ) -> Headers
-newHeaders' _Quantity customize = (Headers <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newHeaders' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (HeaderList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (HeaderList) } ) -> Headers
+newHeaders' _Quantity customize = (Headers <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -1526,7 +1525,7 @@ instance encodeHttpVersion :: Encode HttpVersion where encode = genericEncode op
 
 -- | <p>Origin and <code>CallerReference</code> cannot be updated. </p>
 newtype IllegalUpdate = IllegalUpdate 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeIllegalUpdate :: Newtype IllegalUpdate _
 derive instance repGenericIllegalUpdate :: Generic IllegalUpdate _
@@ -1536,18 +1535,18 @@ instance encodeIllegalUpdate :: Encode IllegalUpdate where encode = genericEncod
 
 -- | Constructs IllegalUpdate from required parameters
 newIllegalUpdate :: IllegalUpdate
-newIllegalUpdate  = IllegalUpdate { "Message": (NullOrUndefined Nothing) }
+newIllegalUpdate  = IllegalUpdate { "Message": Nothing }
 
 -- | Constructs IllegalUpdate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIllegalUpdate' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> IllegalUpdate
-newIllegalUpdate'  customize = (IllegalUpdate <<< customize) { "Message": (NullOrUndefined Nothing) }
+newIllegalUpdate' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> IllegalUpdate
+newIllegalUpdate'  customize = (IllegalUpdate <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The value of <code>Quantity</code> and the size of <code>Items</code> do not match.</p>
 newtype InconsistentQuantities = InconsistentQuantities 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInconsistentQuantities :: Newtype InconsistentQuantities _
 derive instance repGenericInconsistentQuantities :: Generic InconsistentQuantities _
@@ -1557,18 +1556,18 @@ instance encodeInconsistentQuantities :: Encode InconsistentQuantities where enc
 
 -- | Constructs InconsistentQuantities from required parameters
 newInconsistentQuantities :: InconsistentQuantities
-newInconsistentQuantities  = InconsistentQuantities { "Message": (NullOrUndefined Nothing) }
+newInconsistentQuantities  = InconsistentQuantities { "Message": Nothing }
 
 -- | Constructs InconsistentQuantities's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInconsistentQuantities' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InconsistentQuantities
-newInconsistentQuantities'  customize = (InconsistentQuantities <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInconsistentQuantities' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InconsistentQuantities
+newInconsistentQuantities'  customize = (InconsistentQuantities <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The argument is invalid.</p>
 newtype InvalidArgument = InvalidArgument 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidArgument :: Newtype InvalidArgument _
 derive instance repGenericInvalidArgument :: Generic InvalidArgument _
@@ -1578,18 +1577,18 @@ instance encodeInvalidArgument :: Encode InvalidArgument where encode = genericE
 
 -- | Constructs InvalidArgument from required parameters
 newInvalidArgument :: InvalidArgument
-newInvalidArgument  = InvalidArgument { "Message": (NullOrUndefined Nothing) }
+newInvalidArgument  = InvalidArgument { "Message": Nothing }
 
 -- | Constructs InvalidArgument's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidArgument' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidArgument
-newInvalidArgument'  customize = (InvalidArgument <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidArgument' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidArgument
+newInvalidArgument'  customize = (InvalidArgument <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The default root object file name is too big or contains an invalid character.</p>
 newtype InvalidDefaultRootObject = InvalidDefaultRootObject 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidDefaultRootObject :: Newtype InvalidDefaultRootObject _
 derive instance repGenericInvalidDefaultRootObject :: Generic InvalidDefaultRootObject _
@@ -1599,17 +1598,17 @@ instance encodeInvalidDefaultRootObject :: Encode InvalidDefaultRootObject where
 
 -- | Constructs InvalidDefaultRootObject from required parameters
 newInvalidDefaultRootObject :: InvalidDefaultRootObject
-newInvalidDefaultRootObject  = InvalidDefaultRootObject { "Message": (NullOrUndefined Nothing) }
+newInvalidDefaultRootObject  = InvalidDefaultRootObject { "Message": Nothing }
 
 -- | Constructs InvalidDefaultRootObject's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidDefaultRootObject' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidDefaultRootObject
-newInvalidDefaultRootObject'  customize = (InvalidDefaultRootObject <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidDefaultRootObject' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidDefaultRootObject
+newInvalidDefaultRootObject'  customize = (InvalidDefaultRootObject <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidErrorCode = InvalidErrorCode 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidErrorCode :: Newtype InvalidErrorCode _
 derive instance repGenericInvalidErrorCode :: Generic InvalidErrorCode _
@@ -1619,18 +1618,18 @@ instance encodeInvalidErrorCode :: Encode InvalidErrorCode where encode = generi
 
 -- | Constructs InvalidErrorCode from required parameters
 newInvalidErrorCode :: InvalidErrorCode
-newInvalidErrorCode  = InvalidErrorCode { "Message": (NullOrUndefined Nothing) }
+newInvalidErrorCode  = InvalidErrorCode { "Message": Nothing }
 
 -- | Constructs InvalidErrorCode's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidErrorCode' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidErrorCode
-newInvalidErrorCode'  customize = (InvalidErrorCode <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidErrorCode' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidErrorCode
+newInvalidErrorCode'  customize = (InvalidErrorCode <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
 newtype InvalidForwardCookies = InvalidForwardCookies 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidForwardCookies :: Newtype InvalidForwardCookies _
 derive instance repGenericInvalidForwardCookies :: Generic InvalidForwardCookies _
@@ -1640,17 +1639,17 @@ instance encodeInvalidForwardCookies :: Encode InvalidForwardCookies where encod
 
 -- | Constructs InvalidForwardCookies from required parameters
 newInvalidForwardCookies :: InvalidForwardCookies
-newInvalidForwardCookies  = InvalidForwardCookies { "Message": (NullOrUndefined Nothing) }
+newInvalidForwardCookies  = InvalidForwardCookies { "Message": Nothing }
 
 -- | Constructs InvalidForwardCookies's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidForwardCookies' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidForwardCookies
-newInvalidForwardCookies'  customize = (InvalidForwardCookies <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidForwardCookies' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidForwardCookies
+newInvalidForwardCookies'  customize = (InvalidForwardCookies <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidGeoRestrictionParameter = InvalidGeoRestrictionParameter 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidGeoRestrictionParameter :: Newtype InvalidGeoRestrictionParameter _
 derive instance repGenericInvalidGeoRestrictionParameter :: Generic InvalidGeoRestrictionParameter _
@@ -1660,17 +1659,17 @@ instance encodeInvalidGeoRestrictionParameter :: Encode InvalidGeoRestrictionPar
 
 -- | Constructs InvalidGeoRestrictionParameter from required parameters
 newInvalidGeoRestrictionParameter :: InvalidGeoRestrictionParameter
-newInvalidGeoRestrictionParameter  = InvalidGeoRestrictionParameter { "Message": (NullOrUndefined Nothing) }
+newInvalidGeoRestrictionParameter  = InvalidGeoRestrictionParameter { "Message": Nothing }
 
 -- | Constructs InvalidGeoRestrictionParameter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidGeoRestrictionParameter' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidGeoRestrictionParameter
-newInvalidGeoRestrictionParameter'  customize = (InvalidGeoRestrictionParameter <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidGeoRestrictionParameter' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidGeoRestrictionParameter
+newInvalidGeoRestrictionParameter'  customize = (InvalidGeoRestrictionParameter <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidHeadersForS3Origin = InvalidHeadersForS3Origin 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidHeadersForS3Origin :: Newtype InvalidHeadersForS3Origin _
 derive instance repGenericInvalidHeadersForS3Origin :: Generic InvalidHeadersForS3Origin _
@@ -1680,18 +1679,18 @@ instance encodeInvalidHeadersForS3Origin :: Encode InvalidHeadersForS3Origin whe
 
 -- | Constructs InvalidHeadersForS3Origin from required parameters
 newInvalidHeadersForS3Origin :: InvalidHeadersForS3Origin
-newInvalidHeadersForS3Origin  = InvalidHeadersForS3Origin { "Message": (NullOrUndefined Nothing) }
+newInvalidHeadersForS3Origin  = InvalidHeadersForS3Origin { "Message": Nothing }
 
 -- | Constructs InvalidHeadersForS3Origin's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidHeadersForS3Origin' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidHeadersForS3Origin
-newInvalidHeadersForS3Origin'  customize = (InvalidHeadersForS3Origin <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidHeadersForS3Origin' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidHeadersForS3Origin
+newInvalidHeadersForS3Origin'  customize = (InvalidHeadersForS3Origin <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
 newtype InvalidIfMatchVersion = InvalidIfMatchVersion 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidIfMatchVersion :: Newtype InvalidIfMatchVersion _
 derive instance repGenericInvalidIfMatchVersion :: Generic InvalidIfMatchVersion _
@@ -1701,18 +1700,18 @@ instance encodeInvalidIfMatchVersion :: Encode InvalidIfMatchVersion where encod
 
 -- | Constructs InvalidIfMatchVersion from required parameters
 newInvalidIfMatchVersion :: InvalidIfMatchVersion
-newInvalidIfMatchVersion  = InvalidIfMatchVersion { "Message": (NullOrUndefined Nothing) }
+newInvalidIfMatchVersion  = InvalidIfMatchVersion { "Message": Nothing }
 
 -- | Constructs InvalidIfMatchVersion's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidIfMatchVersion' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidIfMatchVersion
-newInvalidIfMatchVersion'  customize = (InvalidIfMatchVersion <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidIfMatchVersion' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidIfMatchVersion
+newInvalidIfMatchVersion'  customize = (InvalidIfMatchVersion <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified Lambda function association is invalid.</p>
 newtype InvalidLambdaFunctionAssociation = InvalidLambdaFunctionAssociation 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidLambdaFunctionAssociation :: Newtype InvalidLambdaFunctionAssociation _
 derive instance repGenericInvalidLambdaFunctionAssociation :: Generic InvalidLambdaFunctionAssociation _
@@ -1722,17 +1721,17 @@ instance encodeInvalidLambdaFunctionAssociation :: Encode InvalidLambdaFunctionA
 
 -- | Constructs InvalidLambdaFunctionAssociation from required parameters
 newInvalidLambdaFunctionAssociation :: InvalidLambdaFunctionAssociation
-newInvalidLambdaFunctionAssociation  = InvalidLambdaFunctionAssociation { "Message": (NullOrUndefined Nothing) }
+newInvalidLambdaFunctionAssociation  = InvalidLambdaFunctionAssociation { "Message": Nothing }
 
 -- | Constructs InvalidLambdaFunctionAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidLambdaFunctionAssociation' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidLambdaFunctionAssociation
-newInvalidLambdaFunctionAssociation'  customize = (InvalidLambdaFunctionAssociation <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidLambdaFunctionAssociation' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidLambdaFunctionAssociation
+newInvalidLambdaFunctionAssociation'  customize = (InvalidLambdaFunctionAssociation <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidLocationCode = InvalidLocationCode 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidLocationCode :: Newtype InvalidLocationCode _
 derive instance repGenericInvalidLocationCode :: Generic InvalidLocationCode _
@@ -1742,17 +1741,17 @@ instance encodeInvalidLocationCode :: Encode InvalidLocationCode where encode = 
 
 -- | Constructs InvalidLocationCode from required parameters
 newInvalidLocationCode :: InvalidLocationCode
-newInvalidLocationCode  = InvalidLocationCode { "Message": (NullOrUndefined Nothing) }
+newInvalidLocationCode  = InvalidLocationCode { "Message": Nothing }
 
 -- | Constructs InvalidLocationCode's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidLocationCode' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidLocationCode
-newInvalidLocationCode'  customize = (InvalidLocationCode <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidLocationCode' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidLocationCode
+newInvalidLocationCode'  customize = (InvalidLocationCode <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidMinimumProtocolVersion = InvalidMinimumProtocolVersion 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidMinimumProtocolVersion :: Newtype InvalidMinimumProtocolVersion _
 derive instance repGenericInvalidMinimumProtocolVersion :: Generic InvalidMinimumProtocolVersion _
@@ -1762,18 +1761,18 @@ instance encodeInvalidMinimumProtocolVersion :: Encode InvalidMinimumProtocolVer
 
 -- | Constructs InvalidMinimumProtocolVersion from required parameters
 newInvalidMinimumProtocolVersion :: InvalidMinimumProtocolVersion
-newInvalidMinimumProtocolVersion  = InvalidMinimumProtocolVersion { "Message": (NullOrUndefined Nothing) }
+newInvalidMinimumProtocolVersion  = InvalidMinimumProtocolVersion { "Message": Nothing }
 
 -- | Constructs InvalidMinimumProtocolVersion's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidMinimumProtocolVersion' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidMinimumProtocolVersion
-newInvalidMinimumProtocolVersion'  customize = (InvalidMinimumProtocolVersion <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidMinimumProtocolVersion' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidMinimumProtocolVersion
+newInvalidMinimumProtocolVersion'  customize = (InvalidMinimumProtocolVersion <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
 newtype InvalidOrigin = InvalidOrigin 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidOrigin :: Newtype InvalidOrigin _
 derive instance repGenericInvalidOrigin :: Generic InvalidOrigin _
@@ -1783,18 +1782,18 @@ instance encodeInvalidOrigin :: Encode InvalidOrigin where encode = genericEncod
 
 -- | Constructs InvalidOrigin from required parameters
 newInvalidOrigin :: InvalidOrigin
-newInvalidOrigin  = InvalidOrigin { "Message": (NullOrUndefined Nothing) }
+newInvalidOrigin  = InvalidOrigin { "Message": Nothing }
 
 -- | Constructs InvalidOrigin's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidOrigin' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidOrigin
-newInvalidOrigin'  customize = (InvalidOrigin <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidOrigin' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidOrigin
+newInvalidOrigin'  customize = (InvalidOrigin <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The origin access identity is not valid or doesn't exist.</p>
 newtype InvalidOriginAccessIdentity = InvalidOriginAccessIdentity 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidOriginAccessIdentity :: Newtype InvalidOriginAccessIdentity _
 derive instance repGenericInvalidOriginAccessIdentity :: Generic InvalidOriginAccessIdentity _
@@ -1804,18 +1803,18 @@ instance encodeInvalidOriginAccessIdentity :: Encode InvalidOriginAccessIdentity
 
 -- | Constructs InvalidOriginAccessIdentity from required parameters
 newInvalidOriginAccessIdentity :: InvalidOriginAccessIdentity
-newInvalidOriginAccessIdentity  = InvalidOriginAccessIdentity { "Message": (NullOrUndefined Nothing) }
+newInvalidOriginAccessIdentity  = InvalidOriginAccessIdentity { "Message": Nothing }
 
 -- | Constructs InvalidOriginAccessIdentity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidOriginAccessIdentity' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidOriginAccessIdentity
-newInvalidOriginAccessIdentity'  customize = (InvalidOriginAccessIdentity <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidOriginAccessIdentity' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidOriginAccessIdentity
+newInvalidOriginAccessIdentity'  customize = (InvalidOriginAccessIdentity <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
 newtype InvalidProtocolSettings = InvalidProtocolSettings 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidProtocolSettings :: Newtype InvalidProtocolSettings _
 derive instance repGenericInvalidProtocolSettings :: Generic InvalidProtocolSettings _
@@ -1825,17 +1824,17 @@ instance encodeInvalidProtocolSettings :: Encode InvalidProtocolSettings where e
 
 -- | Constructs InvalidProtocolSettings from required parameters
 newInvalidProtocolSettings :: InvalidProtocolSettings
-newInvalidProtocolSettings  = InvalidProtocolSettings { "Message": (NullOrUndefined Nothing) }
+newInvalidProtocolSettings  = InvalidProtocolSettings { "Message": Nothing }
 
 -- | Constructs InvalidProtocolSettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidProtocolSettings' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidProtocolSettings
-newInvalidProtocolSettings'  customize = (InvalidProtocolSettings <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidProtocolSettings' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidProtocolSettings
+newInvalidProtocolSettings'  customize = (InvalidProtocolSettings <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidQueryStringParameters = InvalidQueryStringParameters 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidQueryStringParameters :: Newtype InvalidQueryStringParameters _
 derive instance repGenericInvalidQueryStringParameters :: Generic InvalidQueryStringParameters _
@@ -1845,18 +1844,18 @@ instance encodeInvalidQueryStringParameters :: Encode InvalidQueryStringParamete
 
 -- | Constructs InvalidQueryStringParameters from required parameters
 newInvalidQueryStringParameters :: InvalidQueryStringParameters
-newInvalidQueryStringParameters  = InvalidQueryStringParameters { "Message": (NullOrUndefined Nothing) }
+newInvalidQueryStringParameters  = InvalidQueryStringParameters { "Message": Nothing }
 
 -- | Constructs InvalidQueryStringParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidQueryStringParameters' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidQueryStringParameters
-newInvalidQueryStringParameters'  customize = (InvalidQueryStringParameters <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidQueryStringParameters' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidQueryStringParameters
+newInvalidQueryStringParameters'  customize = (InvalidQueryStringParameters <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
 newtype InvalidRelativePath = InvalidRelativePath 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidRelativePath :: Newtype InvalidRelativePath _
 derive instance repGenericInvalidRelativePath :: Generic InvalidRelativePath _
@@ -1866,18 +1865,18 @@ instance encodeInvalidRelativePath :: Encode InvalidRelativePath where encode = 
 
 -- | Constructs InvalidRelativePath from required parameters
 newInvalidRelativePath :: InvalidRelativePath
-newInvalidRelativePath  = InvalidRelativePath { "Message": (NullOrUndefined Nothing) }
+newInvalidRelativePath  = InvalidRelativePath { "Message": Nothing }
 
 -- | Constructs InvalidRelativePath's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRelativePath' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidRelativePath
-newInvalidRelativePath'  customize = (InvalidRelativePath <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidRelativePath' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidRelativePath
+newInvalidRelativePath'  customize = (InvalidRelativePath <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
 newtype InvalidRequiredProtocol = InvalidRequiredProtocol 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidRequiredProtocol :: Newtype InvalidRequiredProtocol _
 derive instance repGenericInvalidRequiredProtocol :: Generic InvalidRequiredProtocol _
@@ -1887,17 +1886,17 @@ instance encodeInvalidRequiredProtocol :: Encode InvalidRequiredProtocol where e
 
 -- | Constructs InvalidRequiredProtocol from required parameters
 newInvalidRequiredProtocol :: InvalidRequiredProtocol
-newInvalidRequiredProtocol  = InvalidRequiredProtocol { "Message": (NullOrUndefined Nothing) }
+newInvalidRequiredProtocol  = InvalidRequiredProtocol { "Message": Nothing }
 
 -- | Constructs InvalidRequiredProtocol's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequiredProtocol' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidRequiredProtocol
-newInvalidRequiredProtocol'  customize = (InvalidRequiredProtocol <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidRequiredProtocol' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidRequiredProtocol
+newInvalidRequiredProtocol'  customize = (InvalidRequiredProtocol <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidResponseCode = InvalidResponseCode 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidResponseCode :: Newtype InvalidResponseCode _
 derive instance repGenericInvalidResponseCode :: Generic InvalidResponseCode _
@@ -1907,17 +1906,17 @@ instance encodeInvalidResponseCode :: Encode InvalidResponseCode where encode = 
 
 -- | Constructs InvalidResponseCode from required parameters
 newInvalidResponseCode :: InvalidResponseCode
-newInvalidResponseCode  = InvalidResponseCode { "Message": (NullOrUndefined Nothing) }
+newInvalidResponseCode  = InvalidResponseCode { "Message": Nothing }
 
 -- | Constructs InvalidResponseCode's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidResponseCode' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidResponseCode
-newInvalidResponseCode'  customize = (InvalidResponseCode <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidResponseCode' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidResponseCode
+newInvalidResponseCode'  customize = (InvalidResponseCode <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidTTLOrder = InvalidTTLOrder 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidTTLOrder :: Newtype InvalidTTLOrder _
 derive instance repGenericInvalidTTLOrder :: Generic InvalidTTLOrder _
@@ -1927,17 +1926,17 @@ instance encodeInvalidTTLOrder :: Encode InvalidTTLOrder where encode = genericE
 
 -- | Constructs InvalidTTLOrder from required parameters
 newInvalidTTLOrder :: InvalidTTLOrder
-newInvalidTTLOrder  = InvalidTTLOrder { "Message": (NullOrUndefined Nothing) }
+newInvalidTTLOrder  = InvalidTTLOrder { "Message": Nothing }
 
 -- | Constructs InvalidTTLOrder's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidTTLOrder' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidTTLOrder
-newInvalidTTLOrder'  customize = (InvalidTTLOrder <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidTTLOrder' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidTTLOrder
+newInvalidTTLOrder'  customize = (InvalidTTLOrder <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidTagging = InvalidTagging 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidTagging :: Newtype InvalidTagging _
 derive instance repGenericInvalidTagging :: Generic InvalidTagging _
@@ -1947,17 +1946,17 @@ instance encodeInvalidTagging :: Encode InvalidTagging where encode = genericEnc
 
 -- | Constructs InvalidTagging from required parameters
 newInvalidTagging :: InvalidTagging
-newInvalidTagging  = InvalidTagging { "Message": (NullOrUndefined Nothing) }
+newInvalidTagging  = InvalidTagging { "Message": Nothing }
 
 -- | Constructs InvalidTagging's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidTagging' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidTagging
-newInvalidTagging'  customize = (InvalidTagging <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidTagging' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidTagging
+newInvalidTagging'  customize = (InvalidTagging <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidViewerCertificate = InvalidViewerCertificate 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidViewerCertificate :: Newtype InvalidViewerCertificate _
 derive instance repGenericInvalidViewerCertificate :: Generic InvalidViewerCertificate _
@@ -1967,17 +1966,17 @@ instance encodeInvalidViewerCertificate :: Encode InvalidViewerCertificate where
 
 -- | Constructs InvalidViewerCertificate from required parameters
 newInvalidViewerCertificate :: InvalidViewerCertificate
-newInvalidViewerCertificate  = InvalidViewerCertificate { "Message": (NullOrUndefined Nothing) }
+newInvalidViewerCertificate  = InvalidViewerCertificate { "Message": Nothing }
 
 -- | Constructs InvalidViewerCertificate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidViewerCertificate' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidViewerCertificate
-newInvalidViewerCertificate'  customize = (InvalidViewerCertificate <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidViewerCertificate' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidViewerCertificate
+newInvalidViewerCertificate'  customize = (InvalidViewerCertificate <<< customize) { "Message": Nothing }
 
 
 
 newtype InvalidWebACLId = InvalidWebACLId 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidWebACLId :: Newtype InvalidWebACLId _
 derive instance repGenericInvalidWebACLId :: Generic InvalidWebACLId _
@@ -1987,12 +1986,12 @@ instance encodeInvalidWebACLId :: Encode InvalidWebACLId where encode = genericE
 
 -- | Constructs InvalidWebACLId from required parameters
 newInvalidWebACLId :: InvalidWebACLId
-newInvalidWebACLId  = InvalidWebACLId { "Message": (NullOrUndefined Nothing) }
+newInvalidWebACLId  = InvalidWebACLId { "Message": Nothing }
 
 -- | Constructs InvalidWebACLId's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidWebACLId' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidWebACLId
-newInvalidWebACLId'  customize = (InvalidWebACLId <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidWebACLId' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidWebACLId
+newInvalidWebACLId'  customize = (InvalidWebACLId <<< customize) { "Message": Nothing }
 
 
 
@@ -2045,11 +2044,11 @@ newInvalidationBatch' _CallerReference _Paths customize = (InvalidationBatch <<<
 -- | <p>The <code>InvalidationList</code> complex type describes the list of invalidation objects. For more information about invalidation, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects (Web Distributions Only)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 newtype InvalidationList = InvalidationList 
   { "Marker" :: (String)
-  , "NextMarker" :: NullOrUndefined (String)
+  , "NextMarker" :: Maybe (String)
   , "MaxItems" :: (Int)
   , "IsTruncated" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (InvalidationSummaryList)
+  , "Items" :: Maybe (InvalidationSummaryList)
   }
 derive instance newtypeInvalidationList :: Newtype InvalidationList _
 derive instance repGenericInvalidationList :: Generic InvalidationList _
@@ -2059,12 +2058,12 @@ instance encodeInvalidationList :: Encode InvalidationList where encode = generi
 
 -- | Constructs InvalidationList from required parameters
 newInvalidationList :: Boolean -> String -> Int -> Int -> InvalidationList
-newInvalidationList _IsTruncated _Marker _MaxItems _Quantity = InvalidationList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newInvalidationList _IsTruncated _Marker _MaxItems _Quantity = InvalidationList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 -- | Constructs InvalidationList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidationList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (InvalidationSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (InvalidationSummaryList) } ) -> InvalidationList
-newInvalidationList' _IsTruncated _Marker _MaxItems _Quantity customize = (InvalidationList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newInvalidationList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (InvalidationSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (InvalidationSummaryList) } ) -> InvalidationList
+newInvalidationList' _IsTruncated _Marker _MaxItems _Quantity customize = (InvalidationList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 
 
@@ -2121,7 +2120,7 @@ instance encodeKeyPairIdList :: Encode KeyPairIdList where encode = genericEncod
 -- | <p>A complex type that lists the active CloudFront key pairs, if any, that are associated with <code>AwsAccountNumber</code>. </p> <p>For more information, see <a>ActiveTrustedSigners</a>.</p>
 newtype KeyPairIds = KeyPairIds 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (KeyPairIdList)
+  , "Items" :: Maybe (KeyPairIdList)
   }
 derive instance newtypeKeyPairIds :: Newtype KeyPairIds _
 derive instance repGenericKeyPairIds :: Generic KeyPairIds _
@@ -2131,19 +2130,19 @@ instance encodeKeyPairIds :: Encode KeyPairIds where encode = genericEncode opti
 
 -- | Constructs KeyPairIds from required parameters
 newKeyPairIds :: Int -> KeyPairIds
-newKeyPairIds _Quantity = KeyPairIds { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newKeyPairIds _Quantity = KeyPairIds { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs KeyPairIds's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKeyPairIds' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (KeyPairIdList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (KeyPairIdList) } ) -> KeyPairIds
-newKeyPairIds' _Quantity customize = (KeyPairIds <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newKeyPairIds' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (KeyPairIdList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (KeyPairIdList) } ) -> KeyPairIds
+newKeyPairIds' _Quantity customize = (KeyPairIds <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
 -- | <p>A complex type that contains a Lambda function association.</p>
 newtype LambdaFunctionAssociation = LambdaFunctionAssociation 
-  { "LambdaFunctionARN" :: NullOrUndefined (String)
-  , "EventType" :: NullOrUndefined (EventType)
+  { "LambdaFunctionARN" :: Maybe (String)
+  , "EventType" :: Maybe (EventType)
   }
 derive instance newtypeLambdaFunctionAssociation :: Newtype LambdaFunctionAssociation _
 derive instance repGenericLambdaFunctionAssociation :: Generic LambdaFunctionAssociation _
@@ -2153,12 +2152,12 @@ instance encodeLambdaFunctionAssociation :: Encode LambdaFunctionAssociation whe
 
 -- | Constructs LambdaFunctionAssociation from required parameters
 newLambdaFunctionAssociation :: LambdaFunctionAssociation
-newLambdaFunctionAssociation  = LambdaFunctionAssociation { "EventType": (NullOrUndefined Nothing), "LambdaFunctionARN": (NullOrUndefined Nothing) }
+newLambdaFunctionAssociation  = LambdaFunctionAssociation { "EventType": Nothing, "LambdaFunctionARN": Nothing }
 
 -- | Constructs LambdaFunctionAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLambdaFunctionAssociation' :: ( { "LambdaFunctionARN" :: NullOrUndefined (String) , "EventType" :: NullOrUndefined (EventType) } -> {"LambdaFunctionARN" :: NullOrUndefined (String) , "EventType" :: NullOrUndefined (EventType) } ) -> LambdaFunctionAssociation
-newLambdaFunctionAssociation'  customize = (LambdaFunctionAssociation <<< customize) { "EventType": (NullOrUndefined Nothing), "LambdaFunctionARN": (NullOrUndefined Nothing) }
+newLambdaFunctionAssociation' :: ( { "LambdaFunctionARN" :: Maybe (String) , "EventType" :: Maybe (EventType) } -> {"LambdaFunctionARN" :: Maybe (String) , "EventType" :: Maybe (EventType) } ) -> LambdaFunctionAssociation
+newLambdaFunctionAssociation'  customize = (LambdaFunctionAssociation <<< customize) { "EventType": Nothing, "LambdaFunctionARN": Nothing }
 
 
 
@@ -2174,7 +2173,7 @@ instance encodeLambdaFunctionAssociationList :: Encode LambdaFunctionAssociation
 -- | <p>A complex type that specifies a list of Lambda functions associations for a cache behavior.</p> <p>If you want to invoke one or more Lambda functions triggered by requests that match the <code>PathPattern</code> of the cache behavior, specify the applicable values for <code>Quantity</code> and <code>Items</code>. Note that there can be up to 4 <code>LambdaFunctionAssociation</code> items in this list (one for each possible value of <code>EventType</code>) and each <code>EventType</code> can be associated with the Lambda function only once.</p> <p>If you don't want to invoke any Lambda functions for the requests that match <code>PathPattern</code>, specify <code>0</code> for <code>Quantity</code> and omit <code>Items</code>. </p>
 newtype LambdaFunctionAssociations = LambdaFunctionAssociations 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (LambdaFunctionAssociationList)
+  , "Items" :: Maybe (LambdaFunctionAssociationList)
   }
 derive instance newtypeLambdaFunctionAssociations :: Newtype LambdaFunctionAssociations _
 derive instance repGenericLambdaFunctionAssociations :: Generic LambdaFunctionAssociations _
@@ -2184,19 +2183,19 @@ instance encodeLambdaFunctionAssociations :: Encode LambdaFunctionAssociations w
 
 -- | Constructs LambdaFunctionAssociations from required parameters
 newLambdaFunctionAssociations :: Int -> LambdaFunctionAssociations
-newLambdaFunctionAssociations _Quantity = LambdaFunctionAssociations { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newLambdaFunctionAssociations _Quantity = LambdaFunctionAssociations { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs LambdaFunctionAssociations's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLambdaFunctionAssociations' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (LambdaFunctionAssociationList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (LambdaFunctionAssociationList) } ) -> LambdaFunctionAssociations
-newLambdaFunctionAssociations' _Quantity customize = (LambdaFunctionAssociations <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newLambdaFunctionAssociations' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (LambdaFunctionAssociationList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (LambdaFunctionAssociationList) } ) -> LambdaFunctionAssociations
+newLambdaFunctionAssociations' _Quantity customize = (LambdaFunctionAssociations <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
 -- | <p>The request to list origin access identities. </p>
 newtype ListCloudFrontOriginAccessIdentitiesRequest = ListCloudFrontOriginAccessIdentitiesRequest 
-  { "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (String)
+  { "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (String)
   }
 derive instance newtypeListCloudFrontOriginAccessIdentitiesRequest :: Newtype ListCloudFrontOriginAccessIdentitiesRequest _
 derive instance repGenericListCloudFrontOriginAccessIdentitiesRequest :: Generic ListCloudFrontOriginAccessIdentitiesRequest _
@@ -2206,18 +2205,18 @@ instance encodeListCloudFrontOriginAccessIdentitiesRequest :: Encode ListCloudFr
 
 -- | Constructs ListCloudFrontOriginAccessIdentitiesRequest from required parameters
 newListCloudFrontOriginAccessIdentitiesRequest :: ListCloudFrontOriginAccessIdentitiesRequest
-newListCloudFrontOriginAccessIdentitiesRequest  = ListCloudFrontOriginAccessIdentitiesRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListCloudFrontOriginAccessIdentitiesRequest  = ListCloudFrontOriginAccessIdentitiesRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListCloudFrontOriginAccessIdentitiesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListCloudFrontOriginAccessIdentitiesRequest' :: ( { "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } -> {"Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } ) -> ListCloudFrontOriginAccessIdentitiesRequest
-newListCloudFrontOriginAccessIdentitiesRequest'  customize = (ListCloudFrontOriginAccessIdentitiesRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListCloudFrontOriginAccessIdentitiesRequest' :: ( { "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } -> {"Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } ) -> ListCloudFrontOriginAccessIdentitiesRequest
+newListCloudFrontOriginAccessIdentitiesRequest'  customize = (ListCloudFrontOriginAccessIdentitiesRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype ListCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessIdentitiesResult 
-  { "CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList)
+  { "CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList)
   }
 derive instance newtypeListCloudFrontOriginAccessIdentitiesResult :: Newtype ListCloudFrontOriginAccessIdentitiesResult _
 derive instance repGenericListCloudFrontOriginAccessIdentitiesResult :: Generic ListCloudFrontOriginAccessIdentitiesResult _
@@ -2227,19 +2226,19 @@ instance encodeListCloudFrontOriginAccessIdentitiesResult :: Encode ListCloudFro
 
 -- | Constructs ListCloudFrontOriginAccessIdentitiesResult from required parameters
 newListCloudFrontOriginAccessIdentitiesResult :: ListCloudFrontOriginAccessIdentitiesResult
-newListCloudFrontOriginAccessIdentitiesResult  = ListCloudFrontOriginAccessIdentitiesResult { "CloudFrontOriginAccessIdentityList": (NullOrUndefined Nothing) }
+newListCloudFrontOriginAccessIdentitiesResult  = ListCloudFrontOriginAccessIdentitiesResult { "CloudFrontOriginAccessIdentityList": Nothing }
 
 -- | Constructs ListCloudFrontOriginAccessIdentitiesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListCloudFrontOriginAccessIdentitiesResult' :: ( { "CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList) } -> {"CloudFrontOriginAccessIdentityList" :: NullOrUndefined (CloudFrontOriginAccessIdentityList) } ) -> ListCloudFrontOriginAccessIdentitiesResult
-newListCloudFrontOriginAccessIdentitiesResult'  customize = (ListCloudFrontOriginAccessIdentitiesResult <<< customize) { "CloudFrontOriginAccessIdentityList": (NullOrUndefined Nothing) }
+newListCloudFrontOriginAccessIdentitiesResult' :: ( { "CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList) } -> {"CloudFrontOriginAccessIdentityList" :: Maybe (CloudFrontOriginAccessIdentityList) } ) -> ListCloudFrontOriginAccessIdentitiesResult
+newListCloudFrontOriginAccessIdentitiesResult'  customize = (ListCloudFrontOriginAccessIdentitiesResult <<< customize) { "CloudFrontOriginAccessIdentityList": Nothing }
 
 
 
 -- | <p>The request to list distributions that are associated with a specified AWS WAF web ACL. </p>
 newtype ListDistributionsByWebACLIdRequest = ListDistributionsByWebACLIdRequest 
-  { "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (String)
+  { "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (String)
   , "WebACLId" :: (String)
   }
 derive instance newtypeListDistributionsByWebACLIdRequest :: Newtype ListDistributionsByWebACLIdRequest _
@@ -2250,18 +2249,18 @@ instance encodeListDistributionsByWebACLIdRequest :: Encode ListDistributionsByW
 
 -- | Constructs ListDistributionsByWebACLIdRequest from required parameters
 newListDistributionsByWebACLIdRequest :: String -> ListDistributionsByWebACLIdRequest
-newListDistributionsByWebACLIdRequest _WebACLId = ListDistributionsByWebACLIdRequest { "WebACLId": _WebACLId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDistributionsByWebACLIdRequest _WebACLId = ListDistributionsByWebACLIdRequest { "WebACLId": _WebACLId, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListDistributionsByWebACLIdRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDistributionsByWebACLIdRequest' :: String -> ( { "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) , "WebACLId" :: (String) } -> {"Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) , "WebACLId" :: (String) } ) -> ListDistributionsByWebACLIdRequest
-newListDistributionsByWebACLIdRequest' _WebACLId customize = (ListDistributionsByWebACLIdRequest <<< customize) { "WebACLId": _WebACLId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDistributionsByWebACLIdRequest' :: String -> ( { "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) , "WebACLId" :: (String) } -> {"Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) , "WebACLId" :: (String) } ) -> ListDistributionsByWebACLIdRequest
+newListDistributionsByWebACLIdRequest' _WebACLId customize = (ListDistributionsByWebACLIdRequest <<< customize) { "WebACLId": _WebACLId, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The response to a request to list the distributions that are associated with a specified AWS WAF web ACL. </p>
 newtype ListDistributionsByWebACLIdResult = ListDistributionsByWebACLIdResult 
-  { "DistributionList" :: NullOrUndefined (DistributionList)
+  { "DistributionList" :: Maybe (DistributionList)
   }
 derive instance newtypeListDistributionsByWebACLIdResult :: Newtype ListDistributionsByWebACLIdResult _
 derive instance repGenericListDistributionsByWebACLIdResult :: Generic ListDistributionsByWebACLIdResult _
@@ -2271,19 +2270,19 @@ instance encodeListDistributionsByWebACLIdResult :: Encode ListDistributionsByWe
 
 -- | Constructs ListDistributionsByWebACLIdResult from required parameters
 newListDistributionsByWebACLIdResult :: ListDistributionsByWebACLIdResult
-newListDistributionsByWebACLIdResult  = ListDistributionsByWebACLIdResult { "DistributionList": (NullOrUndefined Nothing) }
+newListDistributionsByWebACLIdResult  = ListDistributionsByWebACLIdResult { "DistributionList": Nothing }
 
 -- | Constructs ListDistributionsByWebACLIdResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDistributionsByWebACLIdResult' :: ( { "DistributionList" :: NullOrUndefined (DistributionList) } -> {"DistributionList" :: NullOrUndefined (DistributionList) } ) -> ListDistributionsByWebACLIdResult
-newListDistributionsByWebACLIdResult'  customize = (ListDistributionsByWebACLIdResult <<< customize) { "DistributionList": (NullOrUndefined Nothing) }
+newListDistributionsByWebACLIdResult' :: ( { "DistributionList" :: Maybe (DistributionList) } -> {"DistributionList" :: Maybe (DistributionList) } ) -> ListDistributionsByWebACLIdResult
+newListDistributionsByWebACLIdResult'  customize = (ListDistributionsByWebACLIdResult <<< customize) { "DistributionList": Nothing }
 
 
 
 -- | <p>The request to list your distributions. </p>
 newtype ListDistributionsRequest = ListDistributionsRequest 
-  { "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (String)
+  { "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (String)
   }
 derive instance newtypeListDistributionsRequest :: Newtype ListDistributionsRequest _
 derive instance repGenericListDistributionsRequest :: Generic ListDistributionsRequest _
@@ -2293,18 +2292,18 @@ instance encodeListDistributionsRequest :: Encode ListDistributionsRequest where
 
 -- | Constructs ListDistributionsRequest from required parameters
 newListDistributionsRequest :: ListDistributionsRequest
-newListDistributionsRequest  = ListDistributionsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDistributionsRequest  = ListDistributionsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListDistributionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDistributionsRequest' :: ( { "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } -> {"Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } ) -> ListDistributionsRequest
-newListDistributionsRequest'  customize = (ListDistributionsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDistributionsRequest' :: ( { "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } -> {"Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } ) -> ListDistributionsRequest
+newListDistributionsRequest'  customize = (ListDistributionsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype ListDistributionsResult = ListDistributionsResult 
-  { "DistributionList" :: NullOrUndefined (DistributionList)
+  { "DistributionList" :: Maybe (DistributionList)
   }
 derive instance newtypeListDistributionsResult :: Newtype ListDistributionsResult _
 derive instance repGenericListDistributionsResult :: Generic ListDistributionsResult _
@@ -2314,20 +2313,20 @@ instance encodeListDistributionsResult :: Encode ListDistributionsResult where e
 
 -- | Constructs ListDistributionsResult from required parameters
 newListDistributionsResult :: ListDistributionsResult
-newListDistributionsResult  = ListDistributionsResult { "DistributionList": (NullOrUndefined Nothing) }
+newListDistributionsResult  = ListDistributionsResult { "DistributionList": Nothing }
 
 -- | Constructs ListDistributionsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDistributionsResult' :: ( { "DistributionList" :: NullOrUndefined (DistributionList) } -> {"DistributionList" :: NullOrUndefined (DistributionList) } ) -> ListDistributionsResult
-newListDistributionsResult'  customize = (ListDistributionsResult <<< customize) { "DistributionList": (NullOrUndefined Nothing) }
+newListDistributionsResult' :: ( { "DistributionList" :: Maybe (DistributionList) } -> {"DistributionList" :: Maybe (DistributionList) } ) -> ListDistributionsResult
+newListDistributionsResult'  customize = (ListDistributionsResult <<< customize) { "DistributionList": Nothing }
 
 
 
 -- | <p>The request to list invalidations. </p>
 newtype ListInvalidationsRequest = ListInvalidationsRequest 
   { "DistributionId" :: (String)
-  , "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (String)
+  , "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (String)
   }
 derive instance newtypeListInvalidationsRequest :: Newtype ListInvalidationsRequest _
 derive instance repGenericListInvalidationsRequest :: Generic ListInvalidationsRequest _
@@ -2337,18 +2336,18 @@ instance encodeListInvalidationsRequest :: Encode ListInvalidationsRequest where
 
 -- | Constructs ListInvalidationsRequest from required parameters
 newListInvalidationsRequest :: String -> ListInvalidationsRequest
-newListInvalidationsRequest _DistributionId = ListInvalidationsRequest { "DistributionId": _DistributionId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListInvalidationsRequest _DistributionId = ListInvalidationsRequest { "DistributionId": _DistributionId, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListInvalidationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListInvalidationsRequest' :: String -> ( { "DistributionId" :: (String) , "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } -> {"DistributionId" :: (String) , "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } ) -> ListInvalidationsRequest
-newListInvalidationsRequest' _DistributionId customize = (ListInvalidationsRequest <<< customize) { "DistributionId": _DistributionId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListInvalidationsRequest' :: String -> ( { "DistributionId" :: (String) , "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } -> {"DistributionId" :: (String) , "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } ) -> ListInvalidationsRequest
+newListInvalidationsRequest' _DistributionId customize = (ListInvalidationsRequest <<< customize) { "DistributionId": _DistributionId, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype ListInvalidationsResult = ListInvalidationsResult 
-  { "InvalidationList" :: NullOrUndefined (InvalidationList)
+  { "InvalidationList" :: Maybe (InvalidationList)
   }
 derive instance newtypeListInvalidationsResult :: Newtype ListInvalidationsResult _
 derive instance repGenericListInvalidationsResult :: Generic ListInvalidationsResult _
@@ -2358,19 +2357,19 @@ instance encodeListInvalidationsResult :: Encode ListInvalidationsResult where e
 
 -- | Constructs ListInvalidationsResult from required parameters
 newListInvalidationsResult :: ListInvalidationsResult
-newListInvalidationsResult  = ListInvalidationsResult { "InvalidationList": (NullOrUndefined Nothing) }
+newListInvalidationsResult  = ListInvalidationsResult { "InvalidationList": Nothing }
 
 -- | Constructs ListInvalidationsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListInvalidationsResult' :: ( { "InvalidationList" :: NullOrUndefined (InvalidationList) } -> {"InvalidationList" :: NullOrUndefined (InvalidationList) } ) -> ListInvalidationsResult
-newListInvalidationsResult'  customize = (ListInvalidationsResult <<< customize) { "InvalidationList": (NullOrUndefined Nothing) }
+newListInvalidationsResult' :: ( { "InvalidationList" :: Maybe (InvalidationList) } -> {"InvalidationList" :: Maybe (InvalidationList) } ) -> ListInvalidationsResult
+newListInvalidationsResult'  customize = (ListInvalidationsResult <<< customize) { "InvalidationList": Nothing }
 
 
 
 -- | <p>The request to list your streaming distributions. </p>
 newtype ListStreamingDistributionsRequest = ListStreamingDistributionsRequest 
-  { "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (String)
+  { "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (String)
   }
 derive instance newtypeListStreamingDistributionsRequest :: Newtype ListStreamingDistributionsRequest _
 derive instance repGenericListStreamingDistributionsRequest :: Generic ListStreamingDistributionsRequest _
@@ -2380,18 +2379,18 @@ instance encodeListStreamingDistributionsRequest :: Encode ListStreamingDistribu
 
 -- | Constructs ListStreamingDistributionsRequest from required parameters
 newListStreamingDistributionsRequest :: ListStreamingDistributionsRequest
-newListStreamingDistributionsRequest  = ListStreamingDistributionsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListStreamingDistributionsRequest  = ListStreamingDistributionsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListStreamingDistributionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListStreamingDistributionsRequest' :: ( { "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } -> {"Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (String) } ) -> ListStreamingDistributionsRequest
-newListStreamingDistributionsRequest'  customize = (ListStreamingDistributionsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListStreamingDistributionsRequest' :: ( { "Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } -> {"Marker" :: Maybe (String) , "MaxItems" :: Maybe (String) } ) -> ListStreamingDistributionsRequest
+newListStreamingDistributionsRequest'  customize = (ListStreamingDistributionsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request. </p>
 newtype ListStreamingDistributionsResult = ListStreamingDistributionsResult 
-  { "StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList)
+  { "StreamingDistributionList" :: Maybe (StreamingDistributionList)
   }
 derive instance newtypeListStreamingDistributionsResult :: Newtype ListStreamingDistributionsResult _
 derive instance repGenericListStreamingDistributionsResult :: Generic ListStreamingDistributionsResult _
@@ -2401,12 +2400,12 @@ instance encodeListStreamingDistributionsResult :: Encode ListStreamingDistribut
 
 -- | Constructs ListStreamingDistributionsResult from required parameters
 newListStreamingDistributionsResult :: ListStreamingDistributionsResult
-newListStreamingDistributionsResult  = ListStreamingDistributionsResult { "StreamingDistributionList": (NullOrUndefined Nothing) }
+newListStreamingDistributionsResult  = ListStreamingDistributionsResult { "StreamingDistributionList": Nothing }
 
 -- | Constructs ListStreamingDistributionsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListStreamingDistributionsResult' :: ( { "StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList) } -> {"StreamingDistributionList" :: NullOrUndefined (StreamingDistributionList) } ) -> ListStreamingDistributionsResult
-newListStreamingDistributionsResult'  customize = (ListStreamingDistributionsResult <<< customize) { "StreamingDistributionList": (NullOrUndefined Nothing) }
+newListStreamingDistributionsResult' :: ( { "StreamingDistributionList" :: Maybe (StreamingDistributionList) } -> {"StreamingDistributionList" :: Maybe (StreamingDistributionList) } ) -> ListStreamingDistributionsResult
+newListStreamingDistributionsResult'  customize = (ListStreamingDistributionsResult <<< customize) { "StreamingDistributionList": Nothing }
 
 
 
@@ -2514,7 +2513,7 @@ instance encodeMinimumProtocolVersion :: Encode MinimumProtocolVersion where enc
 
 -- | <p>This operation requires a body. Ensure that the body is present and the Content-Type header is set.</p>
 newtype MissingBody = MissingBody 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeMissingBody :: Newtype MissingBody _
 derive instance repGenericMissingBody :: Generic MissingBody _
@@ -2524,18 +2523,18 @@ instance encodeMissingBody :: Encode MissingBody where encode = genericEncode op
 
 -- | Constructs MissingBody from required parameters
 newMissingBody :: MissingBody
-newMissingBody  = MissingBody { "Message": (NullOrUndefined Nothing) }
+newMissingBody  = MissingBody { "Message": Nothing }
 
 -- | Constructs MissingBody's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMissingBody' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> MissingBody
-newMissingBody'  customize = (MissingBody <<< customize) { "Message": (NullOrUndefined Nothing) }
+newMissingBody' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> MissingBody
+newMissingBody'  customize = (MissingBody <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified origin access identity does not exist.</p>
 newtype NoSuchCloudFrontOriginAccessIdentity = NoSuchCloudFrontOriginAccessIdentity 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchCloudFrontOriginAccessIdentity :: Newtype NoSuchCloudFrontOriginAccessIdentity _
 derive instance repGenericNoSuchCloudFrontOriginAccessIdentity :: Generic NoSuchCloudFrontOriginAccessIdentity _
@@ -2545,18 +2544,18 @@ instance encodeNoSuchCloudFrontOriginAccessIdentity :: Encode NoSuchCloudFrontOr
 
 -- | Constructs NoSuchCloudFrontOriginAccessIdentity from required parameters
 newNoSuchCloudFrontOriginAccessIdentity :: NoSuchCloudFrontOriginAccessIdentity
-newNoSuchCloudFrontOriginAccessIdentity  = NoSuchCloudFrontOriginAccessIdentity { "Message": (NullOrUndefined Nothing) }
+newNoSuchCloudFrontOriginAccessIdentity  = NoSuchCloudFrontOriginAccessIdentity { "Message": Nothing }
 
 -- | Constructs NoSuchCloudFrontOriginAccessIdentity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchCloudFrontOriginAccessIdentity' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchCloudFrontOriginAccessIdentity
-newNoSuchCloudFrontOriginAccessIdentity'  customize = (NoSuchCloudFrontOriginAccessIdentity <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchCloudFrontOriginAccessIdentity' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchCloudFrontOriginAccessIdentity
+newNoSuchCloudFrontOriginAccessIdentity'  customize = (NoSuchCloudFrontOriginAccessIdentity <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified distribution does not exist.</p>
 newtype NoSuchDistribution = NoSuchDistribution 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchDistribution :: Newtype NoSuchDistribution _
 derive instance repGenericNoSuchDistribution :: Generic NoSuchDistribution _
@@ -2566,18 +2565,18 @@ instance encodeNoSuchDistribution :: Encode NoSuchDistribution where encode = ge
 
 -- | Constructs NoSuchDistribution from required parameters
 newNoSuchDistribution :: NoSuchDistribution
-newNoSuchDistribution  = NoSuchDistribution { "Message": (NullOrUndefined Nothing) }
+newNoSuchDistribution  = NoSuchDistribution { "Message": Nothing }
 
 -- | Constructs NoSuchDistribution's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchDistribution' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchDistribution
-newNoSuchDistribution'  customize = (NoSuchDistribution <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchDistribution' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchDistribution
+newNoSuchDistribution'  customize = (NoSuchDistribution <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified invalidation does not exist.</p>
 newtype NoSuchInvalidation = NoSuchInvalidation 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchInvalidation :: Newtype NoSuchInvalidation _
 derive instance repGenericNoSuchInvalidation :: Generic NoSuchInvalidation _
@@ -2587,18 +2586,18 @@ instance encodeNoSuchInvalidation :: Encode NoSuchInvalidation where encode = ge
 
 -- | Constructs NoSuchInvalidation from required parameters
 newNoSuchInvalidation :: NoSuchInvalidation
-newNoSuchInvalidation  = NoSuchInvalidation { "Message": (NullOrUndefined Nothing) }
+newNoSuchInvalidation  = NoSuchInvalidation { "Message": Nothing }
 
 -- | Constructs NoSuchInvalidation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchInvalidation' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchInvalidation
-newNoSuchInvalidation'  customize = (NoSuchInvalidation <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchInvalidation' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchInvalidation
+newNoSuchInvalidation'  customize = (NoSuchInvalidation <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>No origin exists with the specified <code>Origin Id</code>. </p>
 newtype NoSuchOrigin = NoSuchOrigin 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchOrigin :: Newtype NoSuchOrigin _
 derive instance repGenericNoSuchOrigin :: Generic NoSuchOrigin _
@@ -2608,17 +2607,17 @@ instance encodeNoSuchOrigin :: Encode NoSuchOrigin where encode = genericEncode 
 
 -- | Constructs NoSuchOrigin from required parameters
 newNoSuchOrigin :: NoSuchOrigin
-newNoSuchOrigin  = NoSuchOrigin { "Message": (NullOrUndefined Nothing) }
+newNoSuchOrigin  = NoSuchOrigin { "Message": Nothing }
 
 -- | Constructs NoSuchOrigin's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchOrigin' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchOrigin
-newNoSuchOrigin'  customize = (NoSuchOrigin <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchOrigin' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchOrigin
+newNoSuchOrigin'  customize = (NoSuchOrigin <<< customize) { "Message": Nothing }
 
 
 
 newtype NoSuchResource = NoSuchResource 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchResource :: Newtype NoSuchResource _
 derive instance repGenericNoSuchResource :: Generic NoSuchResource _
@@ -2628,18 +2627,18 @@ instance encodeNoSuchResource :: Encode NoSuchResource where encode = genericEnc
 
 -- | Constructs NoSuchResource from required parameters
 newNoSuchResource :: NoSuchResource
-newNoSuchResource  = NoSuchResource { "Message": (NullOrUndefined Nothing) }
+newNoSuchResource  = NoSuchResource { "Message": Nothing }
 
 -- | Constructs NoSuchResource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchResource' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchResource
-newNoSuchResource'  customize = (NoSuchResource <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchResource' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchResource
+newNoSuchResource'  customize = (NoSuchResource <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The specified streaming distribution does not exist.</p>
 newtype NoSuchStreamingDistribution = NoSuchStreamingDistribution 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeNoSuchStreamingDistribution :: Newtype NoSuchStreamingDistribution _
 derive instance repGenericNoSuchStreamingDistribution :: Generic NoSuchStreamingDistribution _
@@ -2649,12 +2648,12 @@ instance encodeNoSuchStreamingDistribution :: Encode NoSuchStreamingDistribution
 
 -- | Constructs NoSuchStreamingDistribution from required parameters
 newNoSuchStreamingDistribution :: NoSuchStreamingDistribution
-newNoSuchStreamingDistribution  = NoSuchStreamingDistribution { "Message": (NullOrUndefined Nothing) }
+newNoSuchStreamingDistribution  = NoSuchStreamingDistribution { "Message": Nothing }
 
 -- | Constructs NoSuchStreamingDistribution's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchStreamingDistribution' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> NoSuchStreamingDistribution
-newNoSuchStreamingDistribution'  customize = (NoSuchStreamingDistribution <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNoSuchStreamingDistribution' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> NoSuchStreamingDistribution
+newNoSuchStreamingDistribution'  customize = (NoSuchStreamingDistribution <<< customize) { "Message": Nothing }
 
 
 
@@ -2662,10 +2661,10 @@ newNoSuchStreamingDistribution'  customize = (NoSuchStreamingDistribution <<< cu
 newtype Origin = Origin 
   { "Id" :: (String)
   , "DomainName" :: (String)
-  , "OriginPath" :: NullOrUndefined (String)
-  , "CustomHeaders" :: NullOrUndefined (CustomHeaders)
-  , "S3OriginConfig" :: NullOrUndefined (S3OriginConfig)
-  , "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig)
+  , "OriginPath" :: Maybe (String)
+  , "CustomHeaders" :: Maybe (CustomHeaders)
+  , "S3OriginConfig" :: Maybe (S3OriginConfig)
+  , "CustomOriginConfig" :: Maybe (CustomOriginConfig)
   }
 derive instance newtypeOrigin :: Newtype Origin _
 derive instance repGenericOrigin :: Generic Origin _
@@ -2675,12 +2674,12 @@ instance encodeOrigin :: Encode Origin where encode = genericEncode options
 
 -- | Constructs Origin from required parameters
 newOrigin :: String -> String -> Origin
-newOrigin _DomainName _Id = Origin { "DomainName": _DomainName, "Id": _Id, "CustomHeaders": (NullOrUndefined Nothing), "CustomOriginConfig": (NullOrUndefined Nothing), "OriginPath": (NullOrUndefined Nothing), "S3OriginConfig": (NullOrUndefined Nothing) }
+newOrigin _DomainName _Id = Origin { "DomainName": _DomainName, "Id": _Id, "CustomHeaders": Nothing, "CustomOriginConfig": Nothing, "OriginPath": Nothing, "S3OriginConfig": Nothing }
 
 -- | Constructs Origin's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOrigin' :: String -> String -> ( { "Id" :: (String) , "DomainName" :: (String) , "OriginPath" :: NullOrUndefined (String) , "CustomHeaders" :: NullOrUndefined (CustomHeaders) , "S3OriginConfig" :: NullOrUndefined (S3OriginConfig) , "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig) } -> {"Id" :: (String) , "DomainName" :: (String) , "OriginPath" :: NullOrUndefined (String) , "CustomHeaders" :: NullOrUndefined (CustomHeaders) , "S3OriginConfig" :: NullOrUndefined (S3OriginConfig) , "CustomOriginConfig" :: NullOrUndefined (CustomOriginConfig) } ) -> Origin
-newOrigin' _DomainName _Id customize = (Origin <<< customize) { "DomainName": _DomainName, "Id": _Id, "CustomHeaders": (NullOrUndefined Nothing), "CustomOriginConfig": (NullOrUndefined Nothing), "OriginPath": (NullOrUndefined Nothing), "S3OriginConfig": (NullOrUndefined Nothing) }
+newOrigin' :: String -> String -> ( { "Id" :: (String) , "DomainName" :: (String) , "OriginPath" :: Maybe (String) , "CustomHeaders" :: Maybe (CustomHeaders) , "S3OriginConfig" :: Maybe (S3OriginConfig) , "CustomOriginConfig" :: Maybe (CustomOriginConfig) } -> {"Id" :: (String) , "DomainName" :: (String) , "OriginPath" :: Maybe (String) , "CustomHeaders" :: Maybe (CustomHeaders) , "S3OriginConfig" :: Maybe (S3OriginConfig) , "CustomOriginConfig" :: Maybe (CustomOriginConfig) } ) -> Origin
+newOrigin' _DomainName _Id customize = (Origin <<< customize) { "DomainName": _DomainName, "Id": _Id, "CustomHeaders": Nothing, "CustomOriginConfig": Nothing, "OriginPath": Nothing, "S3OriginConfig": Nothing }
 
 
 
@@ -2758,7 +2757,7 @@ newOriginSslProtocols' _Items _Quantity customize = (OriginSslProtocols <<< cust
 -- | <p>A complex type that contains information about origins for this distribution. </p>
 newtype Origins = Origins 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (OriginList)
+  , "Items" :: Maybe (OriginList)
   }
 derive instance newtypeOrigins :: Newtype Origins _
 derive instance repGenericOrigins :: Generic Origins _
@@ -2768,12 +2767,12 @@ instance encodeOrigins :: Encode Origins where encode = genericEncode options
 
 -- | Constructs Origins from required parameters
 newOrigins :: Int -> Origins
-newOrigins _Quantity = Origins { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newOrigins _Quantity = Origins { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs Origins's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOrigins' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (OriginList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (OriginList) } ) -> Origins
-newOrigins' _Quantity customize = (Origins <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newOrigins' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (OriginList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (OriginList) } ) -> Origins
+newOrigins' _Quantity customize = (Origins <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -2789,7 +2788,7 @@ instance encodePathList :: Encode PathList where encode = genericEncode options
 -- | <p>A complex type that contains information about the objects that you want to invalidate. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
 newtype Paths = Paths 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (PathList)
+  , "Items" :: Maybe (PathList)
   }
 derive instance newtypePaths :: Newtype Paths _
 derive instance repGenericPaths :: Generic Paths _
@@ -2799,18 +2798,18 @@ instance encodePaths :: Encode Paths where encode = genericEncode options
 
 -- | Constructs Paths from required parameters
 newPaths :: Int -> Paths
-newPaths _Quantity = Paths { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newPaths _Quantity = Paths { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs Paths's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPaths' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (PathList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (PathList) } ) -> Paths
-newPaths' _Quantity customize = (Paths <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newPaths' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (PathList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (PathList) } ) -> Paths
+newPaths' _Quantity customize = (Paths <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
 -- | <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
 newtype PreconditionFailed = PreconditionFailed 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypePreconditionFailed :: Newtype PreconditionFailed _
 derive instance repGenericPreconditionFailed :: Generic PreconditionFailed _
@@ -2820,12 +2819,12 @@ instance encodePreconditionFailed :: Encode PreconditionFailed where encode = ge
 
 -- | Constructs PreconditionFailed from required parameters
 newPreconditionFailed :: PreconditionFailed
-newPreconditionFailed  = PreconditionFailed { "Message": (NullOrUndefined Nothing) }
+newPreconditionFailed  = PreconditionFailed { "Message": Nothing }
 
 -- | Constructs PreconditionFailed's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPreconditionFailed' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> PreconditionFailed
-newPreconditionFailed'  customize = (PreconditionFailed <<< customize) { "Message": (NullOrUndefined Nothing) }
+newPreconditionFailed' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> PreconditionFailed
+newPreconditionFailed'  customize = (PreconditionFailed <<< customize) { "Message": Nothing }
 
 
 
@@ -2840,7 +2839,7 @@ instance encodePriceClass :: Encode PriceClass where encode = genericEncode opti
 
 newtype QueryStringCacheKeys = QueryStringCacheKeys 
   { "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (QueryStringCacheKeysList)
+  , "Items" :: Maybe (QueryStringCacheKeysList)
   }
 derive instance newtypeQueryStringCacheKeys :: Newtype QueryStringCacheKeys _
 derive instance repGenericQueryStringCacheKeys :: Generic QueryStringCacheKeys _
@@ -2850,12 +2849,12 @@ instance encodeQueryStringCacheKeys :: Encode QueryStringCacheKeys where encode 
 
 -- | Constructs QueryStringCacheKeys from required parameters
 newQueryStringCacheKeys :: Int -> QueryStringCacheKeys
-newQueryStringCacheKeys _Quantity = QueryStringCacheKeys { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newQueryStringCacheKeys _Quantity = QueryStringCacheKeys { "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs QueryStringCacheKeys's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryStringCacheKeys' :: Int -> ( { "Quantity" :: (Int) , "Items" :: NullOrUndefined (QueryStringCacheKeysList) } -> {"Quantity" :: (Int) , "Items" :: NullOrUndefined (QueryStringCacheKeysList) } ) -> QueryStringCacheKeys
-newQueryStringCacheKeys' _Quantity customize = (QueryStringCacheKeys <<< customize) { "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newQueryStringCacheKeys' :: Int -> ( { "Quantity" :: (Int) , "Items" :: Maybe (QueryStringCacheKeysList) } -> {"Quantity" :: (Int) , "Items" :: Maybe (QueryStringCacheKeysList) } ) -> QueryStringCacheKeys
+newQueryStringCacheKeys' _Quantity customize = (QueryStringCacheKeys <<< customize) { "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -2952,8 +2951,8 @@ instance encodeSSLSupportMethod :: Encode SSLSupportMethod where encode = generi
 
 -- | <p>A complex type that lists the AWS accounts that were included in the <code>TrustedSigners</code> complex type, as well as their active CloudFront key pair IDs, if any. </p>
 newtype Signer = Signer 
-  { "AwsAccountNumber" :: NullOrUndefined (String)
-  , "KeyPairIds" :: NullOrUndefined (KeyPairIds)
+  { "AwsAccountNumber" :: Maybe (String)
+  , "KeyPairIds" :: Maybe (KeyPairIds)
   }
 derive instance newtypeSigner :: Newtype Signer _
 derive instance repGenericSigner :: Generic Signer _
@@ -2963,12 +2962,12 @@ instance encodeSigner :: Encode Signer where encode = genericEncode options
 
 -- | Constructs Signer from required parameters
 newSigner :: Signer
-newSigner  = Signer { "AwsAccountNumber": (NullOrUndefined Nothing), "KeyPairIds": (NullOrUndefined Nothing) }
+newSigner  = Signer { "AwsAccountNumber": Nothing, "KeyPairIds": Nothing }
 
 -- | Constructs Signer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSigner' :: ( { "AwsAccountNumber" :: NullOrUndefined (String) , "KeyPairIds" :: NullOrUndefined (KeyPairIds) } -> {"AwsAccountNumber" :: NullOrUndefined (String) , "KeyPairIds" :: NullOrUndefined (KeyPairIds) } ) -> Signer
-newSigner'  customize = (Signer <<< customize) { "AwsAccountNumber": (NullOrUndefined Nothing), "KeyPairIds": (NullOrUndefined Nothing) }
+newSigner' :: ( { "AwsAccountNumber" :: Maybe (String) , "KeyPairIds" :: Maybe (KeyPairIds) } -> {"AwsAccountNumber" :: Maybe (String) , "KeyPairIds" :: Maybe (KeyPairIds) } ) -> Signer
+newSigner'  customize = (Signer <<< customize) { "AwsAccountNumber": Nothing, "KeyPairIds": Nothing }
 
 
 
@@ -3004,7 +3003,7 @@ newtype StreamingDistribution = StreamingDistribution
   { "Id" :: (String)
   , "ARN" :: (String)
   , "Status" :: (String)
-  , "LastModifiedTime" :: NullOrUndefined (Types.Timestamp)
+  , "LastModifiedTime" :: Maybe (Types.Timestamp)
   , "DomainName" :: (String)
   , "ActiveTrustedSigners" :: (ActiveTrustedSigners)
   , "StreamingDistributionConfig" :: (StreamingDistributionConfig)
@@ -3017,17 +3016,17 @@ instance encodeStreamingDistribution :: Encode StreamingDistribution where encod
 
 -- | Constructs StreamingDistribution from required parameters
 newStreamingDistribution :: String -> ActiveTrustedSigners -> String -> String -> String -> StreamingDistributionConfig -> StreamingDistribution
-newStreamingDistribution _ARN _ActiveTrustedSigners _DomainName _Id _Status _StreamingDistributionConfig = StreamingDistribution { "ARN": _ARN, "ActiveTrustedSigners": _ActiveTrustedSigners, "DomainName": _DomainName, "Id": _Id, "Status": _Status, "StreamingDistributionConfig": _StreamingDistributionConfig, "LastModifiedTime": (NullOrUndefined Nothing) }
+newStreamingDistribution _ARN _ActiveTrustedSigners _DomainName _Id _Status _StreamingDistributionConfig = StreamingDistribution { "ARN": _ARN, "ActiveTrustedSigners": _ActiveTrustedSigners, "DomainName": _DomainName, "Id": _Id, "Status": _Status, "StreamingDistributionConfig": _StreamingDistributionConfig, "LastModifiedTime": Nothing }
 
 -- | Constructs StreamingDistribution's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamingDistribution' :: String -> ActiveTrustedSigners -> String -> String -> String -> StreamingDistributionConfig -> ( { "Id" :: (String) , "ARN" :: (String) , "Status" :: (String) , "LastModifiedTime" :: NullOrUndefined (Types.Timestamp) , "DomainName" :: (String) , "ActiveTrustedSigners" :: (ActiveTrustedSigners) , "StreamingDistributionConfig" :: (StreamingDistributionConfig) } -> {"Id" :: (String) , "ARN" :: (String) , "Status" :: (String) , "LastModifiedTime" :: NullOrUndefined (Types.Timestamp) , "DomainName" :: (String) , "ActiveTrustedSigners" :: (ActiveTrustedSigners) , "StreamingDistributionConfig" :: (StreamingDistributionConfig) } ) -> StreamingDistribution
-newStreamingDistribution' _ARN _ActiveTrustedSigners _DomainName _Id _Status _StreamingDistributionConfig customize = (StreamingDistribution <<< customize) { "ARN": _ARN, "ActiveTrustedSigners": _ActiveTrustedSigners, "DomainName": _DomainName, "Id": _Id, "Status": _Status, "StreamingDistributionConfig": _StreamingDistributionConfig, "LastModifiedTime": (NullOrUndefined Nothing) }
+newStreamingDistribution' :: String -> ActiveTrustedSigners -> String -> String -> String -> StreamingDistributionConfig -> ( { "Id" :: (String) , "ARN" :: (String) , "Status" :: (String) , "LastModifiedTime" :: Maybe (Types.Timestamp) , "DomainName" :: (String) , "ActiveTrustedSigners" :: (ActiveTrustedSigners) , "StreamingDistributionConfig" :: (StreamingDistributionConfig) } -> {"Id" :: (String) , "ARN" :: (String) , "Status" :: (String) , "LastModifiedTime" :: Maybe (Types.Timestamp) , "DomainName" :: (String) , "ActiveTrustedSigners" :: (ActiveTrustedSigners) , "StreamingDistributionConfig" :: (StreamingDistributionConfig) } ) -> StreamingDistribution
+newStreamingDistribution' _ARN _ActiveTrustedSigners _DomainName _Id _Status _StreamingDistributionConfig customize = (StreamingDistribution <<< customize) { "ARN": _ARN, "ActiveTrustedSigners": _ActiveTrustedSigners, "DomainName": _DomainName, "Id": _Id, "Status": _Status, "StreamingDistributionConfig": _StreamingDistributionConfig, "LastModifiedTime": Nothing }
 
 
 
 newtype StreamingDistributionAlreadyExists = StreamingDistributionAlreadyExists 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeStreamingDistributionAlreadyExists :: Newtype StreamingDistributionAlreadyExists _
 derive instance repGenericStreamingDistributionAlreadyExists :: Generic StreamingDistributionAlreadyExists _
@@ -3037,12 +3036,12 @@ instance encodeStreamingDistributionAlreadyExists :: Encode StreamingDistributio
 
 -- | Constructs StreamingDistributionAlreadyExists from required parameters
 newStreamingDistributionAlreadyExists :: StreamingDistributionAlreadyExists
-newStreamingDistributionAlreadyExists  = StreamingDistributionAlreadyExists { "Message": (NullOrUndefined Nothing) }
+newStreamingDistributionAlreadyExists  = StreamingDistributionAlreadyExists { "Message": Nothing }
 
 -- | Constructs StreamingDistributionAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamingDistributionAlreadyExists' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> StreamingDistributionAlreadyExists
-newStreamingDistributionAlreadyExists'  customize = (StreamingDistributionAlreadyExists <<< customize) { "Message": (NullOrUndefined Nothing) }
+newStreamingDistributionAlreadyExists' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> StreamingDistributionAlreadyExists
+newStreamingDistributionAlreadyExists'  customize = (StreamingDistributionAlreadyExists <<< customize) { "Message": Nothing }
 
 
 
@@ -3050,11 +3049,11 @@ newStreamingDistributionAlreadyExists'  customize = (StreamingDistributionAlread
 newtype StreamingDistributionConfig = StreamingDistributionConfig 
   { "CallerReference" :: (String)
   , "S3Origin" :: (S3Origin)
-  , "Aliases" :: NullOrUndefined (Aliases)
+  , "Aliases" :: Maybe (Aliases)
   , "Comment" :: (String)
-  , "Logging" :: NullOrUndefined (StreamingLoggingConfig)
+  , "Logging" :: Maybe (StreamingLoggingConfig)
   , "TrustedSigners" :: (TrustedSigners)
-  , "PriceClass" :: NullOrUndefined (PriceClass)
+  , "PriceClass" :: Maybe (PriceClass)
   , "Enabled" :: (Boolean)
   }
 derive instance newtypeStreamingDistributionConfig :: Newtype StreamingDistributionConfig _
@@ -3065,12 +3064,12 @@ instance encodeStreamingDistributionConfig :: Encode StreamingDistributionConfig
 
 -- | Constructs StreamingDistributionConfig from required parameters
 newStreamingDistributionConfig :: String -> String -> Boolean -> S3Origin -> TrustedSigners -> StreamingDistributionConfig
-newStreamingDistributionConfig _CallerReference _Comment _Enabled _S3Origin _TrustedSigners = StreamingDistributionConfig { "CallerReference": _CallerReference, "Comment": _Comment, "Enabled": _Enabled, "S3Origin": _S3Origin, "TrustedSigners": _TrustedSigners, "Aliases": (NullOrUndefined Nothing), "Logging": (NullOrUndefined Nothing), "PriceClass": (NullOrUndefined Nothing) }
+newStreamingDistributionConfig _CallerReference _Comment _Enabled _S3Origin _TrustedSigners = StreamingDistributionConfig { "CallerReference": _CallerReference, "Comment": _Comment, "Enabled": _Enabled, "S3Origin": _S3Origin, "TrustedSigners": _TrustedSigners, "Aliases": Nothing, "Logging": Nothing, "PriceClass": Nothing }
 
 -- | Constructs StreamingDistributionConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamingDistributionConfig' :: String -> String -> Boolean -> S3Origin -> TrustedSigners -> ( { "CallerReference" :: (String) , "S3Origin" :: (S3Origin) , "Aliases" :: NullOrUndefined (Aliases) , "Comment" :: (String) , "Logging" :: NullOrUndefined (StreamingLoggingConfig) , "TrustedSigners" :: (TrustedSigners) , "PriceClass" :: NullOrUndefined (PriceClass) , "Enabled" :: (Boolean) } -> {"CallerReference" :: (String) , "S3Origin" :: (S3Origin) , "Aliases" :: NullOrUndefined (Aliases) , "Comment" :: (String) , "Logging" :: NullOrUndefined (StreamingLoggingConfig) , "TrustedSigners" :: (TrustedSigners) , "PriceClass" :: NullOrUndefined (PriceClass) , "Enabled" :: (Boolean) } ) -> StreamingDistributionConfig
-newStreamingDistributionConfig' _CallerReference _Comment _Enabled _S3Origin _TrustedSigners customize = (StreamingDistributionConfig <<< customize) { "CallerReference": _CallerReference, "Comment": _Comment, "Enabled": _Enabled, "S3Origin": _S3Origin, "TrustedSigners": _TrustedSigners, "Aliases": (NullOrUndefined Nothing), "Logging": (NullOrUndefined Nothing), "PriceClass": (NullOrUndefined Nothing) }
+newStreamingDistributionConfig' :: String -> String -> Boolean -> S3Origin -> TrustedSigners -> ( { "CallerReference" :: (String) , "S3Origin" :: (S3Origin) , "Aliases" :: Maybe (Aliases) , "Comment" :: (String) , "Logging" :: Maybe (StreamingLoggingConfig) , "TrustedSigners" :: (TrustedSigners) , "PriceClass" :: Maybe (PriceClass) , "Enabled" :: (Boolean) } -> {"CallerReference" :: (String) , "S3Origin" :: (S3Origin) , "Aliases" :: Maybe (Aliases) , "Comment" :: (String) , "Logging" :: Maybe (StreamingLoggingConfig) , "TrustedSigners" :: (TrustedSigners) , "PriceClass" :: Maybe (PriceClass) , "Enabled" :: (Boolean) } ) -> StreamingDistributionConfig
+newStreamingDistributionConfig' _CallerReference _Comment _Enabled _S3Origin _TrustedSigners customize = (StreamingDistributionConfig <<< customize) { "CallerReference": _CallerReference, "Comment": _Comment, "Enabled": _Enabled, "S3Origin": _S3Origin, "TrustedSigners": _TrustedSigners, "Aliases": Nothing, "Logging": Nothing, "PriceClass": Nothing }
 
 
 
@@ -3099,11 +3098,11 @@ newStreamingDistributionConfigWithTags' _StreamingDistributionConfig _Tags custo
 -- | <p>A streaming distribution list. </p>
 newtype StreamingDistributionList = StreamingDistributionList 
   { "Marker" :: (String)
-  , "NextMarker" :: NullOrUndefined (String)
+  , "NextMarker" :: Maybe (String)
   , "MaxItems" :: (Int)
   , "IsTruncated" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (StreamingDistributionSummaryList)
+  , "Items" :: Maybe (StreamingDistributionSummaryList)
   }
 derive instance newtypeStreamingDistributionList :: Newtype StreamingDistributionList _
 derive instance repGenericStreamingDistributionList :: Generic StreamingDistributionList _
@@ -3113,17 +3112,17 @@ instance encodeStreamingDistributionList :: Encode StreamingDistributionList whe
 
 -- | Constructs StreamingDistributionList from required parameters
 newStreamingDistributionList :: Boolean -> String -> Int -> Int -> StreamingDistributionList
-newStreamingDistributionList _IsTruncated _Marker _MaxItems _Quantity = StreamingDistributionList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newStreamingDistributionList _IsTruncated _Marker _MaxItems _Quantity = StreamingDistributionList { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 -- | Constructs StreamingDistributionList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamingDistributionList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (StreamingDistributionSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: NullOrUndefined (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (StreamingDistributionSummaryList) } ) -> StreamingDistributionList
-newStreamingDistributionList' _IsTruncated _Marker _MaxItems _Quantity customize = (StreamingDistributionList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newStreamingDistributionList' :: Boolean -> String -> Int -> Int -> ( { "Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (StreamingDistributionSummaryList) } -> {"Marker" :: (String) , "NextMarker" :: Maybe (String) , "MaxItems" :: (Int) , "IsTruncated" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (StreamingDistributionSummaryList) } ) -> StreamingDistributionList
+newStreamingDistributionList' _IsTruncated _Marker _MaxItems _Quantity customize = (StreamingDistributionList <<< customize) { "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "Quantity": _Quantity, "Items": Nothing, "NextMarker": Nothing }
 
 
 
 newtype StreamingDistributionNotDisabled = StreamingDistributionNotDisabled 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeStreamingDistributionNotDisabled :: Newtype StreamingDistributionNotDisabled _
 derive instance repGenericStreamingDistributionNotDisabled :: Generic StreamingDistributionNotDisabled _
@@ -3133,12 +3132,12 @@ instance encodeStreamingDistributionNotDisabled :: Encode StreamingDistributionN
 
 -- | Constructs StreamingDistributionNotDisabled from required parameters
 newStreamingDistributionNotDisabled :: StreamingDistributionNotDisabled
-newStreamingDistributionNotDisabled  = StreamingDistributionNotDisabled { "Message": (NullOrUndefined Nothing) }
+newStreamingDistributionNotDisabled  = StreamingDistributionNotDisabled { "Message": Nothing }
 
 -- | Constructs StreamingDistributionNotDisabled's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamingDistributionNotDisabled' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> StreamingDistributionNotDisabled
-newStreamingDistributionNotDisabled'  customize = (StreamingDistributionNotDisabled <<< customize) { "Message": (NullOrUndefined Nothing) }
+newStreamingDistributionNotDisabled' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> StreamingDistributionNotDisabled
+newStreamingDistributionNotDisabled'  customize = (StreamingDistributionNotDisabled <<< customize) { "Message": Nothing }
 
 
 
@@ -3208,7 +3207,7 @@ newStreamingLoggingConfig' _Bucket _Enabled _Prefix customize = (StreamingLoggin
 -- | <p> A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
 newtype Tag = Tag 
   { "Key" :: (TagKey)
-  , "Value" :: NullOrUndefined (TagValue)
+  , "Value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -3218,12 +3217,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: TagKey -> Tag
-newTag _Key = Tag { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag _Key = Tag { "Key": _Key, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } -> {"Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: Maybe (TagValue) } -> {"Key" :: (TagKey) , "Value" :: Maybe (TagValue) } ) -> Tag
+newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": Nothing }
 
 
 
@@ -3248,7 +3247,7 @@ instance encodeTagKeyList :: Encode TagKeyList where encode = genericEncode opti
 
 -- | <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
 newtype TagKeys = TagKeys 
-  { "Items" :: NullOrUndefined (TagKeyList)
+  { "Items" :: Maybe (TagKeyList)
   }
 derive instance newtypeTagKeys :: Newtype TagKeys _
 derive instance repGenericTagKeys :: Generic TagKeys _
@@ -3258,12 +3257,12 @@ instance encodeTagKeys :: Encode TagKeys where encode = genericEncode options
 
 -- | Constructs TagKeys from required parameters
 newTagKeys :: TagKeys
-newTagKeys  = TagKeys { "Items": (NullOrUndefined Nothing) }
+newTagKeys  = TagKeys { "Items": Nothing }
 
 -- | Constructs TagKeys's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagKeys' :: ( { "Items" :: NullOrUndefined (TagKeyList) } -> {"Items" :: NullOrUndefined (TagKeyList) } ) -> TagKeys
-newTagKeys'  customize = (TagKeys <<< customize) { "Items": (NullOrUndefined Nothing) }
+newTagKeys' :: ( { "Items" :: Maybe (TagKeyList) } -> {"Items" :: Maybe (TagKeyList) } ) -> TagKeys
+newTagKeys'  customize = (TagKeys <<< customize) { "Items": Nothing }
 
 
 
@@ -3309,7 +3308,7 @@ instance encodeTagValue :: Encode TagValue where encode = genericEncode options
 
 -- | <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
 newtype Tags = Tags 
-  { "Items" :: NullOrUndefined (TagList)
+  { "Items" :: Maybe (TagList)
   }
 derive instance newtypeTags :: Newtype Tags _
 derive instance repGenericTags :: Generic Tags _
@@ -3319,18 +3318,18 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 
 -- | Constructs Tags from required parameters
 newTags :: Tags
-newTags  = Tags { "Items": (NullOrUndefined Nothing) }
+newTags  = Tags { "Items": Nothing }
 
 -- | Constructs Tags's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTags' :: ( { "Items" :: NullOrUndefined (TagList) } -> {"Items" :: NullOrUndefined (TagList) } ) -> Tags
-newTags'  customize = (Tags <<< customize) { "Items": (NullOrUndefined Nothing) }
+newTags' :: ( { "Items" :: Maybe (TagList) } -> {"Items" :: Maybe (TagList) } ) -> Tags
+newTags'  customize = (Tags <<< customize) { "Items": Nothing }
 
 
 
 -- | <p>You cannot create more cache behaviors for the distribution.</p>
 newtype TooManyCacheBehaviors = TooManyCacheBehaviors 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyCacheBehaviors :: Newtype TooManyCacheBehaviors _
 derive instance repGenericTooManyCacheBehaviors :: Generic TooManyCacheBehaviors _
@@ -3340,18 +3339,18 @@ instance encodeTooManyCacheBehaviors :: Encode TooManyCacheBehaviors where encod
 
 -- | Constructs TooManyCacheBehaviors from required parameters
 newTooManyCacheBehaviors :: TooManyCacheBehaviors
-newTooManyCacheBehaviors  = TooManyCacheBehaviors { "Message": (NullOrUndefined Nothing) }
+newTooManyCacheBehaviors  = TooManyCacheBehaviors { "Message": Nothing }
 
 -- | Constructs TooManyCacheBehaviors's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyCacheBehaviors' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyCacheBehaviors
-newTooManyCacheBehaviors'  customize = (TooManyCacheBehaviors <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyCacheBehaviors' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyCacheBehaviors
+newTooManyCacheBehaviors'  customize = (TooManyCacheBehaviors <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>You cannot create anymore custom SSL/TLS certificates.</p>
 newtype TooManyCertificates = TooManyCertificates 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyCertificates :: Newtype TooManyCertificates _
 derive instance repGenericTooManyCertificates :: Generic TooManyCertificates _
@@ -3361,18 +3360,18 @@ instance encodeTooManyCertificates :: Encode TooManyCertificates where encode = 
 
 -- | Constructs TooManyCertificates from required parameters
 newTooManyCertificates :: TooManyCertificates
-newTooManyCertificates  = TooManyCertificates { "Message": (NullOrUndefined Nothing) }
+newTooManyCertificates  = TooManyCertificates { "Message": Nothing }
 
 -- | Constructs TooManyCertificates's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyCertificates' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyCertificates
-newTooManyCertificates'  customize = (TooManyCertificates <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyCertificates' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyCertificates
+newTooManyCertificates'  customize = (TooManyCertificates <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
 newtype TooManyCloudFrontOriginAccessIdentities = TooManyCloudFrontOriginAccessIdentities 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyCloudFrontOriginAccessIdentities :: Newtype TooManyCloudFrontOriginAccessIdentities _
 derive instance repGenericTooManyCloudFrontOriginAccessIdentities :: Generic TooManyCloudFrontOriginAccessIdentities _
@@ -3382,18 +3381,18 @@ instance encodeTooManyCloudFrontOriginAccessIdentities :: Encode TooManyCloudFro
 
 -- | Constructs TooManyCloudFrontOriginAccessIdentities from required parameters
 newTooManyCloudFrontOriginAccessIdentities :: TooManyCloudFrontOriginAccessIdentities
-newTooManyCloudFrontOriginAccessIdentities  = TooManyCloudFrontOriginAccessIdentities { "Message": (NullOrUndefined Nothing) }
+newTooManyCloudFrontOriginAccessIdentities  = TooManyCloudFrontOriginAccessIdentities { "Message": Nothing }
 
 -- | Constructs TooManyCloudFrontOriginAccessIdentities's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyCloudFrontOriginAccessIdentities' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyCloudFrontOriginAccessIdentities
-newTooManyCloudFrontOriginAccessIdentities'  customize = (TooManyCloudFrontOriginAccessIdentities <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyCloudFrontOriginAccessIdentities' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyCloudFrontOriginAccessIdentities
+newTooManyCloudFrontOriginAccessIdentities'  customize = (TooManyCloudFrontOriginAccessIdentities <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
 newtype TooManyCookieNamesInWhiteList = TooManyCookieNamesInWhiteList 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyCookieNamesInWhiteList :: Newtype TooManyCookieNamesInWhiteList _
 derive instance repGenericTooManyCookieNamesInWhiteList :: Generic TooManyCookieNamesInWhiteList _
@@ -3403,18 +3402,18 @@ instance encodeTooManyCookieNamesInWhiteList :: Encode TooManyCookieNamesInWhite
 
 -- | Constructs TooManyCookieNamesInWhiteList from required parameters
 newTooManyCookieNamesInWhiteList :: TooManyCookieNamesInWhiteList
-newTooManyCookieNamesInWhiteList  = TooManyCookieNamesInWhiteList { "Message": (NullOrUndefined Nothing) }
+newTooManyCookieNamesInWhiteList  = TooManyCookieNamesInWhiteList { "Message": Nothing }
 
 -- | Constructs TooManyCookieNamesInWhiteList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyCookieNamesInWhiteList' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyCookieNamesInWhiteList
-newTooManyCookieNamesInWhiteList'  customize = (TooManyCookieNamesInWhiteList <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyCookieNamesInWhiteList' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyCookieNamesInWhiteList
+newTooManyCookieNamesInWhiteList'  customize = (TooManyCookieNamesInWhiteList <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Your request contains more CNAMEs than are allowed per distribution.</p>
 newtype TooManyDistributionCNAMEs = TooManyDistributionCNAMEs 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyDistributionCNAMEs :: Newtype TooManyDistributionCNAMEs _
 derive instance repGenericTooManyDistributionCNAMEs :: Generic TooManyDistributionCNAMEs _
@@ -3424,18 +3423,18 @@ instance encodeTooManyDistributionCNAMEs :: Encode TooManyDistributionCNAMEs whe
 
 -- | Constructs TooManyDistributionCNAMEs from required parameters
 newTooManyDistributionCNAMEs :: TooManyDistributionCNAMEs
-newTooManyDistributionCNAMEs  = TooManyDistributionCNAMEs { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributionCNAMEs  = TooManyDistributionCNAMEs { "Message": Nothing }
 
 -- | Constructs TooManyDistributionCNAMEs's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyDistributionCNAMEs' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyDistributionCNAMEs
-newTooManyDistributionCNAMEs'  customize = (TooManyDistributionCNAMEs <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributionCNAMEs' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyDistributionCNAMEs
+newTooManyDistributionCNAMEs'  customize = (TooManyDistributionCNAMEs <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
 newtype TooManyDistributions = TooManyDistributions 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyDistributions :: Newtype TooManyDistributions _
 derive instance repGenericTooManyDistributions :: Generic TooManyDistributions _
@@ -3445,18 +3444,18 @@ instance encodeTooManyDistributions :: Encode TooManyDistributions where encode 
 
 -- | Constructs TooManyDistributions from required parameters
 newTooManyDistributions :: TooManyDistributions
-newTooManyDistributions  = TooManyDistributions { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributions  = TooManyDistributions { "Message": Nothing }
 
 -- | Constructs TooManyDistributions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyDistributions' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyDistributions
-newTooManyDistributions'  customize = (TooManyDistributions <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributions' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyDistributions
+newTooManyDistributions'  customize = (TooManyDistributions <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.</p>
 newtype TooManyDistributionsWithLambdaAssociations = TooManyDistributionsWithLambdaAssociations 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyDistributionsWithLambdaAssociations :: Newtype TooManyDistributionsWithLambdaAssociations _
 derive instance repGenericTooManyDistributionsWithLambdaAssociations :: Generic TooManyDistributionsWithLambdaAssociations _
@@ -3466,17 +3465,17 @@ instance encodeTooManyDistributionsWithLambdaAssociations :: Encode TooManyDistr
 
 -- | Constructs TooManyDistributionsWithLambdaAssociations from required parameters
 newTooManyDistributionsWithLambdaAssociations :: TooManyDistributionsWithLambdaAssociations
-newTooManyDistributionsWithLambdaAssociations  = TooManyDistributionsWithLambdaAssociations { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributionsWithLambdaAssociations  = TooManyDistributionsWithLambdaAssociations { "Message": Nothing }
 
 -- | Constructs TooManyDistributionsWithLambdaAssociations's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyDistributionsWithLambdaAssociations' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyDistributionsWithLambdaAssociations
-newTooManyDistributionsWithLambdaAssociations'  customize = (TooManyDistributionsWithLambdaAssociations <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyDistributionsWithLambdaAssociations' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyDistributionsWithLambdaAssociations
+newTooManyDistributionsWithLambdaAssociations'  customize = (TooManyDistributionsWithLambdaAssociations <<< customize) { "Message": Nothing }
 
 
 
 newtype TooManyHeadersInForwardedValues = TooManyHeadersInForwardedValues 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyHeadersInForwardedValues :: Newtype TooManyHeadersInForwardedValues _
 derive instance repGenericTooManyHeadersInForwardedValues :: Generic TooManyHeadersInForwardedValues _
@@ -3486,18 +3485,18 @@ instance encodeTooManyHeadersInForwardedValues :: Encode TooManyHeadersInForward
 
 -- | Constructs TooManyHeadersInForwardedValues from required parameters
 newTooManyHeadersInForwardedValues :: TooManyHeadersInForwardedValues
-newTooManyHeadersInForwardedValues  = TooManyHeadersInForwardedValues { "Message": (NullOrUndefined Nothing) }
+newTooManyHeadersInForwardedValues  = TooManyHeadersInForwardedValues { "Message": Nothing }
 
 -- | Constructs TooManyHeadersInForwardedValues's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyHeadersInForwardedValues' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyHeadersInForwardedValues
-newTooManyHeadersInForwardedValues'  customize = (TooManyHeadersInForwardedValues <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyHeadersInForwardedValues' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyHeadersInForwardedValues
+newTooManyHeadersInForwardedValues'  customize = (TooManyHeadersInForwardedValues <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
 newtype TooManyInvalidationsInProgress = TooManyInvalidationsInProgress 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyInvalidationsInProgress :: Newtype TooManyInvalidationsInProgress _
 derive instance repGenericTooManyInvalidationsInProgress :: Generic TooManyInvalidationsInProgress _
@@ -3507,18 +3506,18 @@ instance encodeTooManyInvalidationsInProgress :: Encode TooManyInvalidationsInPr
 
 -- | Constructs TooManyInvalidationsInProgress from required parameters
 newTooManyInvalidationsInProgress :: TooManyInvalidationsInProgress
-newTooManyInvalidationsInProgress  = TooManyInvalidationsInProgress { "Message": (NullOrUndefined Nothing) }
+newTooManyInvalidationsInProgress  = TooManyInvalidationsInProgress { "Message": Nothing }
 
 -- | Constructs TooManyInvalidationsInProgress's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyInvalidationsInProgress' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyInvalidationsInProgress
-newTooManyInvalidationsInProgress'  customize = (TooManyInvalidationsInProgress <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyInvalidationsInProgress' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyInvalidationsInProgress
+newTooManyInvalidationsInProgress'  customize = (TooManyInvalidationsInProgress <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
 newtype TooManyLambdaFunctionAssociations = TooManyLambdaFunctionAssociations 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyLambdaFunctionAssociations :: Newtype TooManyLambdaFunctionAssociations _
 derive instance repGenericTooManyLambdaFunctionAssociations :: Generic TooManyLambdaFunctionAssociations _
@@ -3528,17 +3527,17 @@ instance encodeTooManyLambdaFunctionAssociations :: Encode TooManyLambdaFunction
 
 -- | Constructs TooManyLambdaFunctionAssociations from required parameters
 newTooManyLambdaFunctionAssociations :: TooManyLambdaFunctionAssociations
-newTooManyLambdaFunctionAssociations  = TooManyLambdaFunctionAssociations { "Message": (NullOrUndefined Nothing) }
+newTooManyLambdaFunctionAssociations  = TooManyLambdaFunctionAssociations { "Message": Nothing }
 
 -- | Constructs TooManyLambdaFunctionAssociations's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyLambdaFunctionAssociations' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyLambdaFunctionAssociations
-newTooManyLambdaFunctionAssociations'  customize = (TooManyLambdaFunctionAssociations <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyLambdaFunctionAssociations' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyLambdaFunctionAssociations
+newTooManyLambdaFunctionAssociations'  customize = (TooManyLambdaFunctionAssociations <<< customize) { "Message": Nothing }
 
 
 
 newtype TooManyOriginCustomHeaders = TooManyOriginCustomHeaders 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyOriginCustomHeaders :: Newtype TooManyOriginCustomHeaders _
 derive instance repGenericTooManyOriginCustomHeaders :: Generic TooManyOriginCustomHeaders _
@@ -3548,18 +3547,18 @@ instance encodeTooManyOriginCustomHeaders :: Encode TooManyOriginCustomHeaders w
 
 -- | Constructs TooManyOriginCustomHeaders from required parameters
 newTooManyOriginCustomHeaders :: TooManyOriginCustomHeaders
-newTooManyOriginCustomHeaders  = TooManyOriginCustomHeaders { "Message": (NullOrUndefined Nothing) }
+newTooManyOriginCustomHeaders  = TooManyOriginCustomHeaders { "Message": Nothing }
 
 -- | Constructs TooManyOriginCustomHeaders's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyOriginCustomHeaders' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyOriginCustomHeaders
-newTooManyOriginCustomHeaders'  customize = (TooManyOriginCustomHeaders <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyOriginCustomHeaders' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyOriginCustomHeaders
+newTooManyOriginCustomHeaders'  customize = (TooManyOriginCustomHeaders <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>You cannot create more origins for the distribution.</p>
 newtype TooManyOrigins = TooManyOrigins 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyOrigins :: Newtype TooManyOrigins _
 derive instance repGenericTooManyOrigins :: Generic TooManyOrigins _
@@ -3569,17 +3568,17 @@ instance encodeTooManyOrigins :: Encode TooManyOrigins where encode = genericEnc
 
 -- | Constructs TooManyOrigins from required parameters
 newTooManyOrigins :: TooManyOrigins
-newTooManyOrigins  = TooManyOrigins { "Message": (NullOrUndefined Nothing) }
+newTooManyOrigins  = TooManyOrigins { "Message": Nothing }
 
 -- | Constructs TooManyOrigins's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyOrigins' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyOrigins
-newTooManyOrigins'  customize = (TooManyOrigins <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyOrigins' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyOrigins
+newTooManyOrigins'  customize = (TooManyOrigins <<< customize) { "Message": Nothing }
 
 
 
 newtype TooManyQueryStringParameters = TooManyQueryStringParameters 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyQueryStringParameters :: Newtype TooManyQueryStringParameters _
 derive instance repGenericTooManyQueryStringParameters :: Generic TooManyQueryStringParameters _
@@ -3589,17 +3588,17 @@ instance encodeTooManyQueryStringParameters :: Encode TooManyQueryStringParamete
 
 -- | Constructs TooManyQueryStringParameters from required parameters
 newTooManyQueryStringParameters :: TooManyQueryStringParameters
-newTooManyQueryStringParameters  = TooManyQueryStringParameters { "Message": (NullOrUndefined Nothing) }
+newTooManyQueryStringParameters  = TooManyQueryStringParameters { "Message": Nothing }
 
 -- | Constructs TooManyQueryStringParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyQueryStringParameters' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyQueryStringParameters
-newTooManyQueryStringParameters'  customize = (TooManyQueryStringParameters <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyQueryStringParameters' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyQueryStringParameters
+newTooManyQueryStringParameters'  customize = (TooManyQueryStringParameters <<< customize) { "Message": Nothing }
 
 
 
 newtype TooManyStreamingDistributionCNAMEs = TooManyStreamingDistributionCNAMEs 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyStreamingDistributionCNAMEs :: Newtype TooManyStreamingDistributionCNAMEs _
 derive instance repGenericTooManyStreamingDistributionCNAMEs :: Generic TooManyStreamingDistributionCNAMEs _
@@ -3609,18 +3608,18 @@ instance encodeTooManyStreamingDistributionCNAMEs :: Encode TooManyStreamingDist
 
 -- | Constructs TooManyStreamingDistributionCNAMEs from required parameters
 newTooManyStreamingDistributionCNAMEs :: TooManyStreamingDistributionCNAMEs
-newTooManyStreamingDistributionCNAMEs  = TooManyStreamingDistributionCNAMEs { "Message": (NullOrUndefined Nothing) }
+newTooManyStreamingDistributionCNAMEs  = TooManyStreamingDistributionCNAMEs { "Message": Nothing }
 
 -- | Constructs TooManyStreamingDistributionCNAMEs's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyStreamingDistributionCNAMEs' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyStreamingDistributionCNAMEs
-newTooManyStreamingDistributionCNAMEs'  customize = (TooManyStreamingDistributionCNAMEs <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyStreamingDistributionCNAMEs' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyStreamingDistributionCNAMEs
+newTooManyStreamingDistributionCNAMEs'  customize = (TooManyStreamingDistributionCNAMEs <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
 newtype TooManyStreamingDistributions = TooManyStreamingDistributions 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyStreamingDistributions :: Newtype TooManyStreamingDistributions _
 derive instance repGenericTooManyStreamingDistributions :: Generic TooManyStreamingDistributions _
@@ -3630,18 +3629,18 @@ instance encodeTooManyStreamingDistributions :: Encode TooManyStreamingDistribut
 
 -- | Constructs TooManyStreamingDistributions from required parameters
 newTooManyStreamingDistributions :: TooManyStreamingDistributions
-newTooManyStreamingDistributions  = TooManyStreamingDistributions { "Message": (NullOrUndefined Nothing) }
+newTooManyStreamingDistributions  = TooManyStreamingDistributions { "Message": Nothing }
 
 -- | Constructs TooManyStreamingDistributions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyStreamingDistributions' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyStreamingDistributions
-newTooManyStreamingDistributions'  customize = (TooManyStreamingDistributions <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyStreamingDistributions' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyStreamingDistributions
+newTooManyStreamingDistributions'  customize = (TooManyStreamingDistributions <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Your request contains more trusted signers than are allowed per distribution.</p>
 newtype TooManyTrustedSigners = TooManyTrustedSigners 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyTrustedSigners :: Newtype TooManyTrustedSigners _
 derive instance repGenericTooManyTrustedSigners :: Generic TooManyTrustedSigners _
@@ -3651,18 +3650,18 @@ instance encodeTooManyTrustedSigners :: Encode TooManyTrustedSigners where encod
 
 -- | Constructs TooManyTrustedSigners from required parameters
 newTooManyTrustedSigners :: TooManyTrustedSigners
-newTooManyTrustedSigners  = TooManyTrustedSigners { "Message": (NullOrUndefined Nothing) }
+newTooManyTrustedSigners  = TooManyTrustedSigners { "Message": Nothing }
 
 -- | Constructs TooManyTrustedSigners's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyTrustedSigners' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TooManyTrustedSigners
-newTooManyTrustedSigners'  customize = (TooManyTrustedSigners <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyTrustedSigners' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TooManyTrustedSigners
+newTooManyTrustedSigners'  customize = (TooManyTrustedSigners <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>One or more of your trusted signers do not exist.</p>
 newtype TrustedSignerDoesNotExist = TrustedSignerDoesNotExist 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeTrustedSignerDoesNotExist :: Newtype TrustedSignerDoesNotExist _
 derive instance repGenericTrustedSignerDoesNotExist :: Generic TrustedSignerDoesNotExist _
@@ -3672,12 +3671,12 @@ instance encodeTrustedSignerDoesNotExist :: Encode TrustedSignerDoesNotExist whe
 
 -- | Constructs TrustedSignerDoesNotExist from required parameters
 newTrustedSignerDoesNotExist :: TrustedSignerDoesNotExist
-newTrustedSignerDoesNotExist  = TrustedSignerDoesNotExist { "Message": (NullOrUndefined Nothing) }
+newTrustedSignerDoesNotExist  = TrustedSignerDoesNotExist { "Message": Nothing }
 
 -- | Constructs TrustedSignerDoesNotExist's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrustedSignerDoesNotExist' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> TrustedSignerDoesNotExist
-newTrustedSignerDoesNotExist'  customize = (TrustedSignerDoesNotExist <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTrustedSignerDoesNotExist' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> TrustedSignerDoesNotExist
+newTrustedSignerDoesNotExist'  customize = (TrustedSignerDoesNotExist <<< customize) { "Message": Nothing }
 
 
 
@@ -3685,7 +3684,7 @@ newTrustedSignerDoesNotExist'  customize = (TrustedSignerDoesNotExist <<< custom
 newtype TrustedSigners = TrustedSigners 
   { "Enabled" :: (Boolean)
   , "Quantity" :: (Int)
-  , "Items" :: NullOrUndefined (AwsAccountNumberList)
+  , "Items" :: Maybe (AwsAccountNumberList)
   }
 derive instance newtypeTrustedSigners :: Newtype TrustedSigners _
 derive instance repGenericTrustedSigners :: Generic TrustedSigners _
@@ -3695,12 +3694,12 @@ instance encodeTrustedSigners :: Encode TrustedSigners where encode = genericEnc
 
 -- | Constructs TrustedSigners from required parameters
 newTrustedSigners :: Boolean -> Int -> TrustedSigners
-newTrustedSigners _Enabled _Quantity = TrustedSigners { "Enabled": _Enabled, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newTrustedSigners _Enabled _Quantity = TrustedSigners { "Enabled": _Enabled, "Quantity": _Quantity, "Items": Nothing }
 
 -- | Constructs TrustedSigners's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrustedSigners' :: Boolean -> Int -> ( { "Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (AwsAccountNumberList) } -> {"Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: NullOrUndefined (AwsAccountNumberList) } ) -> TrustedSigners
-newTrustedSigners' _Enabled _Quantity customize = (TrustedSigners <<< customize) { "Enabled": _Enabled, "Quantity": _Quantity, "Items": (NullOrUndefined Nothing) }
+newTrustedSigners' :: Boolean -> Int -> ( { "Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (AwsAccountNumberList) } -> {"Enabled" :: (Boolean) , "Quantity" :: (Int) , "Items" :: Maybe (AwsAccountNumberList) } ) -> TrustedSigners
+newTrustedSigners' _Enabled _Quantity customize = (TrustedSigners <<< customize) { "Enabled": _Enabled, "Quantity": _Quantity, "Items": Nothing }
 
 
 
@@ -3730,7 +3729,7 @@ newUntagResourceRequest' _Resource _TagKeys customize = (UntagResourceRequest <<
 newtype UpdateCloudFrontOriginAccessIdentityRequest = UpdateCloudFrontOriginAccessIdentityRequest 
   { "CloudFrontOriginAccessIdentityConfig" :: (CloudFrontOriginAccessIdentityConfig)
   , "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeUpdateCloudFrontOriginAccessIdentityRequest :: Newtype UpdateCloudFrontOriginAccessIdentityRequest _
 derive instance repGenericUpdateCloudFrontOriginAccessIdentityRequest :: Generic UpdateCloudFrontOriginAccessIdentityRequest _
@@ -3740,19 +3739,19 @@ instance encodeUpdateCloudFrontOriginAccessIdentityRequest :: Encode UpdateCloud
 
 -- | Constructs UpdateCloudFrontOriginAccessIdentityRequest from required parameters
 newUpdateCloudFrontOriginAccessIdentityRequest :: CloudFrontOriginAccessIdentityConfig -> String -> UpdateCloudFrontOriginAccessIdentityRequest
-newUpdateCloudFrontOriginAccessIdentityRequest _CloudFrontOriginAccessIdentityConfig _Id = UpdateCloudFrontOriginAccessIdentityRequest { "CloudFrontOriginAccessIdentityConfig": _CloudFrontOriginAccessIdentityConfig, "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateCloudFrontOriginAccessIdentityRequest _CloudFrontOriginAccessIdentityConfig _Id = UpdateCloudFrontOriginAccessIdentityRequest { "CloudFrontOriginAccessIdentityConfig": _CloudFrontOriginAccessIdentityConfig, "Id": _Id, "IfMatch": Nothing }
 
 -- | Constructs UpdateCloudFrontOriginAccessIdentityRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateCloudFrontOriginAccessIdentityRequest' :: CloudFrontOriginAccessIdentityConfig -> String -> ( { "CloudFrontOriginAccessIdentityConfig" :: (CloudFrontOriginAccessIdentityConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"CloudFrontOriginAccessIdentityConfig" :: (CloudFrontOriginAccessIdentityConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> UpdateCloudFrontOriginAccessIdentityRequest
-newUpdateCloudFrontOriginAccessIdentityRequest' _CloudFrontOriginAccessIdentityConfig _Id customize = (UpdateCloudFrontOriginAccessIdentityRequest <<< customize) { "CloudFrontOriginAccessIdentityConfig": _CloudFrontOriginAccessIdentityConfig, "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateCloudFrontOriginAccessIdentityRequest' :: CloudFrontOriginAccessIdentityConfig -> String -> ( { "CloudFrontOriginAccessIdentityConfig" :: (CloudFrontOriginAccessIdentityConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"CloudFrontOriginAccessIdentityConfig" :: (CloudFrontOriginAccessIdentityConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> UpdateCloudFrontOriginAccessIdentityRequest
+newUpdateCloudFrontOriginAccessIdentityRequest' _CloudFrontOriginAccessIdentityConfig _Id customize = (UpdateCloudFrontOriginAccessIdentityRequest <<< customize) { "CloudFrontOriginAccessIdentityConfig": _CloudFrontOriginAccessIdentityConfig, "Id": _Id, "IfMatch": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype UpdateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessIdentityResult 
-  { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity)
-  , "ETag" :: NullOrUndefined (String)
+  { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeUpdateCloudFrontOriginAccessIdentityResult :: Newtype UpdateCloudFrontOriginAccessIdentityResult _
 derive instance repGenericUpdateCloudFrontOriginAccessIdentityResult :: Generic UpdateCloudFrontOriginAccessIdentityResult _
@@ -3762,12 +3761,12 @@ instance encodeUpdateCloudFrontOriginAccessIdentityResult :: Encode UpdateCloudF
 
 -- | Constructs UpdateCloudFrontOriginAccessIdentityResult from required parameters
 newUpdateCloudFrontOriginAccessIdentityResult :: UpdateCloudFrontOriginAccessIdentityResult
-newUpdateCloudFrontOriginAccessIdentityResult  = UpdateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newUpdateCloudFrontOriginAccessIdentityResult  = UpdateCloudFrontOriginAccessIdentityResult { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing }
 
 -- | Constructs UpdateCloudFrontOriginAccessIdentityResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "ETag" :: NullOrUndefined (String) } -> {"CloudFrontOriginAccessIdentity" :: NullOrUndefined (CloudFrontOriginAccessIdentity) , "ETag" :: NullOrUndefined (String) } ) -> UpdateCloudFrontOriginAccessIdentityResult
-newUpdateCloudFrontOriginAccessIdentityResult'  customize = (UpdateCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newUpdateCloudFrontOriginAccessIdentityResult' :: ( { "CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "ETag" :: Maybe (String) } -> {"CloudFrontOriginAccessIdentity" :: Maybe (CloudFrontOriginAccessIdentity) , "ETag" :: Maybe (String) } ) -> UpdateCloudFrontOriginAccessIdentityResult
+newUpdateCloudFrontOriginAccessIdentityResult'  customize = (UpdateCloudFrontOriginAccessIdentityResult <<< customize) { "CloudFrontOriginAccessIdentity": Nothing, "ETag": Nothing }
 
 
 
@@ -3775,7 +3774,7 @@ newUpdateCloudFrontOriginAccessIdentityResult'  customize = (UpdateCloudFrontOri
 newtype UpdateDistributionRequest = UpdateDistributionRequest 
   { "DistributionConfig" :: (DistributionConfig)
   , "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeUpdateDistributionRequest :: Newtype UpdateDistributionRequest _
 derive instance repGenericUpdateDistributionRequest :: Generic UpdateDistributionRequest _
@@ -3785,19 +3784,19 @@ instance encodeUpdateDistributionRequest :: Encode UpdateDistributionRequest whe
 
 -- | Constructs UpdateDistributionRequest from required parameters
 newUpdateDistributionRequest :: DistributionConfig -> String -> UpdateDistributionRequest
-newUpdateDistributionRequest _DistributionConfig _Id = UpdateDistributionRequest { "DistributionConfig": _DistributionConfig, "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateDistributionRequest _DistributionConfig _Id = UpdateDistributionRequest { "DistributionConfig": _DistributionConfig, "Id": _Id, "IfMatch": Nothing }
 
 -- | Constructs UpdateDistributionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDistributionRequest' :: DistributionConfig -> String -> ( { "DistributionConfig" :: (DistributionConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"DistributionConfig" :: (DistributionConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> UpdateDistributionRequest
-newUpdateDistributionRequest' _DistributionConfig _Id customize = (UpdateDistributionRequest <<< customize) { "DistributionConfig": _DistributionConfig, "Id": _Id, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateDistributionRequest' :: DistributionConfig -> String -> ( { "DistributionConfig" :: (DistributionConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"DistributionConfig" :: (DistributionConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> UpdateDistributionRequest
+newUpdateDistributionRequest' _DistributionConfig _Id customize = (UpdateDistributionRequest <<< customize) { "DistributionConfig": _DistributionConfig, "Id": _Id, "IfMatch": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype UpdateDistributionResult = UpdateDistributionResult 
-  { "Distribution" :: NullOrUndefined (Distribution)
-  , "ETag" :: NullOrUndefined (String)
+  { "Distribution" :: Maybe (Distribution)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeUpdateDistributionResult :: Newtype UpdateDistributionResult _
 derive instance repGenericUpdateDistributionResult :: Generic UpdateDistributionResult _
@@ -3807,12 +3806,12 @@ instance encodeUpdateDistributionResult :: Encode UpdateDistributionResult where
 
 -- | Constructs UpdateDistributionResult from required parameters
 newUpdateDistributionResult :: UpdateDistributionResult
-newUpdateDistributionResult  = UpdateDistributionResult { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newUpdateDistributionResult  = UpdateDistributionResult { "Distribution": Nothing, "ETag": Nothing }
 
 -- | Constructs UpdateDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDistributionResult' :: ( { "Distribution" :: NullOrUndefined (Distribution) , "ETag" :: NullOrUndefined (String) } -> {"Distribution" :: NullOrUndefined (Distribution) , "ETag" :: NullOrUndefined (String) } ) -> UpdateDistributionResult
-newUpdateDistributionResult'  customize = (UpdateDistributionResult <<< customize) { "Distribution": (NullOrUndefined Nothing), "ETag": (NullOrUndefined Nothing) }
+newUpdateDistributionResult' :: ( { "Distribution" :: Maybe (Distribution) , "ETag" :: Maybe (String) } -> {"Distribution" :: Maybe (Distribution) , "ETag" :: Maybe (String) } ) -> UpdateDistributionResult
+newUpdateDistributionResult'  customize = (UpdateDistributionResult <<< customize) { "Distribution": Nothing, "ETag": Nothing }
 
 
 
@@ -3820,7 +3819,7 @@ newUpdateDistributionResult'  customize = (UpdateDistributionResult <<< customiz
 newtype UpdateStreamingDistributionRequest = UpdateStreamingDistributionRequest 
   { "StreamingDistributionConfig" :: (StreamingDistributionConfig)
   , "Id" :: (String)
-  , "IfMatch" :: NullOrUndefined (String)
+  , "IfMatch" :: Maybe (String)
   }
 derive instance newtypeUpdateStreamingDistributionRequest :: Newtype UpdateStreamingDistributionRequest _
 derive instance repGenericUpdateStreamingDistributionRequest :: Generic UpdateStreamingDistributionRequest _
@@ -3830,19 +3829,19 @@ instance encodeUpdateStreamingDistributionRequest :: Encode UpdateStreamingDistr
 
 -- | Constructs UpdateStreamingDistributionRequest from required parameters
 newUpdateStreamingDistributionRequest :: String -> StreamingDistributionConfig -> UpdateStreamingDistributionRequest
-newUpdateStreamingDistributionRequest _Id _StreamingDistributionConfig = UpdateStreamingDistributionRequest { "Id": _Id, "StreamingDistributionConfig": _StreamingDistributionConfig, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateStreamingDistributionRequest _Id _StreamingDistributionConfig = UpdateStreamingDistributionRequest { "Id": _Id, "StreamingDistributionConfig": _StreamingDistributionConfig, "IfMatch": Nothing }
 
 -- | Constructs UpdateStreamingDistributionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateStreamingDistributionRequest' :: String -> StreamingDistributionConfig -> ( { "StreamingDistributionConfig" :: (StreamingDistributionConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } -> {"StreamingDistributionConfig" :: (StreamingDistributionConfig) , "Id" :: (String) , "IfMatch" :: NullOrUndefined (String) } ) -> UpdateStreamingDistributionRequest
-newUpdateStreamingDistributionRequest' _Id _StreamingDistributionConfig customize = (UpdateStreamingDistributionRequest <<< customize) { "Id": _Id, "StreamingDistributionConfig": _StreamingDistributionConfig, "IfMatch": (NullOrUndefined Nothing) }
+newUpdateStreamingDistributionRequest' :: String -> StreamingDistributionConfig -> ( { "StreamingDistributionConfig" :: (StreamingDistributionConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } -> {"StreamingDistributionConfig" :: (StreamingDistributionConfig) , "Id" :: (String) , "IfMatch" :: Maybe (String) } ) -> UpdateStreamingDistributionRequest
+newUpdateStreamingDistributionRequest' _Id _StreamingDistributionConfig customize = (UpdateStreamingDistributionRequest <<< customize) { "Id": _Id, "StreamingDistributionConfig": _StreamingDistributionConfig, "IfMatch": Nothing }
 
 
 
 -- | <p>The returned result of the corresponding request.</p>
 newtype UpdateStreamingDistributionResult = UpdateStreamingDistributionResult 
-  { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution)
-  , "ETag" :: NullOrUndefined (String)
+  { "StreamingDistribution" :: Maybe (StreamingDistribution)
+  , "ETag" :: Maybe (String)
   }
 derive instance newtypeUpdateStreamingDistributionResult :: Newtype UpdateStreamingDistributionResult _
 derive instance repGenericUpdateStreamingDistributionResult :: Generic UpdateStreamingDistributionResult _
@@ -3852,24 +3851,24 @@ instance encodeUpdateStreamingDistributionResult :: Encode UpdateStreamingDistri
 
 -- | Constructs UpdateStreamingDistributionResult from required parameters
 newUpdateStreamingDistributionResult :: UpdateStreamingDistributionResult
-newUpdateStreamingDistributionResult  = UpdateStreamingDistributionResult { "ETag": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newUpdateStreamingDistributionResult  = UpdateStreamingDistributionResult { "ETag": Nothing, "StreamingDistribution": Nothing }
 
 -- | Constructs UpdateStreamingDistributionResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateStreamingDistributionResult' :: ( { "StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "ETag" :: NullOrUndefined (String) } -> {"StreamingDistribution" :: NullOrUndefined (StreamingDistribution) , "ETag" :: NullOrUndefined (String) } ) -> UpdateStreamingDistributionResult
-newUpdateStreamingDistributionResult'  customize = (UpdateStreamingDistributionResult <<< customize) { "ETag": (NullOrUndefined Nothing), "StreamingDistribution": (NullOrUndefined Nothing) }
+newUpdateStreamingDistributionResult' :: ( { "StreamingDistribution" :: Maybe (StreamingDistribution) , "ETag" :: Maybe (String) } -> {"StreamingDistribution" :: Maybe (StreamingDistribution) , "ETag" :: Maybe (String) } ) -> UpdateStreamingDistributionResult
+newUpdateStreamingDistributionResult'  customize = (UpdateStreamingDistributionResult <<< customize) { "ETag": Nothing, "StreamingDistribution": Nothing }
 
 
 
 -- | <p>A complex type that specifies the following:</p> <ul> <li> <p>Which SSL/TLS certificate to use when viewers request objects using HTTPS</p> </li> <li> <p>Whether you want CloudFront to use dedicated IP addresses or SNI when you're using alternate domain names in your object names</p> </li> <li> <p>The minimum protocol version that you want CloudFront to use when communicating with viewers</p> </li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html">Using an HTTPS Connection to Access Your Objects</a> in the <i>Amazon Amazon CloudFront Developer Guide</i>.</p>
 newtype ViewerCertificate = ViewerCertificate 
-  { "CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean)
-  , "IAMCertificateId" :: NullOrUndefined (String)
-  , "ACMCertificateArn" :: NullOrUndefined (String)
-  , "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod)
-  , "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion)
-  , "Certificate" :: NullOrUndefined (String)
-  , "CertificateSource" :: NullOrUndefined (CertificateSource)
+  { "CloudFrontDefaultCertificate" :: Maybe (Boolean)
+  , "IAMCertificateId" :: Maybe (String)
+  , "ACMCertificateArn" :: Maybe (String)
+  , "SSLSupportMethod" :: Maybe (SSLSupportMethod)
+  , "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion)
+  , "Certificate" :: Maybe (String)
+  , "CertificateSource" :: Maybe (CertificateSource)
   }
 derive instance newtypeViewerCertificate :: Newtype ViewerCertificate _
 derive instance repGenericViewerCertificate :: Generic ViewerCertificate _
@@ -3879,12 +3878,12 @@ instance encodeViewerCertificate :: Encode ViewerCertificate where encode = gene
 
 -- | Constructs ViewerCertificate from required parameters
 newViewerCertificate :: ViewerCertificate
-newViewerCertificate  = ViewerCertificate { "ACMCertificateArn": (NullOrUndefined Nothing), "Certificate": (NullOrUndefined Nothing), "CertificateSource": (NullOrUndefined Nothing), "CloudFrontDefaultCertificate": (NullOrUndefined Nothing), "IAMCertificateId": (NullOrUndefined Nothing), "MinimumProtocolVersion": (NullOrUndefined Nothing), "SSLSupportMethod": (NullOrUndefined Nothing) }
+newViewerCertificate  = ViewerCertificate { "ACMCertificateArn": Nothing, "Certificate": Nothing, "CertificateSource": Nothing, "CloudFrontDefaultCertificate": Nothing, "IAMCertificateId": Nothing, "MinimumProtocolVersion": Nothing, "SSLSupportMethod": Nothing }
 
 -- | Constructs ViewerCertificate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newViewerCertificate' :: ( { "CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean) , "IAMCertificateId" :: NullOrUndefined (String) , "ACMCertificateArn" :: NullOrUndefined (String) , "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod) , "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion) , "Certificate" :: NullOrUndefined (String) , "CertificateSource" :: NullOrUndefined (CertificateSource) } -> {"CloudFrontDefaultCertificate" :: NullOrUndefined (Boolean) , "IAMCertificateId" :: NullOrUndefined (String) , "ACMCertificateArn" :: NullOrUndefined (String) , "SSLSupportMethod" :: NullOrUndefined (SSLSupportMethod) , "MinimumProtocolVersion" :: NullOrUndefined (MinimumProtocolVersion) , "Certificate" :: NullOrUndefined (String) , "CertificateSource" :: NullOrUndefined (CertificateSource) } ) -> ViewerCertificate
-newViewerCertificate'  customize = (ViewerCertificate <<< customize) { "ACMCertificateArn": (NullOrUndefined Nothing), "Certificate": (NullOrUndefined Nothing), "CertificateSource": (NullOrUndefined Nothing), "CloudFrontDefaultCertificate": (NullOrUndefined Nothing), "IAMCertificateId": (NullOrUndefined Nothing), "MinimumProtocolVersion": (NullOrUndefined Nothing), "SSLSupportMethod": (NullOrUndefined Nothing) }
+newViewerCertificate' :: ( { "CloudFrontDefaultCertificate" :: Maybe (Boolean) , "IAMCertificateId" :: Maybe (String) , "ACMCertificateArn" :: Maybe (String) , "SSLSupportMethod" :: Maybe (SSLSupportMethod) , "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion) , "Certificate" :: Maybe (String) , "CertificateSource" :: Maybe (CertificateSource) } -> {"CloudFrontDefaultCertificate" :: Maybe (Boolean) , "IAMCertificateId" :: Maybe (String) , "ACMCertificateArn" :: Maybe (String) , "SSLSupportMethod" :: Maybe (SSLSupportMethod) , "MinimumProtocolVersion" :: Maybe (MinimumProtocolVersion) , "Certificate" :: Maybe (String) , "CertificateSource" :: Maybe (CertificateSource) } ) -> ViewerCertificate
+newViewerCertificate'  customize = (ViewerCertificate <<< customize) { "ACMCertificateArn": Nothing, "Certificate": Nothing, "CertificateSource": Nothing, "CloudFrontDefaultCertificate": Nothing, "IAMCertificateId": Nothing, "MinimumProtocolVersion": Nothing, "SSLSupportMethod": Nothing }
 
 
 
